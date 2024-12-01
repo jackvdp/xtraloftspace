@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+const MotionButton = motion(Button);
+
 const Hero = () => {
     return (
         <div className="relative min-h-screen bg-white">
@@ -48,13 +50,33 @@ const Hero = () => {
                             Expert loft conversions that add value to your home. We turn unused spaces into beautiful, functional rooms that enhance your lifestyle.
                         </p>
                         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8">
-                                Get Started
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button size="lg" variant="outline" className="border-blue-200 hover:bg-blue-50">
+                            <MotionButton
+                                size="lg"
+                                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 rounded-full"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                <motion.span className="flex items-center">
+                                    Get Started
+                                    <motion.div
+                                        initial={{ x: 0 }}
+                                        whileHover={{ x: 5 }}
+                                        className="ml-2"
+                                    >
+                                        <ArrowRight className="h-5 w-5" />
+                                    </motion.div>
+                                </motion.span>
+                            </MotionButton>
+
+                            <MotionButton
+                                size="lg"
+                                variant="outline"
+                                className="border-2 border-blue-200 rounded-full px-8"
+                                whileHover={{ scale: 1.02, backgroundColor: 'rgb(239 246 255)' }}
+                                whileTap={{ scale: 0.98 }}
+                            >
                                 View Our Projects
-                            </Button>
+                            </MotionButton>
                         </div>
 
                         {/* Stats moved inside the content section */}
