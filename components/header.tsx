@@ -1,38 +1,52 @@
 import { useEffect, useRef } from 'react';
 
-const AnimatedHeader = ({ text = "Shape your ideas" }) => {
+const AnimatedHeader = ({ text = "Shape your ideas", padding = "p-8" }) => {
     const textRef = useRef(null);
     const lineRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
-        const text = textRef.current;
-        const line = lineRef.current;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    const text = textRef.current;
+                    const line = lineRef.current;
 
-        // Text animation
-        text.animate([
-            { transform: 'translateY(100%)', opacity: 0 },
-            { transform: 'translateY(0)', opacity: 1 }
-        ], {
-            duration: 800,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            fill: 'forwards'
-        });
+                    text.animate([
+                        { transform: 'translateY(100%)', opacity: 0 },
+                        { transform: 'translateY(0)', opacity: 1 }
+                    ], {
+                        duration: 2000,
+                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                        fill: 'forwards'
+                    });
 
-        // Line animation - delayed to start after text
-        setTimeout(() => {
-            line.animate([
-                { transform: 'scaleX(0)', transformOrigin: 'left' },
-                { transform: 'scaleX(1)', transformOrigin: 'left' }
-            ], {
-                duration: 600,
-                easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                fill: 'forwards'
-            });
-        }, 400);
+                    setTimeout(() => {
+                        line.animate([
+                            { transform: 'scaleX(0)', transformOrigin: 'left' },
+                            { transform: 'scaleX(1)', transformOrigin: 'left' }
+                        ], {
+                            duration: 2000,
+                            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                            fill: 'forwards'
+                        });
+                    }, 400);
+
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => observer.disconnect();
     }, []);
 
     return (
-        <div className="p-8">
+        <div ref={containerRef} className={padding}>
             <div className="overflow-hidden">
                 <h1
                     ref={textRef}
@@ -44,7 +58,7 @@ const AnimatedHeader = ({ text = "Shape your ideas" }) => {
             </div>
             <div
                 ref={lineRef}
-                className="h-px bg-black mt-4 transform scale-x-0"
+                className="h-px bg-black my-8 transform scale-x-0"
             />
         </div>
     );

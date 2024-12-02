@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', sans-serif;
+
+h1 {
+  letter-spacing: 2px;
 }
 
 @layer utilities {

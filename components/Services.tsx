@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedHeader from './header';
 
 interface Service {
     title: string;
@@ -37,7 +38,7 @@ const services: Service[] = [
 const ServicesSection = () => {
     return (
         <div className="w-full overflow-hidden py-12 px-6">
-            <h2 className="text-3xl font-semibold mb-10">What we do</h2>
+            <AnimatedHeader text="What we do" padding='py-8' />
             <div className="flex space-x-2 overflow-x-auto lg:overflow-x-hidden pb-6">
                 {services.map((service, index) => (
                     <Card service={service} index={index} />
