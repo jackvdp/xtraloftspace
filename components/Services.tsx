@@ -53,12 +53,12 @@ function Card({ service, index }: { service: Service, index: number }) {
     return (
         <div
             key={index}
-            className="relative group md:max-w-[280px] lg:max-w-none lg:w-1/5 aspect-[1/2] overflow-hidden flex-shrink-0"
+            className="relative group md:max-w-[280px] lg:max-w-none lg:w-1/5 aspect-[1/2] overflow-hidden flex-shrink-0 rounded-lg"
         >
             <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-full object-cover transition-all duration-300 group-hover:blur-xl"
+                className="w-full h-full object-cover transition-all duration-300 group-hover:blur-xl rounded-lg"
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
             <div className="absolute bottom-0 left-0 p-4 text-white z-10">
