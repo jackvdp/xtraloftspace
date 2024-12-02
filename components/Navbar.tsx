@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { CustomButton } from './ui/motion-button';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,14 +65,12 @@ const NavBar = () => {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
                             >
                                 {item.name}
                             </Link>
                         ))}
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white ml-4">
-                            Get Quote
-                        </Button>
+                        <CustomButton text="Get Quote" link="/contact" />
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -104,9 +103,7 @@ const NavBar = () => {
                                 {item.name}
                             </Link>
                         ))}
-                        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-4">
-                            Get Quote
-                        </Button>
+                        <CustomButton text="Get Quote" link="/contact" />
                     </div>
                 </motion.div>
             </div>
