@@ -14,7 +14,7 @@ const AboutSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
                     {/* Image Stack */}
@@ -44,9 +44,6 @@ const AboutSection = () => {
                                     className="object-cover rounded-2xl shadow-2xl"
                                 />
                             </div>
-                            {/* Decorative elements */}
-                            <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600/10 rounded-full z-0" />
-                            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-600/10 rounded-full z-0" />
                         </div>
                     </motion.div>
 
