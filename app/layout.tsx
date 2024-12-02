@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   // Optional: you can specify custom weights if needed
   // weight: ['400', '500', '600', '700'],
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
   description: "Leading provider of loft conversions in the UK",
 };
 
+const normsFont = localFont({
+  src: './fonts/TT_Norms_Pro_Regular.woff2',
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${normsFont.className} antialiased`}
       >
         {children}
       </body>
