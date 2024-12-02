@@ -37,8 +37,8 @@ const CaseStudies = () => {
                         </div>
 
                         <div>
-                            <h3 className="font-medium mb-1">Homes Available</h3>
-                            <p className="text-gray-600">{cases[currentIndex].availability}</p>
+                            <h3 className="font-medium mb-1">Project Duration</h3>
+                            <p className="text-gray-600">{cases[currentIndex].duration}</p>
                         </div>
 
                         <p className="text-gray-600">{cases[currentIndex].description}</p>
@@ -98,27 +98,27 @@ export default CaseStudies;
 
 const cases = [
     {
-        category: 'Developments',
-        title: 'Peterborough Street',
-        location: 'Christchurch Central',
-        availability: '4 units',
-        description: 'Effortless living in the heart of the city',
+        category: 'Loft Conversion',
+        title: 'Victorian Transformation',
+        location: 'Hampstead, London',
+        duration: '12 weeks',
+        description: 'Complete dormer loft conversion with ensuite bathroom. Created a spacious master bedroom with stunning city views while preserving the period features of this Victorian property.',
         image: '/images/casestudy1.avif'
     },
     {
-        category: 'Developments',
-        title: 'Riverside Manor',
-        location: 'Riverside District',
-        availability: '6 units',
-        description: 'Modern riverside living with panoramic views',
+        category: 'Roof Extension',
+        title: 'Modern Family Space',
+        location: 'Richmond, Surrey',
+        duration: '14 weeks',
+        description: 'Full-width rear dormer extension providing two additional bedrooms and a home office. Featuring skylights and floor-to-ceiling windows to maximize natural light.',
         image: '/images/casestudy2.avif'
     },
     {
-        category: 'Developments',
-        title: 'The Oaklands',
-        location: 'Merivale',
-        availability: '8 units',
-        description: 'Luxury townhouses in prestigious location',
+        category: 'Heritage Renovation',
+        title: 'Listed Building Success',
+        location: 'Bath, Somerset',
+        duration: '16 weeks',
+        description: 'Sensitive restoration and conversion of a Grade II listed property. Created additional living space while meeting strict conservation requirements and maintaining historical integrity.',
         image: '/images/casestudy3.avif'
     }
 ];
