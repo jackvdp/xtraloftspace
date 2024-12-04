@@ -1,123 +1,134 @@
-'use client'
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Building2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const MotionButton = motion(Button);
+import { motion } from 'framer-motion';
 
 const Hero = () => {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePosition({
+                x: (e.clientX / window.innerWidth) * 30,
+                y: (e.clientY / window.innerHeight) * 30,
+            });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    const fadeInUp = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6 }
+    };
+
+    const stagger = {
+        animate: {
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     return (
-        <div className="relative min-h-screen bg-white">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-grid-blue-100/25 bg-[size:20px_20px] opacity-20" />
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="relative min-h-screen overflow-hidden bg-black"
+        >
+            {/* Background image with overlay */}
+            <motion.div
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.5 }}
+                className="absolute inset-0"
+            >
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+                <img
+                    src="/images/loft.jpeg"
+                    alt="Modern loft"
+                    className="w-full h-full object-cover"
+                />
+            </motion.div>
 
-            <div className="relative min-h-screen flex items-center">
-                {/* Image Background - Full Height */}
+            {/* Blur circles */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl"
+                style={{
+                    transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+                    transition: 'transform 0.3s ease-out',
+                }}
+            />
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.7 }}
+                className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl"
+                style={{
+                    transform: `translate(-${mousePosition.x}px, -${mousePosition.y}px)`,
+                    transition: 'transform 0.3s ease-out',
+                }}
+            />
+
+            {/* Content */}
+            <div className="relative z-20 container mx-auto px-4 h-screen flex items-center">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    className="absolute top-0 right-0 w-full lg:w-1/2 h-screen"
+                    variants={stagger}
+                    initial="initial"
+                    animate="animate"
+                    className="max-w-2xl space-y-8"
                 >
-                    <div className="relative h-full">
-                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent lg:via-white/50 z-10" />
-                        <img
-                            src="/images/loft.jpeg"
-                            alt="Modern loft conversion"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                </motion.div>
-
-                {/* Main Content */}
-                <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 relative z-20">
-                    {/* Left Content */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="flex-1 text-center lg:text-left pt-20 lg:pt-0"
-                    >
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                            Transform Your
-                            <span className="text-blue-600 block mt-2">
-                                Living Space
-                            </span>
-                        </h1>
-                        <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-                            Expert loft conversions that add value to your home. We turn unused spaces into beautiful, functional rooms that enhance your lifestyle.
-                        </p>
-                        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <MotionButton
-                                size="lg"
-                                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 rounded-full"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <motion.span className="flex items-center">
-                                    Get Started
-                                    <motion.div
-                                        initial={{ x: 0 }}
-                                        whileHover={{ x: 5 }}
-                                        className="ml-2"
-                                    >
-                                        <ArrowRight className="h-5 w-5" />
-                                    </motion.div>
-                                </motion.span>
-                            </MotionButton>
-
-                            <MotionButton
-                                size="lg"
-                                variant="outline"
-                                className="border-2 border-blue-200 rounded-full px-8"
-                                whileHover={{ scale: 1.02, backgroundColor: 'rgb(239 246 255)' }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                View Our Projects
-                            </MotionButton>
-                        </div>
-
-                        {/* Stats moved inside the content section */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="mt-12 grid grid-cols-2 gap-8 max-w-lg"
-                        >
-                            {[
-                                { label: 'Years Experience', value: '15+' },
-                                { label: 'Happy Clients', value: '2000+' },
-                                { label: 'Team Members', value: '50+' },
-                                { label: 'Awards Won', value: '25+' }
-                            ].map((stat, index) => (
-                                <div key={index} className="text-center lg:text-left">
-                                    <p className="text-2xl md:text-3xl font-bold text-blue-600">{stat.value}</p>
-                                    <p className="text-sm text-gray-600 mt-1">{stat.label}</p>
-                                </div>
-                            ))}
+                    <div className="space-y-6">
+                        <motion.div variants={fadeInUp} className="flex items-center space-x-2">
+                            <Sparkles className="h-6 w-6 text-blue-400" />
+                            <span className="text-blue-400 font-medium">Innovative Design</span>
                         </motion.div>
-                    </motion.div>
+                        <motion.h1
+                            variants={fadeInUp}
+                            className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 text-transparent bg-clip-text leading-tight"
+                        >
+                            Transform Your Space
+                        </motion.h1>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-xl text-gray-300"
+                        >
+                            Create stunning living spaces that blend modern aesthetics with functional design. Experience the future of home transformation.
+                        </motion.p>
+                    </div>
 
-                    {/* Floating Stats Card */}
+                    {/* CTA buttons */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="absolute bottom-8 right-8 bg-white rounded-xl shadow-lg p-4 w-48 lg:flex hidden"
+                        variants={fadeInUp}
+                        className="flex flex-col sm:flex-row gap-6"
                     >
-                        <div className="flex items-center gap-3">
-                            <Building2 className="h-8 w-8 text-blue-600" />
-                            <div>
-                                <p className="text-sm text-gray-600">Projects Completed</p>
-                                <p className="text-xl font-bold text-gray-900">500+</p>
-                            </div>
-                        </div>
+                        <Button
+                            size="lg"
+                            className="group relative bg-blue-500 hover:bg-blue-600 text-white rounded-full text-lg h-16 px-12"
+                        >
+                            <span className="relative z-10 flex items-center">
+                                Get Started
+                                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="border-2 border-white/20 text-white rounded-full bg-white/10 text-lg h-16 px-12"
+                        >
+                            View Portfolio
+                        </Button>
                     </motion.div>
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
