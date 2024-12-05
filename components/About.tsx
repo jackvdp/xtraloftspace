@@ -1,7 +1,9 @@
 import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
+import Image from 'next/image';
 
 const AboutSection = () => {
     const features = [
@@ -10,6 +12,11 @@ const AboutSection = () => {
         'Complete design and build services',
         'Expert loft conversions and extensions',
     ];
+
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: true
+    });
 
     return (
         <section className="pt-24">
@@ -22,7 +29,7 @@ const AboutSection = () => {
                         transition={{ duration: 0.6 }}
                         className="lg:w-1/2 relative w-full"
                     >
-                        <div className="relative w-full aspect-square lg:h-[600px] lg:aspect-auto">
+                        <div className="relative mx-auto lg:w-full aspect-square h-[300px] lg:h-[600px] lg:aspect-auto">
                             <div className="absolute top-0 right-0 w-4/5 h-4/5">
                                 <Image
                                     src="/images/tiling.jpg"
@@ -42,7 +49,6 @@ const AboutSection = () => {
                         </div>
                     </motion.div>
 
-                    {/* Content */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -51,8 +57,8 @@ const AboutSection = () => {
                         className="lg:w-1/2"
                     >
                         <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                            Welcome to{' '}
-                            <span className="text-blue-600">Xtra Loft Space</span>
+                            Elevate Your Space with{' '}
+                            <span className="text-blue-600">Xtra Loft</span>
                         </h2>
 
                         <p className="text-gray-600 text-lg mb-8">
@@ -71,13 +77,31 @@ const AboutSection = () => {
                             ))}
                         </div>
 
-                        <div className="grid grid-cols-2 gap-8 mt-12">
+                        <div ref={ref} className="grid grid-cols-2 gap-8 mt-12">
                             <div className="text-center py-6 px-4 bg-white rounded-2xl shadow-md">
-                                <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
+                                <div className="text-3xl font-bold text-blue-600 mb-2">
+                                    {inView && (
+                                        <CountUp
+                                            start={0}
+                                            end={25}
+                                            duration={4}
+                                            suffix="+"
+                                        />
+                                    )}
+                                </div>
                                 <div className="text-gray-600">Years Experience</div>
                             </div>
                             <div className="text-center py-6 px-4 bg-white rounded-2xl shadow-md">
-                                <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
+                                <div className="text-3xl font-bold text-blue-600 mb-2">
+                                    {inView && (
+                                        <CountUp
+                                            start={0}
+                                            end={500}
+                                            duration={4}
+                                            suffix="+"
+                                        />
+                                    )}
+                                </div>
                                 <div className="text-gray-600">Projects Completed</div>
                             </div>
                         </div>
