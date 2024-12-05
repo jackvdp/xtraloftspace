@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
                             className="group relative bg-blue-500 hover:bg-blue-600 text-white rounded-full text-lg h-16 px-12"
                         >
                             <span className="relative z-10 flex items-center">
-                                Let's Talk!
+                                Let&apos;s Talk!
                                 <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
