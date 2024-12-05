@@ -8,7 +8,8 @@ const CaseStudies = () => {
 
     return (
         <div className="pt-24">
-            <h2 className="text-4xl font-bold text-center mb-4">Our work</h2>
+            <h2 className="text-4xl font-bold text-center mb-4">Our {' '}
+            <span className="text-blue-600">work</span></h2>
             <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
             <motion.div

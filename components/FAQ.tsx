@@ -38,7 +38,8 @@ const FAQSection = () => {
                     transition={{ duration: 0.5 }}
                     className="max-w-4xl mx-auto"
                 >
-                    <h2 className="text-4xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+                    <h2 className="text-4xl font-bold text-center mb-4">Frequently Asked {' '}
+                    <span className="text-blue-600">Questions</span></h2>
                     <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
                     <div className="space-y-4">
@@ -52,7 +53,7 @@ const FAQSection = () => {
                             >
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className="w-full bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+                                    className="w-full bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
                                 >
                                     <div className="flex justify-between items-center p-6">
                                         <h3 className="text-lg font-semibold text-left">{faq.question}</h3>

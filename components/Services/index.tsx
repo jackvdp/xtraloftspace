@@ -12,7 +12,8 @@ const ServicesSection = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="text-4xl font-bold text-center mb-4"
       >
-        What we do
+        What we {' '}
+        <span className="text-blue-600">do</span>
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: -20 }}

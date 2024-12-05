@@ -31,7 +31,8 @@ const ContactSection = () => {
             <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
                 <motion.div variants={itemVariants} className="text-center space-y-4">
                     <div className="relative inline-block">
-                        <h2 className="text-4xl font-bold text-center">Get in touch</h2>
+                        <h2 className="text-4xl font-bold text-center">Get in {' '}
+                        <span className="text-blue-600">touch</span></h2>
                     </div>
                     <p className="text-gray-600 max-w-lg mx-auto text-lg">
                         Have a question or want to work together? Drop us a message and we&apos;ll get back to you as soon as possible.

@@ -78,7 +78,7 @@ const AboutSection = () => {
                         </div>
 
                         <div ref={ref} className="grid grid-cols-2 gap-8 mt-12">
-                            <div className="text-center py-6 px-4 bg-white rounded-2xl shadow-md">
+                            <div className="text-center py-6 px-4 bg-slate-50 rounded-2xl shadow-md">
                                 <div className="text-3xl font-bold text-blue-600 mb-2">
                                     {inView && (
                                         <CountUp
@@ -91,7 +91,7 @@ const AboutSection = () => {
                                 </div>
                                 <div className="text-gray-600">Years Experience</div>
                             </div>
-                            <div className="text-center py-6 px-4 bg-white rounded-2xl shadow-md">
+                            <div className="text-center py-6 px-4 bg-slate-50 rounded-2xl shadow-md">
                                 <div className="text-3xl font-bold text-blue-600 mb-2">
                                     {inView && (
                                         <CountUp
