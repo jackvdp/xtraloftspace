@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -17,16 +15,14 @@ const AboutSection = () => {
         <section className="pt-24">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
-                    {/* Image Stack */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.6 }}
-                        className="lg:w-1/2 relative"
+                        className="lg:w-1/2 relative w-full"
                     >
-                        <div className="relative h-[600px] w-full">
-                            {/* Background image */}
+                        <div className="relative w-full aspect-square lg:h-[600px] lg:aspect-auto">
                             <div className="absolute top-0 right-0 w-4/5 h-4/5">
                                 <Image
                                     src="/images/tiling.jpg"
@@ -35,7 +31,6 @@ const AboutSection = () => {
                                     className="object-cover rounded-2xl"
                                 />
                             </div>
-                            {/* Foreground image */}
                             <div className="absolute bottom-0 left-0 w-4/5 h-4/5 z-10">
                                 <Image
                                     src="/images/exterior.jpg"
