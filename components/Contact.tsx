@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useForm } from '@formspree/react';
-import { Check, Send, Loader2, ArrowRight } from "lucide-react";
+import { Check, Loader2, ArrowRight } from "lucide-react";
 
 const ContactSection = () => {
     const [state, handleSubmit] = useForm("YOUR_FORMSPREE_ID");
@@ -34,7 +34,7 @@ const ContactSection = () => {
                         <h2 className="text-4xl font-bold text-center">Get in touch</h2>
                     </div>
                     <p className="text-gray-600 max-w-lg mx-auto text-lg">
-                        Have a question or want to work together? Drop me a message and we'll get back to you as soon as possible.
+                        Have a question or want to work together? Drop us a message and we&apos;ll get back to you as soon as possible.
                     </p>
                 </motion.div>
 
@@ -67,7 +67,7 @@ const ContactSection = () => {
                                             name={field}
                                             type={field === 'email' ? 'email' : 'text'}
                                             required
-                                            onFocus={() => setFocesedField(field)}
+                                            onFocus={() => setFocusedField(field)}
                                             onBlur={() => setFocusedField(null)}
                                             className="bg-white/50 border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
                                         />

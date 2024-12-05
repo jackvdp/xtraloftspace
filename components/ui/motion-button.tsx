@@ -12,6 +12,7 @@ export function CustomButton({ text, link }: { text: string, link: string }) {
             className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 rounded-full"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => console.log(link)}
         >
             <motion.span className="flex items-center">
                 {text}
