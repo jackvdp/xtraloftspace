@@ -13,23 +13,24 @@ const CaseStudies = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-            className="min-h-screen pt-24"
-        >
+        <div className="min-h-screen pt-24">
             <h2 className="text-4xl font-bold text-center mb-4">Our work</h2>
             <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
-            {/* Mobile layout */}
-            <Mobile currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8 }}
+            >
+                {/* Mobile layout */}
+                <Mobile currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
 
-            {/* Desktop layout */}
-            <Desktop currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+                {/* Desktop layout */}
+                <Desktop currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
 
-        </motion.div>
+            </motion.div>
+        </div>
     );
 };
 
