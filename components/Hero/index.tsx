@@ -2,20 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import styles from './Hero.module.css';
 
-const Hero = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+interface MousePosition {
+    x: number;
+    y: number;
+}
+
+const Hero: React.FC = () => {
+    const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: MouseEvent) => {
+            console.log((e.clientX / window.innerWidth) * 30);
+            console.log((e.clientX / window.innerWidth) * 30);
             setMousePosition({
-                x: (e.clientX / window.innerWidth) * 30,
-                y: (e.clientY / window.innerHeight) * 30,
+                x: (e.clientX / window.innerWidth) * 300,
+                y: (e.clientY / window.innerHeight) * 300,
             });
         };
-
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrolled = window.scrollY;
+            const parallax = document.querySelector(`.${styles.parallaxWrapper}`) as HTMLElement;
+            if (parallax) {
+                parallax.style.transform = `translate3d(0, ${scrolled * 0.4}px, 0)`;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const fadeInUp = {
@@ -39,22 +59,22 @@ const Hero = () => {
             transition={{ duration: 1 }}
             className="relative min-h-screen overflow-hidden bg-black"
         >
-            {/* Background image with overlay */}
+            {/* Background image with parallax */}
             <motion.div
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.5 }}
-                className="absolute inset-0"
+                className={styles.parallaxWrapper}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
                 <img
                     src="/images/loft.jpeg"
                     alt="Modern loft"
-                    className="w-full h-full object-cover"
+                    className={styles.parallaxImage}
                 />
             </motion.div>
 
-            {/* Blur circles */}
+            {/* Rest of the component remains the same */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -76,7 +96,6 @@ const Hero = () => {
                 }}
             />
 
-            {/* Content */}
             <div className="relative z-20 container mx-auto px-4 h-screen flex items-center">
                 <motion.div
                     variants={stagger}
@@ -87,7 +106,7 @@ const Hero = () => {
                     <div className="space-y-6">
                         <motion.div variants={fadeInUp} className="flex items-center space-x-2">
                             <Sparkles className="h-6 w-6 text-blue-400" />
-                            <span className="text-blue-400 font-medium">Innovative Design</span>
+                            <span className="text-blue-400 font-medium">Expert Craftmanship</span>
                         </motion.div>
                         <motion.h1
                             variants={fadeInUp}
@@ -103,7 +122,6 @@ const Hero = () => {
                         </motion.p>
                     </div>
 
-                    {/* CTA buttons */}
                     <motion.div
                         variants={fadeInUp}
                         className="flex flex-col sm:flex-row gap-6"

@@ -14,7 +14,7 @@ const AboutSection = () => {
     ];
 
     return (
-        <section className="py-24">
+        <section className="pt-24">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
                     {/* Image Stack */}

@@ -5,8 +5,6 @@ import {
     CarouselItem,
     type CarouselApi
 } from "@/components/ui/carousel"
-import { div } from 'framer-motion/client';
-import AnimatedHeader from './header';
 
 const CaseStudies = () => {
     const [api, setApi] = useState<CarouselApi>();
@@ -23,8 +21,9 @@ const CaseStudies = () => {
     }, [api]);
 
     return (
-        <div className="min-h-screen">
-            <AnimatedHeader text="Our Work" />
+        <div className="min-h-screen pt-24">
+            <h2 className="text-4xl font-bold text-center mb-4">Our work</h2>
+            <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
             <div className="pl-12 flex items-center">
                 <div className="flex w-full mx-auto">
                     {/* Left content area - fixed width */}

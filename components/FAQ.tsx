@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
-import AnimatedHeader from './header';
 
 const FAQSection = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
