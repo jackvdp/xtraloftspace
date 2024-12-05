@@ -27,7 +27,7 @@ const ContactSection = () => {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto pb-24 px-4">
+        <div className="w-full max-w-4xl mx-auto py-24 px-4">
             <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
                 <motion.div variants={itemVariants} className="text-center space-y-4">
                     <div className="relative inline-block">
