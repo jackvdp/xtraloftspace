@@ -56,7 +56,7 @@ const NavBar = () => {
                                 key={item.name}
                                 href={item.href}
                                 className={`transition-colors font-medium ${atTop
-                                        ? 'text-white hover:text-blue-200'
+                                        ? 'text-white hover:text-blue-400'
                                         : 'text-gray-700 hover:text-blue-600'
                                     }`}
                             >
