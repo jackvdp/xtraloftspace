@@ -29,7 +29,7 @@ const AboutSection = () => {
                             {/* Background image */}
                             <div className="absolute top-0 right-0 w-4/5 h-4/5">
                                 <Image
-                                    src="/images/about2.jpeg"
+                                    src="/images/tiling.jpg"
                                     alt="Completed loft project"
                                     fill
                                     className="object-cover rounded-2xl"
@@ -38,7 +38,7 @@ const AboutSection = () => {
                             {/* Foreground image */}
                             <div className="absolute bottom-0 left-0 w-4/5 h-4/5 z-10">
                                 <Image
-                                    src="/images/about1.jpeg"
+                                    src="/images/exterior.jpg"
                                     alt="Team working on site"
                                     fill
                                     className="object-cover rounded-2xl shadow-2xl"
