@@ -33,16 +33,48 @@ const CaseStudies = () => {
         >
             <h2 className="text-4xl font-bold text-center mb-4">Our work</h2>
             <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
-            <div className="pl-12 flex items-center">
-                <div className="flex w-full mx-auto">
-                    {/* Left content area - fixed width */}
+
+            {/* Mobile layout */}
+            <div className="lg:hidden px-4">
+                <Carousel
+                    setApi={setApi}
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    className="w-full mb-8"
+                >
+                    <CarouselContent>
+                        {cases.map((case_study, index) => (
+                            <CarouselItem key={index}>
+                                <div className="aspect-[4/3] relative">
+                                    <img
+                                        src={case_study.image}
+                                        alt={case_study.title}
+                                        className="w-full h-full object-cover rounded-2xl"
+                                    />
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
+                <div className="px-4">
                     <CaseStudyInfo
                         casestudy={cases[currentIndex]}
                         scrollPrev={() => api?.scrollPrev()}
                         scrollNext={() => api?.scrollNext()}
                     />
+                </div>
+            </div>
 
-                    {/* Right carousel area */}
+            {/* Desktop layout */}
+            <div className="hidden lg:block pl-12">
+                <div className="flex w-full mx-auto">
+                    <CaseStudyInfo
+                        casestudy={cases[currentIndex]}
+                        scrollPrev={() => api?.scrollPrev()}
+                        scrollNext={() => api?.scrollNext()}
+                    />
                     <div className="flex-grow">
                         <Carousel
                             setApi={setApi}

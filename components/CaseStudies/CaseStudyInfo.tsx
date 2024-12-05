@@ -4,7 +4,7 @@ export default function CaseStudyInfo({ casestudy, scrollPrev, scrollNext }: {
     casestudy: CaseStudy; scrollPrev: () => void; scrollNext: () => void
 }) {
     return (
-        <div className="w-1/3 flex-shrink-0 pr-12 my-auto h-[32rem] flex flex-col">
+        <div className="lg:w-1/3 flex-shrink-0 pr-12 my-auto h-[32rem] flex flex-col">
             <div className="space-y-6 flex-1 overflow-y-auto">
                 <div className="h-32">
                     <p className="text-sm text-gray-600 mb-2">{casestudy.category}</p>
