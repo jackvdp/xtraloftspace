@@ -5,6 +5,8 @@ import NavBar from "@/components/Navbar";
 import AboutSection from "@/components/About";
 import ServicesSection from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
+import FAQSection from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <CaseStudies />
+      <FAQSection />
+      <Footer />
     </>
   );
 }

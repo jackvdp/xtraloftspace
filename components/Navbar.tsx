@@ -1,10 +1,7 @@
-'use client'
-
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { CustomButton } from './ui/motion-button';
 
@@ -14,14 +11,9 @@ const NavBar = () => {
     const [atTop, setAtTop] = useState(true);
     const { scrollY } = useScroll();
 
-    // Handle scroll behavior
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious();
-
-        // Check if at top
         setAtTop(latest < 50);
-
-        // Only hide/show after scrolling past threshold
         if (latest > 150) {
             setHidden(latest > previous!);
         }
@@ -48,8 +40,7 @@ const NavBar = () => {
         >
             <div className="container mx-auto px-4">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
-                    {/* Logo */}
-                    <Link href="/" className="relative h-12 w-48 flex items-center">
+                    <Link href="/" className={`relative h-12 w-48 flex items-center ${atTop && "brightness-0 invert"}`}>
                         <Image
                             src="/images/logo.png"
                             alt="Xtra Loft Space"
@@ -59,30 +50,37 @@ const NavBar = () => {
                         />
                     </Link>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-8">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                                className={`transition-colors font-medium ${atTop
+                                        ? 'text-white hover:text-blue-200'
+                                        : 'text-gray-700 hover:text-blue-600'
+                                    }`}
                             >
                                 {item.name}
                             </Link>
                         ))}
-                        <CustomButton text="Get Quote" link="/contact" />
+                        <CustomButton
+                            text="Get Quote"
+                            link="/contact"
+                            // className={atTop ? 'text-white border-white' : ''}
+                        />
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="lg:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                        className={`lg:hidden p-2 transition-colors ${atTop
+                                ? 'text-white hover:text-blue-200'
+                                : 'text-gray-600 hover:text-blue-600'
+                            }`}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </nav>
 
-                {/* Mobile Navigation */}
                 <motion.div
                     initial={false}
                     animate={{
