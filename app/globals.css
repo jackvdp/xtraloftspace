@@ -79,3 +79,8 @@ h1 {
     @apply bg-background text-foreground;
   }
 }
+
+.clip-start {
+  clip-path: inset(0 -100% 0 0);
+  position: relative;
+}
