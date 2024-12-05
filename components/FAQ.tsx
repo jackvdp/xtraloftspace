@@ -34,7 +34,7 @@ const FAQSection = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.5 }}
                     className="max-w-4xl mx-auto"
                 >
@@ -47,7 +47,7 @@ const FAQSection = () => {
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <button

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     type CarouselApi
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 import { cases } from './cases';
 import CaseStudyInfo from './CaseStudyInfo';
 
@@ -23,7 +24,13 @@ const CaseStudies = () => {
     }, [api]);
 
     return (
-        <div className="min-h-screen pt-24">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="min-h-screen pt-24"
+        >
             <h2 className="text-4xl font-bold text-center mb-4">Our work</h2>
             <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
             <div className="pl-12 flex items-center">
@@ -62,7 +69,7 @@ const CaseStudies = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

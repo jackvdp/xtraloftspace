@@ -9,7 +9,7 @@ const ServicesSection = () => {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         className="text-4xl font-bold text-center mb-4"
       >
         What we do
@@ -17,7 +17,7 @@ const ServicesSection = () => {
       <motion.p
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ delay: 0.2 }}
         className="text-gray-600 text-center mb-12"
       >
@@ -26,7 +26,7 @@ const ServicesSection = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="flex overflow-x-auto lg:overflow-x-hidden rounded-lg"
       >
