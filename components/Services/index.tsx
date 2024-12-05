@@ -5,7 +5,7 @@ import Card from './Card';
 
 const ServicesSection = () => {
   return (
-    <div className="w-full overflow-hidden pt-24 px-6">
+    <div className="w-full pt-24 px-6">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
