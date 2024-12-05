@@ -10,18 +10,7 @@ import { cases } from './cases';
 import CaseStudyInfo from './CaseStudyInfo';
 
 const CaseStudies = () => {
-    const [api, setApi] = useState<CarouselApi>();
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        if (!api) {
-            return;
-        }
-
-        api.on("select", () => {
-            setCurrentIndex(api.selectedScrollSnap());
-        });
-    }, [api]);
 
     return (
         <motion.div
@@ -35,74 +24,118 @@ const CaseStudies = () => {
             <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
             {/* Mobile layout */}
-            <div className="lg:hidden px-4">
-                <Carousel
-                    setApi={setApi}
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    className="w-full mb-8"
-                >
-                    <CarouselContent>
-                        {cases.map((case_study, index) => (
-                            <CarouselItem key={index}>
-                                <div className="aspect-[4/3] relative">
-                                    <img
-                                        src={case_study.image}
-                                        alt={case_study.title}
-                                        className="w-full h-full object-cover rounded-2xl"
-                                    />
-                                </div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                </Carousel>
-                <div className="px-4">
-                    <CaseStudyInfo
-                        casestudy={cases[currentIndex]}
-                        scrollPrev={() => api?.scrollPrev()}
-                        scrollNext={() => api?.scrollNext()}
-                    />
-                </div>
-            </div>
+            <Mobile currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
 
             {/* Desktop layout */}
-            <div className="hidden lg:block pl-12">
-                <div className="flex w-full mx-auto">
-                    <CaseStudyInfo
-                        casestudy={cases[currentIndex]}
-                        scrollPrev={() => api?.scrollPrev()}
-                        scrollNext={() => api?.scrollNext()}
-                    />
-                    <div className="flex-grow">
-                        <Carousel
-                            setApi={setApi}
-                            opts={{
-                                align: "start",
-                                loop: true,
-                            }}
-                            className="w-full"
-                        >
-                            <CarouselContent className="-ml-4">
-                                {cases.map((case_study, index) => (
-                                    <CarouselItem key={index} className="pl-4 basis-[85%]">
-                                        <div className="aspect-[4/3] relative">
-                                            <img
-                                                src={case_study.image}
-                                                alt={case_study.title}
-                                                className="w-full h-full object-cover rounded-2xl"
-                                            />
-                                        </div>
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                        </Carousel>
-                    </div>
-                </div>
-            </div>
+            <Desktop currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+
         </motion.div>
     );
 };
 
 export default CaseStudies;
+
+
+function Desktop({ currentIndex, setCurrentIndex }: {
+    currentIndex: number, setCurrentIndex: (index: number) => void
+}) {
+    const [api, setApi] = useState<CarouselApi>();
+
+    useEffect(() => {
+        if (!api) {
+            return;
+        }
+
+        api.on("select", () => {
+            setCurrentIndex(api.selectedScrollSnap());
+        });
+    }, [api]);
+
+
+    return (
+        <div className="hidden lg:block pl-12">
+            <div className="flex w-full mx-auto">
+                <CaseStudyInfo
+                    casestudy={cases[currentIndex]}
+                    scrollPrev={() => api?.scrollPrev()}
+                    scrollNext={() => api?.scrollNext()}
+                />
+                <div className="flex-grow">
+                    <Carousel
+                        setApi={setApi}
+                        opts={{
+                            align: "start",
+                            loop: true,
+                        }}
+                        className="w-full"
+                    >
+                        <CarouselContent className="-ml-4">
+                            {cases.map((case_study, index) => (
+                                <CarouselItem key={index} className="pl-4 basis-[85%]">
+                                    <div className="aspect-[4/3] relative">
+                                        <img
+                                            src={case_study.image}
+                                            alt={case_study.title}
+                                            className="w-full h-full object-cover rounded-2xl"
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                    </Carousel>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function Mobile({ currentIndex, setCurrentIndex }: {
+    currentIndex: number, setCurrentIndex: (index: number) => void
+}) {
+
+    const [api, setApi] = useState<CarouselApi>();
+
+    useEffect(() => {
+        if (!api) {
+            return;
+        }
+
+        api.on("select", () => {
+            setCurrentIndex(api.selectedScrollSnap());
+        });
+    }, [api]);
+
+    return (
+        <div className="lg:hidden px-4">
+            <Carousel
+                setApi={setApi}
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full mb-8"
+            >
+                <CarouselContent>
+                    {cases.map((case_study, index) => (
+                        <CarouselItem key={index}>
+                            <div className="aspect-[4/3] relative">
+                                <img
+                                    src={case_study.image}
+                                    alt={case_study.title}
+                                    className="w-full h-full object-cover rounded-2xl"
+                                />
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
+            <div className="px-4">
+                <CaseStudyInfo
+                    casestudy={cases[currentIndex]}
+                    scrollPrev={() => api?.scrollPrev()}
+                    scrollNext={() => api?.scrollNext()}
+                />
+            </div>
+        </div>
+    )
+}
