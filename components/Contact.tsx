@@ -39,7 +39,7 @@ const ContactSection = () => {
                     </p>
                 </motion.div>
 
-                <Card className="group relative overflow-hidden border-2 border-gray-100 bg-slate-50">
+                <Card className="group relative overflow-hidden border-2 border-gray-100 bg-white">
                     <CardContent className="p-8 space-y-8">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {['name', 'email', 'message'].map((field) => (
