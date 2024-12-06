@@ -32,7 +32,7 @@ const Hero = () => {
                 transition={{ duration: 1.5 }}
                 className={styles.parallaxWrapper}
             >
-                <div className="absolute inset-0 bg-blue-600/90 mix-blend-multiply z-10" />
+                <div className="absolute inset-0 bg-blue-600/60 mix-blend-multiply z-10" />
                 <img
                     src="/images/loft.jpeg"
                     alt="Modern loft"
@@ -45,22 +45,22 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-2xl space-y-12"
+                    className="max-w-2xl space-y-8 lg:space-y-12"
                 >
-                    <div className="space-y-8">
+                    <div className="space-y-6 lg:space-y-8">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             className="flex items-center space-x-2"
                         >
-                            <Sparkles className="h-6 w-6 text-white" />
-                            <span className="text-white font-bold tracking-widest uppercase text-sm">Expert Craftmanship</span>
+                            <Sparkles className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
+                            <span className="text-white font-bold tracking-widest uppercase text-xs lg:text-sm">Expert Craftmanship</span>
                         </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-7xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none"
                         >
                             Transform
                             <br />
@@ -70,7 +70,7 @@ const Hero = () => {
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-xl text-white/80 font-medium tracking-wide"
+                            className="text-base sm:text-lg lg:text-xl text-white/80 font-medium tracking-wide"
                         >
                             Create stunning living spaces that blend modern aesthetics with functional design.
                         </motion.p>
@@ -79,21 +79,21 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex flex-col sm:flex-row gap-6"
+                        className="flex flex-col sm:flex-row gap-4 sm:gap-6"
                     >
                         <Button
                             size="lg"
-                            className="group relative bg-white text-blue-600 rounded-full text-lg font-bold tracking-wide h-16 px-12"
+                            className="group relative bg-white text-blue-600 rounded-full text-base lg:text-lg font-bold tracking-wide h-12 sm:h-14 lg:h-16 px-8 sm:px-10 lg:px-12"
                         >
                             <span className="relative z-10 flex items-center">
                                 Let&apos;s Talk
-                                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                                <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6 transition-transform group-hover:translate-x-1" />
                             </span>
                         </Button>
                         <Button
                             size="lg"
                             variant="outline"
-                            className="border-2 border-white text-white rounded-full bg-transparent text-lg font-bold tracking-wide h-16 px-12"
+                            className="border-2 border-white text-white rounded-full bg-transparent text-base lg:text-lg font-bold tracking-wide h-12 sm:h-14 lg:h-16 px-8 sm:px-10 lg:px-12"
                         >
                             View Portfolio
                         </Button>
