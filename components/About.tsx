@@ -31,9 +31,9 @@ const AboutSection = () => {
         },
         hovered: {
             zIndex: 10,
-            x: '-5%',
-            y: '5%',
-            scale: 1,
+            x: '-2%',
+            y: '2%',
+            scale: 0.97,
             rotate: 0,
             transition: { duration: 0.3 }
         }
@@ -50,10 +50,10 @@ const AboutSection = () => {
         },
         hovered: {
             zIndex: 30,
-            x: '5%',
-            y: '-5%',
-            scale: 1.05,
-            rotate: 2,
+            x: '2%',
+            y: '-2%',
+            scale: 1.03,
+            rotate: 0,
             transition: { duration: 0.3 }
         }
     };
@@ -85,7 +85,7 @@ const AboutSection = () => {
                                     src="/images/tiling.jpg"
                                     alt="Completed loft project"
                                     fill
-                                    className="object-cover rounded-2xl"
+                                    className="object-cover rounded-lg"
                                 />
                             </motion.div>
 
@@ -99,7 +99,7 @@ const AboutSection = () => {
                                     src="/images/exterior.jpg"
                                     alt="Team working on site"
                                     fill
-                                    className="object-cover rounded-2xl shadow-2xl"
+                                    className="object-cover rounded-lg shadow-2xl"
                                 />
                             </motion.div>
                         </motion.div>
@@ -134,7 +134,7 @@ const AboutSection = () => {
                         </div>
 
                         <div ref={ref} className="grid grid-cols-2 gap-8 mt-12">
-                            <div className="text-center py-6 px-4 bg-slate-50 rounded-2xl shadow-md">
+                            <div className="text-center py-6 px-4 bg-slate-50 rounded-lg shadow-md">
                                 <div className="text-3xl font-bold text-blue-600 mb-2">
                                     {inView && (
                                         <CountUp
@@ -147,7 +147,7 @@ const AboutSection = () => {
                                 </div>
                                 <div className="text-gray-600">Years Experience</div>
                             </div>
-                            <div className="text-center py-6 px-4 bg-slate-50 rounded-2xl shadow-md">
+                            <div className="text-center py-6 px-4 bg-slate-50 rounded-lg shadow-md">
                                 <div className="text-3xl font-bold text-blue-600 mb-2">
                                     {inView && (
                                         <CountUp

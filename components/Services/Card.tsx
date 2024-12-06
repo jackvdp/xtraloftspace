@@ -21,7 +21,7 @@ export default function Card({ service, index }: { service: Service; index: numb
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative group w-2/3 max-w-[280px] lg:max-w-none lg:w-1/5 aspect-[1/2] overflow-hidden flex-shrink-0"
+            className="relative group w-2/3 max-w-[280px] lg:max-w-none lg:w-1/5 aspect-[1/2] overflow-hidden flex-shrink-0 border-2 border-white-200"
             animate="initial"
             whileHover="hover"
         >

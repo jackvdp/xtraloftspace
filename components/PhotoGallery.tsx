@@ -52,7 +52,7 @@ const PhotoGallery = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     style={{ y: yOffset }}
-                    className={`mb-4 relative overflow-hidden rounded-2xl group
+                    className={`mb-4 relative overflow-hidden rounded-lg group
             ${index % 3 === 0 ? 'aspect-[3/4]' : index % 3 === 1 ? 'aspect-[4/5]' : 'aspect-[1/1]'}`}
                 >
                     <img

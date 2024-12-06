@@ -44,7 +44,7 @@ export default function Desktop({ currentIndex, setCurrentIndex }: {
                                             <img
                                                 src={case_study.image}
                                                 alt={case_study.title}
-                                                className="w-full h-full object-cover rounded-2xl"
+                                                className="w-full h-full object-cover rounded-lg"
                                             />
                                         </div>
                                     </CarouselItem>

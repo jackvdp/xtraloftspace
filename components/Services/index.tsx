@@ -29,7 +29,7 @@ const ServicesSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="flex overflow-x-auto lg:overflow-x-hidden rounded-lg"
+        className="flex overflow-x-auto lg:overflow-x-hidden"
       >
         {services.map((service, index) => (
           <Card service={service} index={index} key={service.title} />

@@ -59,7 +59,7 @@ const ContactSection = () => {
                                             required
                                             onFocus={() => setFocusedField(field)}
                                             onBlur={() => setFocusedField(null)}
-                                            className="min-h-32 bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
+                                            className="min-h-32 bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
                                         />
                                     ) : (
                                         <Input
@@ -69,7 +69,7 @@ const ContactSection = () => {
                                             required
                                             onFocus={() => setFocusedField(field)}
                                             onBlur={() => setFocusedField(null)}
-                                            className="bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
+                                            className="bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
                                         />
                                     )}
                                 </motion.div>
