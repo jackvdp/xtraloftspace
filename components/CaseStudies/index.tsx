@@ -8,10 +8,12 @@ const CaseStudies = () => {
 
     return (
         <div className="pt-24">
-            <h2 className="text-4xl font-bold text-center mb-4">Our {' '}
-            <span className="text-blue-600">work</span></h2>
-            <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
+            <div className='container mx-auto'>
+                <h2 className="text-4xl font-bold text-center mb-4">Our {' '}
+                    <span className="text-blue-600">work</span></h2>
+                <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
+            </div>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
