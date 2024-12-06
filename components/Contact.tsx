@@ -32,7 +32,7 @@ const ContactSection = () => {
                 <motion.div variants={itemVariants} className="text-center space-y-4">
                     <div className="relative inline-block">
                         <h2 className="text-4xl font-bold text-center">Get in {' '}
-                        <span className="text-blue-600">touch</span></h2>
+                            <span className="text-blue-600">touch</span></h2>
                     </div>
                     <p className="text-gray-600 max-w-lg mx-auto text-lg">
                         Have a question or want to work together? Drop us a message and we&apos;ll get back to you as soon as possible.
@@ -40,7 +40,6 @@ const ContactSection = () => {
                 </motion.div>
 
                 <Card className="group relative overflow-hidden border-2 border-gray-100">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <CardContent className="p-8 space-y-8">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {['name', 'email', 'message'].map((field) => (
@@ -101,7 +100,6 @@ const ContactSection = () => {
                                             </>
                                         )}
                                     </span>
-                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
                                 </Button>
                             </motion.div>
                         </form>
