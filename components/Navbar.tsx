@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CustomButton } from './ui/motion-button';
+import { usePathname } from 'next/navigation';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +19,7 @@ const NavBar = () => {
             setHidden(latest > previous!);
         }
     });
+    const pathname = usePathname();
 
     const navItems = [
         { name: 'Home', href: '/' },
@@ -55,26 +57,30 @@ const NavBar = () => {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`transition-colors font-medium ${atTop
-                                        ? 'text-white hover:text-blue-400'
-                                        : 'text-gray-700 hover:text-blue-600'
-                                    }`}
+                                className="group relative mx-2"
                             >
-                                {item.name}
+                                <span className={`transition-colors font-medium ${pathname === item.href
+                                        ? atTop ? 'text-blue-400' : 'text-blue-500'
+                                        : atTop
+                                            ? 'text-white hover:text-blue-400'
+                                            : 'text-gray-700 hover:text-blue-500'
+                                    }`}>
+                                    {item.name}
+                                </span>
+                                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full" />
                             </Link>
                         ))}
                         <CustomButton
                             text="Get Quote"
                             link="/contact"
-                            // className={atTop ? 'text-white border-white' : ''}
                         />
                     </div>
 
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className={`lg:hidden p-2 transition-colors ${atTop
-                                ? 'text-white hover:text-blue-200'
-                                : 'text-gray-600 hover:text-blue-600'
+                            ? 'text-white hover:text-blue-200'
+                            : 'text-gray-600 hover:text-blue-600'
                             }`}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
