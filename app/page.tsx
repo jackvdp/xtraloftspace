@@ -9,6 +9,7 @@ import FAQSection from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/Contact";
 import PhotoGallery from "@/components/PhotoGallery";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <PhotoGallery />
       <ContactSection />
       <Footer />
+      <ScrollIndicator />
     </>
   );
 }
