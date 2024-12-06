@@ -39,7 +39,7 @@ const ContactSection = () => {
                     </p>
                 </motion.div>
 
-                <Card className="group relative overflow-hidden border-2 border-gray-100">
+                <Card className="group relative overflow-hidden border-2 border-gray-100 bg-slate-50">
                     <CardContent className="p-8 space-y-8">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {['name', 'email', 'message'].map((field) => (
@@ -59,7 +59,7 @@ const ContactSection = () => {
                                             required
                                             onFocus={() => setFocusedField(field)}
                                             onBlur={() => setFocusedField(null)}
-                                            className="min-h-32 bg-white/50 border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
+                                            className="min-h-32 bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
                                         />
                                     ) : (
                                         <Input
@@ -69,7 +69,7 @@ const ContactSection = () => {
                                             required
                                             onFocus={() => setFocusedField(field)}
                                             onBlur={() => setFocusedField(null)}
-                                            className="bg-white/50 border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
+                                            className="bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-xl"
                                         />
                                     )}
                                 </motion.div>
