@@ -37,7 +37,7 @@ const PageLoader = () => {
                     <AnimatePresence mode="wait">
                         <motion.span
                             key={currentWord}
-                            className="text-white font-black text-[30vw] absolute"
+                            className={`text-white font-black ${currentWord === 2 ? "text-[40vw]" : "text-[20vw]"} absolute`}
                             initial={{ x: currentWord === 1 ? '100%' : '-100%', opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ opacity: 0 }}
