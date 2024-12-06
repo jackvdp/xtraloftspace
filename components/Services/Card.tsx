@@ -22,6 +22,7 @@ export default function Card({ service, index }: { service: Service; index: numb
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative group w-2/3 max-w-[280px] lg:max-w-none lg:w-1/5 aspect-[1/2] overflow-hidden flex-shrink-0"
+            animate="initial"
             whileHover="hover"
         >
             <img
@@ -39,7 +40,6 @@ export default function Card({ service, index }: { service: Service; index: numb
             <div className="absolute inset-0 p-6 flex flex-col justify-start text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-lg">{service.description}</p>
             </div>
-
             {/* Animated bottom line */}
             <motion.div
                 variants={lineVariants}
