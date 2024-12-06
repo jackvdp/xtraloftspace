@@ -86,7 +86,7 @@ const Hero = () => {
                             className="group relative bg-white text-blue-600 rounded-full text-lg font-bold tracking-wide h-16 px-12"
                         >
                             <span className="relative z-10 flex items-center">
-                                Let's Talk
+                                Let&apos;s Talk
                                 <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
                             </span>
                         </Button>
