@@ -10,20 +10,20 @@ interface MousePosition {
 }
 
 const Hero: React.FC = () => {
-    const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+    // const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
 
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            console.log((e.clientX / window.innerWidth) * 30);
-            console.log((e.clientX / window.innerWidth) * 30);
-            setMousePosition({
-                x: (e.clientX / window.innerWidth) * 300,
-                y: (e.clientY / window.innerHeight) * 300,
-            });
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
+    // useEffect(() => {
+    //     const handleMouseMove = (e: MouseEvent) => {
+    //         console.log((e.clientX / window.innerWidth) * 30);
+    //         console.log((e.clientX / window.innerWidth) * 30);
+    //         setMousePosition({
+    //             x: (e.clientX / window.innerWidth) * 300,
+    //             y: (e.clientY / window.innerHeight) * 300,
+    //         });
+    //     };
+    //     window.addEventListener('mousemove', handleMouseMove);
+    //     return () => window.removeEventListener('mousemove', handleMouseMove);
+    // }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
             </motion.div>
 
             {/* Rest of the component remains the same */}
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
                     transform: `translate(-${mousePosition.x}px, -${mousePosition.y}px)`,
                     transition: 'transform 0.3s ease-out',
                 }}
-            />
+            /> */}
 
             <div className="relative z-20 container mx-auto px-4 h-screen flex items-center">
                 <motion.div

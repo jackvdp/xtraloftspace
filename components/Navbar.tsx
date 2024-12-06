@@ -37,7 +37,7 @@ const NavBar = () => {
             }}
             animate={hidden ? 'hidden' : 'visible'}
             transition={{ duration: 0.35, ease: 'easeInOut' }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${atTop ? 'bg-transparent' : 'bg-white/80 backdrop-blur-md shadow-sm'
+            className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${atTop ? 'bg-transparent' : 'bg-white/80 backdrop-blur-md shadow-sm'
                 }`}
         >
             <div className="container mx-auto px-4">
