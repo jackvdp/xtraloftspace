@@ -18,6 +18,46 @@ const AboutSection = () => {
         triggerOnce: true
     });
 
+    const [hovered, setHovered] = React.useState(false);
+
+    const topImageVariants = {
+        initial: {
+            zIndex: 30,
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            transition: { duration: 0.3 }
+        },
+        hovered: {
+            zIndex: 10,
+            x: '-5%',
+            y: '5%',
+            scale: 1,
+            rotate: 0,
+            transition: { duration: 0.3 }
+        }
+    };
+
+    const bottomImageVariants = {
+        initial: {
+            zIndex: 10,
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            transition: { duration: 0.3 }
+        },
+        hovered: {
+            zIndex: 30,
+            x: '5%',
+            y: '-5%',
+            scale: 1.05,
+            rotate: 2,
+            transition: { duration: 0.3 }
+        }
+    };
+
     return (
         <section className="pt-24">
             <div className="container mx-auto px-4">
@@ -29,24 +69,40 @@ const AboutSection = () => {
                         transition={{ duration: 0.6 }}
                         className="lg:w-1/2 relative w-full"
                     >
-                        <div className="relative mx-auto lg:w-full aspect-square h-[300px] lg:h-[600px] lg:aspect-auto">
-                            <div className="absolute top-0 right-0 w-4/5 h-4/5">
+                        <motion.div
+                            className="relative mx-auto lg:w-full aspect-square h-[300px] lg:h-[600px] lg:aspect-auto"
+                            onHoverStart={() => setHovered(true)}
+                            onHoverEnd={() => setHovered(false)}
+                            style={{ position: 'relative' }}
+                        >
+                            {/* Top Image (initially on top) */}
+                            <motion.div
+                                className="absolute top-0 right-0 w-4/5 h-4/5"
+                                variants={bottomImageVariants}
+                                animate={hovered ? "hovered" : "initial"}
+                            >
                                 <Image
                                     src="/images/tiling.jpg"
                                     alt="Completed loft project"
                                     fill
                                     className="object-cover rounded-2xl"
                                 />
-                            </div>
-                            <div className="absolute bottom-0 left-0 w-4/5 h-4/5 z-10">
+                            </motion.div>
+
+                            {/* Bottom Image (initially behind) */}
+                            <motion.div
+                                className="absolute bottom-0 left-0 w-4/5 h-4/5"
+                                variants={topImageVariants}
+                                animate={hovered ? "hovered" : "initial"}
+                            >
                                 <Image
                                     src="/images/exterior.jpg"
                                     alt="Team working on site"
                                     fill
                                     className="object-cover rounded-2xl shadow-2xl"
                                 />
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
 
                     <motion.div
