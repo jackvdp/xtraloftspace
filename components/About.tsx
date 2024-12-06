@@ -113,7 +113,7 @@ const AboutSection = () => {
                         className="lg:w-1/2"
                     >
                         <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                            Elevate Your Space with{' '}
+                            Elevate your space with{' '}
                             <span className="text-blue-600">Xtra Loft</span>
                         </h2>
 
