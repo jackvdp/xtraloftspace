@@ -1,10 +1,17 @@
 import { CaseStudy } from "./cases";
+import { motion } from "framer-motion";
 
 export default function CaseStudyInfo({ casestudy, scrollPrev, scrollNext }: {
     casestudy: CaseStudy; scrollPrev: () => void; scrollNext: () => void
 }) {
     return (
-        <div className="lg:w-1/3 flex-shrink-0 pr-12 my-auto h-[32rem] flex flex-col">
+        <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="lg:w-1/3 flex-shrink-0 pr-12 my-auto h-[32rem] flex flex-col"
+        >
             <div className="space-y-6 flex-1 overflow-y-auto">
                 <div className="h-32">
                     <p className="text-sm text-gray-600 mb-2">{casestudy.category}</p>
@@ -40,6 +47,6 @@ export default function CaseStudyInfo({ casestudy, scrollPrev, scrollNext }: {
                     </svg>
                 </button>
             </div>
-        </div>
+        </motion.div>
     )
 }
