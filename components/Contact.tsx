@@ -61,7 +61,7 @@ const ContactSection = () => {
                             </h2>
                         </div>
                         <p className="text-gray-600 max-w-lg mx-auto text-lg">
-                            Have a question or want to work together? Drop us a message and we'll get back to you as soon as possible.
+                            Have a question or want to work together? Drop us a message and we&apos;ll get back to you as soon as possible.
                         </p>
                     </motion.div>
                 </motion.div>
