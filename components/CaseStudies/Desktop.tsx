@@ -40,11 +40,11 @@ export default function Desktop({ currentIndex, setCurrentIndex }: {
                             <CarouselContent className="-ml-4">
                                 {cases.map((case_study, index) => (
                                     <CarouselItem key={index} className="pl-4 basis-[85%]">
-                                        <div className="aspect-[4/3] relative">
+                                        <div className="aspect-[4/3] relative rounded-lg overflow-hidden">
                                             <img
                                                 src={case_study.image}
                                                 alt={case_study.title}
-                                                className="w-full h-full object-cover rounded-lg"
+                                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                                             />
                                         </div>
                                     </CarouselItem>
