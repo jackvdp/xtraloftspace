@@ -10,7 +10,7 @@ import { Check, Loader2, ArrowRight } from "lucide-react";
 
 const ContactSection = () => {
     const [state, handleSubmit] = useForm("YOUR_FORMSPREE_ID");
-    const [focusedField, setFocusedField] = useState(null);
+    const [focusedField, setFocusedField] = useState<string | null>(null);
 
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
