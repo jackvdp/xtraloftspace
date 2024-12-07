@@ -37,7 +37,7 @@ export default function Desktop({ currentIndex, setCurrentIndex }: {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <DesktopCarousel apu={api} setApi={setApi} />
+                        <DesktopCarousel setApi={setApi} />
                     </motion.div>
 
 
@@ -48,7 +48,7 @@ export default function Desktop({ currentIndex, setCurrentIndex }: {
     )
 }
 
-function DesktopCarousel({ apu, setApi }: { apu: CarouselApi, setApi: (api: CarouselApi) => void }) {
+function DesktopCarousel({ setApi }: { setApi: (api: CarouselApi) => void }) {
     return (
         <div className="flex-grow">
             <Carousel
