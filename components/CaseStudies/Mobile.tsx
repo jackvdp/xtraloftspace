@@ -39,7 +39,7 @@ export default function Mobile({
                                 <Image
                                     src={case_study.image}
                                     alt={case_study.title}
-                                    className="h-full object-cover rounded-2xl"
+                                    className="h-full object-cover rounded-lg"
                                     fill
                                 />
                             </div>

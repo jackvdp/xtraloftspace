@@ -10,7 +10,7 @@ import { Check, Loader2, ArrowRight } from "lucide-react";
 
 const ContactSection = () => {
     const [state, handleSubmit] = useForm("YOUR_FORMSPREE_ID");
-    const [focusedField, setFocusedField] = useState<string | null>(null);
+    const [focusedField, setFocusedField] = useState(null);
 
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -18,6 +18,26 @@ const ContactSection = () => {
             opacity: 1,
             y: 0,
             transition: { duration: 0.6, staggerChildren: 0.1 }
+        }
+    };
+
+    const cardVariants = {
+        offscreen: {
+            y: 50,
+            opacity: 0,
+            scale: 0.95,
+            rotateX: -10
+        },
+        onscreen: {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            rotateX: 0,
+            transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 0.8
+            }
         }
     };
 
@@ -29,82 +49,97 @@ const ContactSection = () => {
     return (
         <div className="w-full max-w-4xl mx-auto py-24 px-4">
             <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
-                <motion.div variants={itemVariants} className="text-center space-y-4">
-                    <div className="relative inline-block">
-                        <h2 className="text-4xl font-bold text-center">Get in {' '}
-                            <span className="text-blue-600">touch</span></h2>
-                    </div>
-                    <p className="text-gray-600 max-w-lg mx-auto text-lg">
-                        Have a question or want to work together? Drop us a message and we&apos;ll get back to you as soon as possible.
-                    </p>
+                <motion.div
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.6 }}
+                >
+                    <motion.div variants={cardVariants} className="text-center space-y-4">
+                        <div className="relative inline-block">
+                            <h2 className="text-4xl font-bold text-center">Get in {' '}
+                                <span className="text-blue-600">touch</span>
+                            </h2>
+                        </div>
+                        <p className="text-gray-600 max-w-lg mx-auto text-lg">
+                            Have a question or want to work together? Drop us a message and we'll get back to you as soon as possible.
+                        </p>
+                    </motion.div>
                 </motion.div>
 
-                <Card className="group relative overflow-hidden border-2 border-gray-100 bg-white">
-                    <CardContent className="p-8 space-y-8">
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            {['name', 'email', 'message'].map((field) => (
-                                <motion.div
-                                    key={field}
-                                    variants={itemVariants}
-                                    className="relative space-y-2"
-                                    animate={focusedField === field ? { scale: 1.02 } : { scale: 1 }}
-                                >
-                                    <Label htmlFor={field} className="text-lg font-medium">
-                                        {field.charAt(0).toUpperCase() + field.slice(1)}
-                                    </Label>
-                                    {field === 'message' ? (
-                                        <Textarea
-                                            id={field}
-                                            name={field}
-                                            required
-                                            onFocus={() => setFocusedField(field)}
-                                            onBlur={() => setFocusedField(null)}
-                                            className="min-h-32 bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
-                                        />
-                                    ) : (
-                                        <Input
-                                            id={field}
-                                            name={field}
-                                            type={field === 'email' ? 'email' : 'text'}
-                                            required
-                                            onFocus={() => setFocusedField(field)}
-                                            onBlur={() => setFocusedField(null)}
-                                            className="bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
-                                        />
-                                    )}
-                                </motion.div>
-                            ))}
+                <motion.div
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <motion.div variants={cardVariants}>
+                        <Card className="group relative overflow-hidden border-2 border-gray-100 bg-white">
+                            <CardContent className="p-8 space-y-8">
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    {['name', 'email', 'message'].map((field) => (
+                                        <motion.div
+                                            key={field}
+                                            variants={itemVariants}
+                                            className="relative space-y-2"
+                                            animate={focusedField === field ? { scale: 1.02 } : { scale: 1 }}
+                                        >
+                                            <Label htmlFor={field} className="text-lg font-medium">
+                                                {field.charAt(0).toUpperCase() + field.slice(1)}
+                                            </Label>
+                                            {field === 'message' ? (
+                                                <Textarea
+                                                    id={field}
+                                                    name={field}
+                                                    required
+                                                    onFocus={() => setFocusedField(field)}
+                                                    onBlur={() => setFocusedField(null)}
+                                                    className="min-h-32 bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
+                                                />
+                                            ) : (
+                                                <Input
+                                                    id={field}
+                                                    name={field}
+                                                    type={field === 'email' ? 'email' : 'text'}
+                                                    required
+                                                    onFocus={() => setFocusedField(field)}
+                                                    onBlur={() => setFocusedField(null)}
+                                                    className="bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
+                                                />
+                                            )}
+                                        </motion.div>
+                                    ))}
 
-                            <motion.div variants={itemVariants}>
-                                <Button
-                                    type="submit"
-                                    disabled={state.submitting}
-                                    size="lg"
-                                    className="group relative bg-blue-500 hover:bg-blue-600 text-white rounded-full h-16 text-lg"
-                                >
-                                    <span className="relative z-10 flex items-center justify-center">
-                                        {state.submitting ? (
-                                            <>
-                                                <Loader2 className="mr-2 h-6 w-6 animate-spin" />
-                                                Sending...
-                                            </>
-                                        ) : state.succeeded ? (
-                                            <>
-                                                <Check className="mr-2 h-6 w-6" />
-                                                Message Sent!
-                                            </>
-                                        ) : (
-                                            <>
-                                                Send Message
-                                                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
-                                            </>
-                                        )}
-                                    </span>
-                                </Button>
-                            </motion.div>
-                        </form>
-                    </CardContent>
-                </Card>
+                                    <motion.div variants={itemVariants}>
+                                        <Button
+                                            type="submit"
+                                            disabled={state.submitting}
+                                            size="lg"
+                                            className="group relative bg-blue-500 hover:bg-blue-600 text-white rounded-full h-16 text-lg"
+                                        >
+                                            <span className="relative z-10 flex items-center justify-center">
+                                                {state.submitting ? (
+                                                    <>
+                                                        <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+                                                        Sending...
+                                                    </>
+                                                ) : state.succeeded ? (
+                                                    <>
+                                                        <Check className="mr-2 h-6 w-6" />
+                                                        Message Sent!
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        Send Message
+                                                        <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                                                    </>
+                                                )}
+                                            </span>
+                                        </Button>
+                                    </motion.div>
+                                </form>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                </motion.div>
             </motion.div>
         </div>
     );
