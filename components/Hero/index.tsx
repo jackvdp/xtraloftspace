@@ -60,7 +60,7 @@ const Hero = () => {
                         <motion.h1
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold uppercase text-white leading-none"
                         >
                             Transform
                             <br />
