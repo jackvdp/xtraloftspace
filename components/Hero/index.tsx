@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
                             variants={fadeInUp}
                             className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 text-transparent bg-clip-text leading-tight"
                         >
-                            Transform Your Space
+                            Transform Your <span className='text-blue-600'>Space</span>
                         </motion.h1>
                         <motion.p
                             variants={fadeInUp}
