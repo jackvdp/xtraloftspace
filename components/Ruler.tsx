@@ -24,7 +24,18 @@ export default function Ruler() {
                             <span className="text-[10px] text-gray-300 rotate-90">{num}</span>
                         </div>
                     ))}
-                    <div className="absolute h-full w-px bg-gray-200"></div>
+                    <div className="absolute h-full w-px bg-gray-300"></div>
+                </div>
+            </div>
+            <div className="absolute left-16 top-0 z-1 h-full" style={{pointerEvents: 'none'}}>
+                <div className="relative h-full">
+                    <div className="absolute right-0 h-full w-px bg-gray-300"></div>
+                    {Array.from({length: Math.ceil(contentHeight / 50)}, (_, i) => (i + 1) * 50).map(num => (
+                        <div key={num} className="absolute right-0 flex items-center" style={{top: `${num}px`}}>
+                            <span className="text-[10px] text-gray-300 -rotate-90">{num}</span>
+                            <div className="h-px m-1 w-1 bg-gray-300"></div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </>
