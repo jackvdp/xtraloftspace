@@ -28,7 +28,7 @@ const ScrollIndicator = () => {
       `}</style>
             <div className="fixed top-0 right-0 w-1 h-screen z-50">
                 <div
-                    className="w-full bg-blue-500"
+                    className="w-full bg-black"
                     style={{
                         height: `${scrollProgress}%`,
                         transition: 'height 0.2s ease-out'

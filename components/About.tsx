@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import Image from 'next/image';
 
-const AboutSection = () => {
+export default function AboutSection() {
     const features = [
         'Family-run business with generations of expertise',
         'Specializing in high-end residential projects',
@@ -114,7 +114,7 @@ const AboutSection = () => {
                     >
                         <h2 className="text-4xl font-bold text-gray-900 mb-6">
                             Elevate your space with{' '}
-                            <span className="text-blue-600">Xtra Loft</span>
+                            <span className="font-thin">Xtra Loft</span>
                         </h2>
 
                         <p className="text-gray-600 text-lg mb-8">
@@ -127,15 +127,15 @@ const AboutSection = () => {
                         <div className="space-y-4 mb-8">
                             {features.map((feature, index) => (
                                 <div key={index} className="flex items-center gap-3">
-                                    <CheckCircle2 className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                                    <CheckCircle2 className="h-6 w-6 text-black flex-shrink-0" />
                                     <span className="text-gray-700">{feature}</span>
                                 </div>
                             ))}
                         </div>
 
                         <div ref={ref} className="grid grid-cols-2 gap-8 mt-12">
-                            <div className="text-center py-6 px-4 bg-slate-50 rounded-lg shadow-md">
-                                <div className="text-3xl font-bold text-blue-600 mb-2">
+                            <div className="text-center py-6 px-4 bg-slate-50 rounded-md shadow-md">
+                                <div className="text-3xl font-bold text-black mb-2">
                                     {inView && (
                                         <CountUp
                                             start={0}
@@ -147,8 +147,8 @@ const AboutSection = () => {
                                 </div>
                                 <div className="text-gray-600">Years Experience</div>
                             </div>
-                            <div className="text-center py-6 px-4 bg-slate-50 rounded-lg shadow-md">
-                                <div className="text-3xl font-bold text-blue-600 mb-2">
+                            <div className="text-center py-6 px-4 bg-slate-50 rounded-md shadow-md">
+                                <div className="text-3xl font-bold text-black mb-2">
                                     {inView && (
                                         <CountUp
                                             start={0}
@@ -167,5 +167,3 @@ const AboutSection = () => {
         </section>
     );
 };
-
-export default AboutSection;

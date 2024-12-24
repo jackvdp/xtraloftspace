@@ -22,7 +22,6 @@ const NavBar = () => {
     const pathname = usePathname();
 
     const navItems = [
-        { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
         { name: 'Projects', href: '/projects' },
         { name: 'About', href: '/about' },
@@ -42,7 +41,7 @@ const NavBar = () => {
         >
             <div className="container mx-auto px-4">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
-                    <Link href="/" className={`relative h-12 w-48 flex items-center ${atTop && "brightness-0 invert"}`}>
+                    <Link href="/" className={`relative h-16 w-64 flex items-center ${atTop && "brightness-0 invert"}`}>
                         <Image
                             src="/images/logo.png"
                             alt="Xtra Loft Space"
@@ -59,20 +58,16 @@ const NavBar = () => {
                                 href={item.href}
                                 className="group relative mx-2"
                             >
-                                <span className={`transition-colors font-medium ${pathname === item.href
-                                        ? atTop ? 'text-blue-400' : 'text-blue-500'
-                                        : atTop
-                                            ? 'text-white hover:text-blue-400'
-                                            : 'text-gray-700 hover:text-blue-500'
-                                    }`}>
+                                <span className={`transition-colors font-medium ${atTop ? `text-white` : `text-gray-700`}`}>
                                     {item.name}
                                 </span>
-                                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                                <span className={`absolute -bottom-1 left-0 h-0.5 w-0 ${atTop ? `bg-white` : `bg-gray-700`} transition-all duration-300 group-hover:w-full ${pathname === item.href && 'w-full'}`} />
                             </Link>
                         ))}
                         <CustomButton
                             text="Get Quote"
                             link="/contact"
+                            useBlack={!atTop}
                         />
                     </div>
 

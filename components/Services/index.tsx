@@ -13,7 +13,7 @@ const ServicesSection = () => {
         className="text-4xl font-bold text-center mb-4"
       >
         What we {' '}
-        <span className="text-blue-600">do</span>
+        <span className="font-thin">do</span>
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: -20 }}

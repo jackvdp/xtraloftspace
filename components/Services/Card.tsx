@@ -1,19 +1,8 @@
 import { motion } from 'framer-motion';
 import { Service } from './Service';
+import Image from "next/image";
 
 export default function Card({ service, index }: { service: Service; index: number }) {
-    const lineVariants = {
-        initial: {
-            scaleX: 0,
-        },
-        hover: {
-            scaleX: 1,
-            transition: {
-                duration: 0.6,
-                ease: "easeInOut"
-            }
-        }
-    };
 
     return (
         <motion.div
@@ -25,10 +14,11 @@ export default function Card({ service, index }: { service: Service; index: numb
             animate="initial"
             whileHover="hover"
         >
-            <img
+            <Image
                 src={service.image}
                 alt={service.title}
                 className="w-full h-full object-cover transition-all duration-300 group-hover:blur-xl"
+                fill
             />
             {/* Permanent gradient for title visibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90" />
@@ -41,10 +31,10 @@ export default function Card({ service, index }: { service: Service; index: numb
                 <p className="text-lg">{service.description}</p>
             </div>
             {/* Animated bottom line */}
-            <motion.div
+            {/* <motion.div
                 variants={lineVariants}
-                className="absolute bottom-0 left-0 w-full h-1.5 bg-blue-500 origin-left"
-            />
+                className="absolute bottom-0 left-0 w-full h-1.5 bg-slate-200 origin-left"
+            /> */}
         </motion.div>
     );
 }

@@ -39,7 +39,7 @@ const FAQSection = () => {
                     className="max-w-4xl mx-auto"
                 >
                     <h2 className="text-4xl font-bold text-center mb-4">Frequently Asked {' '}
-                    <span className="text-blue-600">Questions</span></h2>
+                    <span className="font-thin">Questions</span></h2>
                     <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
                     <div className="space-y-4">
@@ -59,9 +59,9 @@ const FAQSection = () => {
                                         <h3 className="text-lg font-semibold text-left">{faq.question}</h3>
                                         <div className="flex-shrink-0 ml-4">
                                             {openIndex === index ? (
-                                                <Minus className="w-5 h-5 text-blue-600" />
+                                                <Minus className="w-5 h-5 text-black" />
                                             ) : (
-                                                <Plus className="w-5 h-5 text-blue-600" />
+                                                <Plus className="w-5 h-5 text-black" />
                                             )}
                                         </div>
                                     </div>

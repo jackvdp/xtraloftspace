@@ -57,7 +57,7 @@ const ContactSection = () => {
                     <motion.div variants={cardVariants} className="text-center space-y-4">
                         <div className="relative inline-block">
                             <h2 className="text-4xl font-bold text-center">Get in {' '}
-                                <span className="text-blue-600">touch</span>
+                                <span className="font-thin">touch</span>
                             </h2>
                         </div>
                         <p className="text-gray-600 max-w-lg mx-auto text-lg">
@@ -113,7 +113,7 @@ const ContactSection = () => {
                                             type="submit"
                                             disabled={state.submitting}
                                             size="lg"
-                                            className="group relative bg-blue-500 hover:bg-blue-600 text-white rounded-full h-16 text-lg"
+                                            className="group relative bg-black hover:bg-gray-900 text-white rounded-full h-16 text-lg"
                                         >
                                             <span className="relative z-10 flex items-center justify-center">
                                                 {state.submitting ? (

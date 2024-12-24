@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-white">
+        <footer className="bg-black text-white">
             <div className="container mx-auto px-4 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Company Info */}
@@ -23,16 +23,16 @@ const Footer = () => {
                             Building dreams since 2005.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="hover:text-blue-400 transition-colors">
+                            <a href="#" className="hover:text-white/80 transition-colors">
                                 <Facebook className="h-5 w-5" />
                             </a>
-                            <a href="#" className="hover:text-blue-400 transition-colors">
+                            <a href="#" className="hover:text-white/80 transition-colors">
                                 <Twitter className="h-5 w-5" />
                             </a>
-                            <a href="#" className="hover:text-blue-400 transition-colors">
+                            <a href="#" className="hover:text-white/80 transition-colors">
                                 <Instagram className="h-5 w-5" />
                             </a>
-                            <a href="#" className="hover:text-blue-400 transition-colors">
+                            <a href="#" className="hover:text-white/80 transition-colors">
                                 <Linkedin className="h-5 w-5" />
                             </a>
                         </div>
@@ -46,7 +46,7 @@ const Footer = () => {
                                 <li key={item}>
                                     <Link
                                         href={`/${item.toLowerCase()}`}
-                                        className="text-gray-400 hover:text-blue-400 transition-colors"
+                                        className="text-gray-400 hover:text-white/80 transition-colors"
                                     >
                                         {item}
                                     </Link>
@@ -69,7 +69,7 @@ const Footer = () => {
                                 <li key={service}>
                                     <Link
                                         href="/services"
-                                        className="text-gray-400 hover:text-blue-400 transition-colors"
+                                        className="text-gray-400 hover:text-white/80 transition-colors"
                                     >
                                         {service}
                                     </Link>
@@ -83,13 +83,13 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
                         <ul className="space-y-4">
                             <li>
-                                <a href="tel:+441234567890" className="flex items-center text-gray-400 hover:text-blue-400 transition-colors">
+                                <a href="tel:+441234567890" className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
                                     <Phone className="h-5 w-5 mr-2" />
                                     +44 123 456 7890
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:info@xtraloftspace.com" className="flex items-center text-gray-400 hover:text-blue-400 transition-colors">
+                                <a href="mailto:info@xtraloftspace.com" className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
                                     <Mail className="h-5 w-5 mr-2" />
                                     info@xtraloftspace.com
                                 </a>
@@ -110,10 +110,10 @@ const Footer = () => {
                             © {new Date().getFullYear()} Xtra Loft Space. All rights reserved.
                         </p>
                         <div className="flex gap-6">
-                            <Link href="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors">
+                            <Link href="/privacy" className="text-gray-400 hover:text-white/80 transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link href="/terms" className="text-gray-400 hover:text-blue-400 transition-colors">
+                            <Link href="/terms" className="text-gray-400 hover:text-white/80 transition-colors">
                                 Terms of Service
                             </Link>
                         </div>

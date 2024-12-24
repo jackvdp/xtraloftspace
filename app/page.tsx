@@ -10,12 +10,10 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/Contact";
 import PhotoGallery from "@/components/PhotoGallery";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import PageLoader from "@/components/PageLoader";
 
 export default function Home() {
   return (
     <>
-      <PageLoader />
       <NavBar />
       <Hero />
       <AboutSection />

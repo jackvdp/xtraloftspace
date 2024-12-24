@@ -10,7 +10,7 @@ const CaseStudies = () => {
         <div className="pt-24">
             <div className='container mx-auto px-4'>
                 <h2 className="text-4xl font-bold text-center mb-4">Our {' '}
-                    <span className="text-blue-600">work</span></h2>
+                    <span className="font-thin">work</span></h2>
                 <p className="text-gray-600 text-center mb-12">Everything you need to know about our loft conversion services</p>
 
             </div>
