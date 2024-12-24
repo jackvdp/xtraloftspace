@@ -2,17 +2,19 @@ import {useState, useEffect} from 'react';
 
 function VerticalRuler({position, contentHeight}) {
     const isRight = position === 'right';
-    const positionClass = isRight ? 'right-16' : 'left-16';
+    const positionClass = isRight ? 'right-12' : 'left-12';
     const rotateClass = isRight ? 'rotate-90' : '-rotate-90';
 
     const renderMark = (position, isNumbered = false) => (
         <div className={`absolute ${isRight ? 'left-0' : 'right-0'} flex items-center`} style={{top: `${position}px`}}>
             {!isRight && isNumbered && (
-                <span className={`text-[10px] text-gray-300 ${rotateClass}`}>{position}</span>
+                <span
+                    className={`text-[10px] mix-blend-difference opacity-25 text-white ${rotateClass}`}>{position}</span>
             )}
-            <div className={`h-px m-1 ${isNumbered ? 'w-2' : 'w-1'} bg-gray-300`}></div>
+            <div className={`h-px m-1 ${isNumbered ? 'w-2' : 'w-1'} mix-blend-difference opacity-25 bg-white`}></div>
             {isRight && isNumbered && (
-                <span className={`text-[10px] text-gray-300 ${rotateClass}`}>{position}</span>
+                <span
+                    className={`text-[10px] mix-blend-difference opacity-25 text-white ${rotateClass}`}>{position}</span>
             )}
         </div>
     );
@@ -31,7 +33,8 @@ function VerticalRuler({position, contentHeight}) {
     return (
         <div className={`absolute ${positionClass} top-0 z-1 h-full`} style={{pointerEvents: 'none'}}>
             <div className="relative h-full">
-                <div className={`absolute ${isRight ? 'left-0' : 'right-0'} h-full w-px bg-gray-300`}></div>
+                <div
+                    className={`absolute ${isRight ? 'left-0' : 'right-0'} h-full w-px mix-blend-difference opacity-25 bg-white`}></div>
                 {marks}
             </div>
         </div>
