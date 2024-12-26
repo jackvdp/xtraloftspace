@@ -1,28 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ArrowRight, Sparkles} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {motion, Variants} from 'framer-motion';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, EffectFade} from 'swiper/modules';
+import type {Swiper as SwiperType} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Image from 'next/image';
+import styles from './Hero.module.css';
 
 const Hero = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [swiper, setSwiper] = useState<SwiperType | null>(null);
+
     const images = [
         '/images/loft.jpeg',
         '/images/kitchen.jpeg',
         '/images/tiling.jpg'
     ];
 
-    // Animation for the reveal effect
     const revealAnimation: Variants = {
         initial: {y: "100%"},
         animate: {
             y: 0,
             transition: {
                 duration: 0.8,
-                ease: [0.33, 1, 0.68, 1]  // Custom cubic-bezier for smoother motion
+                ease: [0.33, 1, 0.68, 1]
             }
         }
     };
@@ -42,7 +46,6 @@ const Hero = () => {
             transition={{duration: 1}}
             className="relative min-h-screen overflow-hidden bg-black"
         >
-            {/* Background slider with overlay */}
             <div className="absolute inset-0">
                 <Swiper
                     modules={[Autoplay, EffectFade]}
@@ -54,6 +57,8 @@ const Hero = () => {
                     }}
                     loop={true}
                     className="h-full w-full"
+                    onSwiper={setSwiper}
+                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
@@ -69,6 +74,17 @@ const Hero = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+
+                {/* Custom Pagination */}
+                <div className={styles.paginationContainer}>
+                    {images.map((_, index) => (
+                        <div
+                            key={index}
+                            className={`${styles.paginationBullet} ${index === activeIndex ? styles.active : ''}`}
+                            onClick={() => swiper?.slideTo(index)}
+                        />
+                    ))}
+                </div>
             </div>
 
             <div className="relative z-20 container mx-auto px-4 h-screen flex items-center">
