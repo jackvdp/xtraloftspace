@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {ArrowRight, Sparkles} from 'lucide-react';
-import {Button} from '@/components/ui/button';
+import {Sparkles} from 'lucide-react';
 import {motion, Variants} from 'framer-motion';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, EffectFade} from 'swiper/modules';
@@ -10,6 +9,7 @@ import 'swiper/css/effect-fade';
 import Image from 'next/image';
 import styles from './Hero.module.css';
 import ScrollIndicator from './ScrollIndicator';
+import {BigCustomButton, OutlineButton} from '@/components/ui/motion-button';
 
 const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -132,23 +132,8 @@ const Hero = () => {
                             variants={revealAnimation}
                             className="flex flex-col sm:flex-row gap-6"
                         >
-                            <Button
-                                size="lg"
-                                className="group relative bg-white hover:bg-gray-100 text-black rounded-full text-lg h-16 px-12"
-                            >
-                                <span className="relative z-10 flex items-center">
-                                    Let&apos;s Talk
-                                    <ArrowRight
-                                        className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
-                                </span>
-                            </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-2 border-white/50 text-white rounded-full bg-white/30 hover:bg-white/70 text-lg h-16 px-12"
-                            >
-                                View Portfolio
-                            </Button>
+                            <BigCustomButton text="Let&apos;s Talk" arrowEnabled={true}/>
+                            <OutlineButton text={"View Portfolio"}/>
                         </motion.div>
                     </div>
                 </motion.div>
