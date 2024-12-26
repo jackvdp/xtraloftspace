@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Image from 'next/image';
 import styles from './Hero.module.css';
+import ScrollIndicator from './ScrollIndicator';
 
 const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -152,6 +153,8 @@ const Hero = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <ScrollIndicator/>
         </motion.div>
     );
 };
