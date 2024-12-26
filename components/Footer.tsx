@@ -1,11 +1,11 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import {Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-white">
+        <footer className="bg-black text-white z-50">
             <div className="container mx-auto px-4 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Company Info */}
@@ -24,16 +24,16 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-4">
                             <a href="#" className="hover:text-white/80 transition-colors">
-                                <Facebook className="h-5 w-5" />
+                                <Facebook className="h-5 w-5"/>
                             </a>
                             <a href="#" className="hover:text-white/80 transition-colors">
-                                <Twitter className="h-5 w-5" />
+                                <Twitter className="h-5 w-5"/>
                             </a>
                             <a href="#" className="hover:text-white/80 transition-colors">
-                                <Instagram className="h-5 w-5" />
+                                <Instagram className="h-5 w-5"/>
                             </a>
                             <a href="#" className="hover:text-white/80 transition-colors">
-                                <Linkedin className="h-5 w-5" />
+                                <Linkedin className="h-5 w-5"/>
                             </a>
                         </div>
                     </div>
@@ -83,19 +83,21 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
                         <ul className="space-y-4">
                             <li>
-                                <a href="tel:+441234567890" className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
-                                    <Phone className="h-5 w-5 mr-2" />
+                                <a href="tel:+441234567890"
+                                   className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
+                                    <Phone className="h-5 w-5 mr-2"/>
                                     +44 123 456 7890
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:info@xtraloftspace.com" className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
-                                    <Mail className="h-5 w-5 mr-2" />
+                                <a href="mailto:info@xtraloftspace.com"
+                                   className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
+                                    <Mail className="h-5 w-5 mr-2"/>
                                     info@xtraloftspace.com
                                 </a>
                             </li>
                             <li className="flex items-start text-gray-400">
-                                <MapPin className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
+                                <MapPin className="h-5 w-5 mr-2 mt-1 flex-shrink-0"/>
                                 123 Construction Street,
                                 London, UK SW1A 1AA
                             </li>
