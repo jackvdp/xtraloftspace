@@ -10,12 +10,10 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/Contact";
 import PhotoGallery from "@/components/PhotoGallery";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import Ruler from "@/components/Ruler";
 
 export default function Home() {
     return (
         <div className="relative">
-            <Ruler/>
             <NavBar/>
             <Hero/>
             <AboutSection/>
