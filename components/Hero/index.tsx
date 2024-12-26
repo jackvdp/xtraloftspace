@@ -15,11 +15,15 @@ const Hero = () => {
         '/images/tiling.jpg'
     ];
 
-    const fadeInUp: Variants = {
-        initial: {opacity: 0, y: 20},
+    // Animation for the reveal effect
+    const revealAnimation: Variants = {
+        initial: {y: "100%"},
         animate: {
-            opacity: 1,
-            transition: {duration: 0.6}
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.33, 1, 0.68, 1]  // Custom cubic-bezier for smoother motion
+            }
         }
     };
 
@@ -75,46 +79,61 @@ const Hero = () => {
                     className="max-w-2xl space-y-8"
                 >
                     <div className="space-y-6">
-                        <motion.div variants={fadeInUp} className="flex items-center space-x-2">
-                            <Sparkles className="h-6 w-6 text-white"/>
-                            <span className="text-white font-medium">Expert Craftmanship</span>
-                        </motion.div>
-                        <motion.h1
-                            variants={fadeInUp}
-                            className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 text-transparent bg-clip-text leading-tight"
-                        >
-                            Transform Your <span className='font-thin'>Space</span>
-                        </motion.h1>
-                        <motion.p
-                            variants={fadeInUp}
-                            className="text-xl text-white"
-                        >
-                            Create stunning living spaces that blend modern aesthetics with functional design.
-                            Experience the future of home transformation.
-                        </motion.p>
+                        {/* Expert Craftmanship line */}
+                        <div className="overflow-hidden">
+                            <motion.div variants={revealAnimation} className="flex items-center space-x-2">
+                                <Sparkles className="h-6 w-6 text-white"/>
+                                <span className="text-white font-medium">Expert Craftmanship</span>
+                            </motion.div>
+                        </div>
+
+                        {/* Main heading */}
+                        <div className="overflow-hidden">
+                            <motion.h1
+                                variants={revealAnimation}
+                                className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 text-transparent bg-clip-text leading-tight"
+                            >
+                                Transform Your <span className='font-thin'>Space</span>
+                            </motion.h1>
+                        </div>
+
+                        {/* Paragraph */}
+                        <div className="overflow-hidden">
+                            <motion.p
+                                variants={revealAnimation}
+                                className="text-xl text-white"
+                            >
+                                Create stunning living spaces that blend modern aesthetics with functional design.
+                                Experience the future of home transformation.
+                            </motion.p>
+                        </div>
                     </div>
 
-                    <motion.div
-                        variants={fadeInUp}
-                        className="flex flex-col sm:flex-row gap-6"
-                    >
-                        <Button
-                            size="lg"
-                            className="group relative bg-white hover:bg-gray-100 text-black rounded-full text-lg h-16 px-12"
+                    {/* Buttons */}
+                    <div className="overflow-hidden">
+                        <motion.div
+                            variants={revealAnimation}
+                            className="flex flex-col sm:flex-row gap-6"
                         >
-              <span className="relative z-10 flex items-center">
-                Let&apos;s Talk
-                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
-              </span>
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-2 border-white/50 text-white rounded-full bg-white/30 hover:bg-white/70 text-lg h-16 px-12"
-                        >
-                            View Portfolio
-                        </Button>
-                    </motion.div>
+                            <Button
+                                size="lg"
+                                className="group relative bg-white hover:bg-gray-100 text-black rounded-full text-lg h-16 px-12"
+                            >
+                                <span className="relative z-10 flex items-center">
+                                    Let&apos;s Talk
+                                    <ArrowRight
+                                        className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
+                                </span>
+                            </Button>
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-2 border-white/50 text-white rounded-full bg-white/30 hover:bg-white/70 text-lg h-16 px-12"
+                            >
+                                View Portfolio
+                            </Button>
+                        </motion.div>
+                    </div>
                 </motion.div>
             </div>
         </motion.div>
