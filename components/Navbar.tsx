@@ -1,16 +1,47 @@
-import React, { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import React, {useState} from 'react';
+import {motion, useScroll, useMotionValueEvent} from 'framer-motion';
+import {Menu, X} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CustomButton } from './ui/motion-button';
-import { usePathname } from 'next/navigation';
+import {CustomButton} from './ui/motion-button';
+import {usePathname} from 'next/navigation';
+
+function NavbarItem({
+                        item,
+                        atTop,
+                        pathname
+                    }: {
+    item: { name: string; href: string },
+    atTop: boolean,
+    pathname: string
+}) {
+    return (
+        <Link
+            href={item.href}
+            className="group relative mx-2 overflow-hidden h-[24px]"
+        >
+            <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-[24px]">
+                <span className={`font-medium ${atTop ? 'text-white' : 'text-gray-700'}`}>
+                    {item.name}
+                </span>
+                <span className={`font-medium ${atTop ? 'text-white' : 'text-gray-700'}`}>
+                    {item.name}
+                </span>
+            </div>
+            {pathname === item.href && (
+                <span
+                    className={`absolute -bottom-1 left-0 h-0.5 w-full ${atTop ? 'bg-white' : 'bg-gray-700'}`}
+                />
+            )}
+        </Link>
+    );
+}
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [hidden, setHidden] = useState(false);
     const [atTop, setAtTop] = useState(true);
-    const { scrollY } = useScroll();
+    const {scrollY} = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious();
@@ -22,22 +53,22 @@ const NavBar = () => {
     const pathname = usePathname();
 
     const navItems = [
-        { name: 'Services', href: '/services' },
-        { name: 'Projects', href: '/projects' },
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
+        {name: 'Services', href: '/services'},
+        {name: 'Projects', href: '/projects'},
+        {name: 'About', href: '/about'},
+        {name: 'Contact', href: '/contact'},
     ];
 
     return (
         <motion.header
             variants={{
-                visible: { y: 0 },
-                hidden: { y: '-100%' },
+                visible: {y: 0},
+                hidden: {y: '-100%'},
             }}
             animate={hidden ? 'hidden' : 'visible'}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            transition={{duration: 0.35, ease: 'easeInOut'}}
             className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${atTop ? 'bg-transparent' : 'bg-white/80 backdrop-blur-md shadow-sm'
-                }`}
+            }`}
         >
             <div className="container mx-auto px-4">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
@@ -53,16 +84,12 @@ const NavBar = () => {
 
                     <div className="hidden lg:flex items-center gap-8">
                         {navItems.map((item) => (
-                            <Link
+                            <NavbarItem
                                 key={item.name}
-                                href={item.href}
-                                className="group relative mx-2"
-                            >
-                                <span className={`transition-colors font-medium ${atTop ? `text-white` : `text-gray-700`}`}>
-                                    {item.name}
-                                </span>
-                                <span className={`absolute -bottom-1 left-0 h-0.5 w-0 ${atTop ? `bg-white` : `bg-gray-700`} transition-all duration-300 group-hover:w-full ${pathname === item.href && 'w-full'}`} />
-                            </Link>
+                                item={item}
+                                atTop={atTop}
+                                pathname={pathname}
+                            />
                         ))}
                         <CustomButton
                             text="Get Quote"
@@ -76,9 +103,9 @@ const NavBar = () => {
                         className={`lg:hidden p-2 transition-colors ${atTop
                             ? 'text-white hover:text-blue-200'
                             : 'text-gray-600 hover:text-blue-600'
-                            }`}
+                        }`}
                     >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        {isOpen ? <X size={24}/> : <Menu size={24}/>}
                     </button>
                 </nav>
 
@@ -88,7 +115,7 @@ const NavBar = () => {
                         height: isOpen ? 'auto' : 0,
                         opacity: isOpen ? 1 : 0,
                     }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    transition={{duration: 0.3, ease: 'easeInOut'}}
                     className="lg:hidden overflow-hidden bg-white"
                 >
                     <div className="px-4 py-5 space-y-3">
@@ -102,7 +129,7 @@ const NavBar = () => {
                                 {item.name}
                             </Link>
                         ))}
-                        <CustomButton text="Get Quote" link="/contact" />
+                        <CustomButton text="Get Quote" link="/contact"/>
                     </div>
                 </motion.div>
             </div>

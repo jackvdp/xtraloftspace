@@ -13,19 +13,19 @@ import ScrollIndicator from "@/components/ScrollIndicator";
 import Ruler from "@/components/Ruler";
 
 export default function Home() {
-  return (
-    <div className="relative">
-        <Ruler />
-      <NavBar />
-      <Hero />
-      <AboutSection />
-      <ServicesSection />
-      <CaseStudies />
-      <FAQSection />
-      <PhotoGallery />
-      <ContactSection />
-      <Footer />
-      <ScrollIndicator />
-    </div>
-  );
+    return (
+        <div className="relative">
+            <Ruler/>
+            <NavBar/>
+            <Hero/>
+            <AboutSection/>
+            <ServicesSection/>
+            <CaseStudies/>
+            <FAQSection/>
+            <PhotoGallery/>
+            <ContactSection/>
+            <Footer/>
+            <ScrollIndicator/>
+        </div>
+    );
 }
