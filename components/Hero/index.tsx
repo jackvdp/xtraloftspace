@@ -4,7 +4,7 @@ import {Button} from '@/components/ui/button';
 import {motion, Variants} from 'framer-motion';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, EffectFade} from 'swiper/modules';
-import type {Swiper as SwiperType} from 'swiper';
+import {Swiper as SwiperType} from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Image from 'next/image';
