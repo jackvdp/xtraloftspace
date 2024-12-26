@@ -1,29 +1,24 @@
-import React, { useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import styles from './Hero.module.css';
-import Image from "next/image";
+import React from 'react';
+import {ArrowRight, Sparkles} from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import {motion} from 'framer-motion';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Autoplay, EffectFade} from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import Image from 'next/image';
 
-const Hero: React.FC = () => {
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrolled = window.scrollY;
-            const parallax = document.querySelector(`.${styles.parallaxWrapper}`) as HTMLElement;
-            if (parallax) {
-                parallax.style.transform = `translate3d(0, ${scrolled * 0.4}px, 0)`;
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+const Hero = () => {
+    const images = [
+        '/images/loft.jpeg',
+        '/images/kitchen.jpeg',
+        '/images/tiling.jpg'
+    ];
 
     const fadeInUp = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.6 }
+        initial: {opacity: 0, y: 20},
+        animate: {opacity: 1, y: 0},
+        transition: {duration: 0.6}
     };
 
     const stagger = {
@@ -36,26 +31,39 @@ const Hero: React.FC = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            initial={{opacity: 1}}
+            animate={{opacity: 1}}
+            transition={{duration: 1}}
             className="relative min-h-screen overflow-hidden bg-black"
         >
-            {/* Background image with parallax */}
-            <motion.div
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1.5 }}
-                className={styles.parallaxWrapper}
-            >
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60 z-10" />
-                <Image
-                    src="/images/loft.jpeg"
-                    alt="Modern loft"
-                    className={styles.parallaxImage}
-                    fill
-                />
-            </motion.div>
+            {/* Background slider with overlay */}
+            <div className="absolute inset-0">
+                <Swiper
+                    modules={[Autoplay, EffectFade]}
+                    effect="slide"
+                    speed={1000}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    }}
+                    loop={true}
+                    className="h-full w-full"
+                >
+                    {images.map((image, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="relative h-full w-full">
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60 z-10"/>
+                                <Image
+                                    src={image}
+                                    alt={`Interior design ${index + 1}`}
+                                    className="h-full w-full object-cover"
+                                    fill
+                                />
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
 
             <div className="relative z-20 container mx-auto px-4 h-screen flex items-center">
                 <motion.div
@@ -66,7 +74,7 @@ const Hero: React.FC = () => {
                 >
                     <div className="space-y-6">
                         <motion.div variants={fadeInUp} className="flex items-center space-x-2">
-                            <Sparkles className="h-6 w-6 text-white" />
+                            <Sparkles className="h-6 w-6 text-white"/>
                             <span className="text-white font-medium">Expert Craftmanship</span>
                         </motion.div>
                         <motion.h1
@@ -79,7 +87,8 @@ const Hero: React.FC = () => {
                             variants={fadeInUp}
                             className="text-xl text-white"
                         >
-                            Create stunning living spaces that blend modern aesthetics with functional design. Experience the future of home transformation.
+                            Create stunning living spaces that blend modern aesthetics with functional design.
+                            Experience the future of home transformation.
                         </motion.p>
                     </div>
 
@@ -91,10 +100,10 @@ const Hero: React.FC = () => {
                             size="lg"
                             className="group relative bg-white hover:bg-gray-100 text-black rounded-full text-lg h-16 px-12"
                         >
-                            <span className="relative z-10 flex items-center">
-                                Let&apos;s Talk
-                                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
-                            </span>
+              <span className="relative z-10 flex items-center">
+                Let&apos;s Talk
+                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
+              </span>
                         </Button>
                         <Button
                             size="lg"
