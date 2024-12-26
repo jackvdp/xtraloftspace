@@ -1,7 +1,7 @@
 import React from 'react';
 import {ArrowRight, Sparkles} from 'lucide-react';
 import {Button} from '@/components/ui/button';
-import {motion} from 'framer-motion';
+import {motion, Variants} from 'framer-motion';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, EffectFade} from 'swiper/modules';
 import 'swiper/css';
@@ -15,10 +15,12 @@ const Hero = () => {
         '/images/tiling.jpg'
     ];
 
-    const fadeInUp = {
+    const fadeInUp: Variants = {
         initial: {opacity: 0, y: 20},
-        animate: {opacity: 1, y: 0},
-        transition: {duration: 0.6}
+        animate: {
+            opacity: 1,
+            transition: {duration: 0.6}
+        }
     };
 
     const stagger = {
