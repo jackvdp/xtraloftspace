@@ -2,12 +2,16 @@ import React, {useState, useEffect} from 'react';
 
 const CustomCursor = () => {
     const [pos, setPos] = useState({x: 0, y: 0});
-    const [isHovering, setIsHovering] = useState(false);
+    const [isHovering, setIsHovering] = useState({clickable: false, draggable: false});
 
     useEffect(() => {
         const onMouseMove = (e) => {
             setPos({x: e.clientX, y: e.clientY});
             const target = e.target;
+            const isDraggable =
+                target.getAttribute('draggable') === 'true' ||
+                window.getComputedStyle(target).cursor === 'grab' ||
+                window.getComputedStyle(target).cursor === 'move';
             const isClickable =
                 target.onclick ||
                 target.tagName.toLowerCase() === 'button' ||
@@ -16,7 +20,7 @@ const CustomCursor = () => {
                 target.closest('a') ||
                 window.getComputedStyle(target).cursor === 'pointer' ||
                 target.getAttribute('role') === 'button';
-            setIsHovering(isClickable);
+            setIsHovering({clickable: isClickable, draggable: isDraggable});
         };
 
         document.addEventListener('mousemove', onMouseMove);
@@ -37,8 +41,8 @@ const CustomCursor = () => {
             left: pos.x,
             top: pos.y,
             transform: `translate(-50%, -50%)`,
-            width: isHovering ? '72px' : '24px',
-            height: isHovering ? '72px' : '24px',
+            width: (!isHovering.draggable && !isHovering.clickable) ? '24px' : '72px',
+            height: (!isHovering.draggable && !isHovering.clickable) ? '24px' : '72px',
             borderRadius: '50%',
             backgroundColor: 'rgba(200, 200, 200, 0.5)',
             backdropFilter: 'blur(6px)',
@@ -48,13 +52,15 @@ const CustomCursor = () => {
             justifyContent: 'center',
             pointerEvents: 'none',
             transition: 'width 0.3s, height 0.3s',
-            fontSize: '10px',
             textAlign: 'center',
             lineHeight: 1,
             zIndex: 9999
         }}>
-            {isHovering &&
-                <span style={{color: 'black', display: 'block', width: '100%'}}>CLICK<br/>HERE</span>}
+            {(isHovering.clickable || isHovering.draggable) &&
+                <span className="text-md font-bold text-black/60" style={{display: 'block', width: '100%'}}>
+        {isHovering.draggable ? 'DRAG' : 'CLICK'}
+    </span>
+            }
         </div>
     );
 };
