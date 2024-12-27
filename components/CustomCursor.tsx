@@ -5,20 +5,18 @@ const CustomCursor = () => {
     const [cursorState, setCursorState] = useState({active: false, text: ''});
 
     useEffect(() => {
-        const onMouseMove = (e) => {
+        const onMouseMove = (e: DocumentEventMap["mousemove"]) => {
             setPos({x: e.clientX, y: e.clientY});
-            const target = e.target;
+            const target = e.target as Element;
 
-            // Check for cursor attribute first
-            const cursorAttr = target.getAttribute('cursorText');
+            const cursorAttr = target.getAttribute('data-cursor');
             if (cursorAttr) {
                 setCursorState({active: true, text: cursorAttr.toUpperCase()});
                 return;
             }
 
-            // Fall back to checking for clickable elements
             const isClickable =
-                target.onclick ||
+                (target as HTMLElement).onclick ||
                 target.tagName.toLowerCase() === 'button' ||
                 target.tagName.toLowerCase() === 'a' ||
                 target.closest('button') ||
