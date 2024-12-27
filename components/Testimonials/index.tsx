@@ -65,7 +65,8 @@ const TestimonialsCarousel = () => {
                                         <div
                                             className="h-full bg-black rounded-full transition-all duration-50"
                                             style={{
-                                                width: index === currentIndex ? `${progress}%` : '0%'
+                                                width: index < currentIndex ? '100%' :
+                                                    index === currentIndex ? `${progress}%` : '0%'
                                             }}
                                         />
                                     </div>
