@@ -16,7 +16,6 @@ export default function AboutSection() {
 
     const {ref, inView} = useInView({
         threshold: 0.2,
-        triggerOnce: true
     }) as { ref: React.RefObject<HTMLDivElement>, inView: boolean };
 
     const [hovered, setHovered] = React.useState(false);
