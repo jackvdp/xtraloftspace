@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {motion, AnimatePresence} from 'framer-motion';
 import {testimonials} from './testimonials';
 import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
+import {QuoteIcon} from '@radix-ui/react-icons';
 
 const TestimonialsCarousel = () => {
     const [state, setState] = useState({
@@ -46,7 +48,7 @@ const TestimonialsCarousel = () => {
         <div className="pt-24">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-4">
-                    Hear what our <span className="font-thin">clients say</span>
+                    What our <span className="font-thin">clients say</span>
                 </h2>
                 <p className="text-gray-600 text-center mb-12">
                     Don&apos;t just take it from us, hear it from our clients.
@@ -57,15 +59,34 @@ const TestimonialsCarousel = () => {
 
                     <Card className="relative flex-1">
                         <CardContent className="p-8">
-                            <span className="absolute -top-8 left-8 text-8xl text-black font-serif">"</span>
+                            <QuoteIcon className="absolute -top-8 left-8 w-16 h-16 text-black"/>
 
                             <div className="min-h-48 flex flex-col justify-between">
-                                <p className="text-xl text-gray-700 mt-8 mb-8">
-                                    {testimonials[state.currentIndex].quote}
-                                </p>
-                                <p className="text-gray-500 font-medium mb-8">
-                                    {testimonials[state.currentIndex].author}
-                                </p>
+                                <AnimatePresence mode="wait">
+                                    <motion.p
+                                        key={state.currentIndex}
+                                        initial={{opacity: 0, y: 20}}
+                                        animate={{opacity: 1, y: 0}}
+                                        exit={{opacity: 0, y: -20}}
+                                        transition={{duration: 0.5}}
+                                        className="text-xl text-gray-700 mt-8 mb-8"
+                                    >
+                                        {testimonials[state.currentIndex].quote}
+                                    </motion.p>
+                                </AnimatePresence>
+
+                                <AnimatePresence mode="wait">
+                                    <motion.p
+                                        key={state.currentIndex}
+                                        initial={{opacity: 0}}
+                                        animate={{opacity: 1}}
+                                        exit={{opacity: 0}}
+                                        transition={{duration: 0.5}}
+                                        className="text-gray-400 font-medium mb-8"
+                                    >
+                                        {testimonials[state.currentIndex].author}
+                                    </motion.p>
+                                </AnimatePresence>
                             </div>
 
                             <div className="flex gap-2 justify-center">
