@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { CarouselApi, Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel-clip-only-beginning";
-import { cases } from "./cases";
+import {useEffect, useState} from "react";
+import {CarouselApi, Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel-clip-only-beginning";
+import {cases} from "./cases";
 import CaseStudyInfo from "./CaseStudyInfo";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion"
 
-export default function Desktop({ currentIndex, setCurrentIndex }: {
+export default function Desktop({currentIndex, setCurrentIndex}: {
     currentIndex: number, setCurrentIndex: (index: number) => void
 }) {
     const [api, setApi] = useState<CarouselApi>();
@@ -32,12 +32,12 @@ export default function Desktop({ currentIndex, setCurrentIndex }: {
                     />
 
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{opacity: 0, x: 20}}
+                        whileInView={{opacity: 1, x: 0}}
+                        viewport={{once: true, amount: 0.2}}
+                        transition={{duration: 0.8}}
                     >
-                        <DesktopCarousel setApi={setApi} />
+                        <DesktopCarousel setApi={setApi}/>
                     </motion.div>
 
 
@@ -48,7 +48,7 @@ export default function Desktop({ currentIndex, setCurrentIndex }: {
     )
 }
 
-function DesktopCarousel({ setApi }: { setApi: (api: CarouselApi) => void }) {
+function DesktopCarousel({setApi}: { setApi: (api: CarouselApi) => void }) {
     return (
         <div className="flex-grow">
             <Carousel

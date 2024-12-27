@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { useForm } from '@formspree/react';
-import { Check, Loader2, ArrowRight } from "lucide-react";
+import React, {useState} from 'react';
+import {motion} from 'framer-motion';
+import {Card, CardContent} from "@/components/ui/card";
+import {Input} from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
+import {Textarea} from "@/components/ui/textarea";
+import {Button} from "@/components/ui/button";
+import {useForm} from '@formspree/react';
+import {Check, Loader2, ArrowRight} from "lucide-react";
 
 const ContactSection = () => {
     const [state, handleSubmit] = useForm("YOUR_FORMSPREE_ID");
     const [focusedField, setFocusedField] = useState<string | null>(null);
 
     const containerVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: {opacity: 0, y: 20},
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, staggerChildren: 0.1 }
+            transition: {duration: 0.6, staggerChildren: 0.1}
         }
     };
 
@@ -42,8 +42,8 @@ const ContactSection = () => {
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
+        hidden: {opacity: 0, y: 20},
+        visible: {opacity: 1, y: 0}
     };
 
     return (
@@ -52,7 +52,7 @@ const ContactSection = () => {
                 <motion.div
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.6 }}
+                    viewport={{once: true, amount: 0.6}}
                 >
                     <motion.div variants={cardVariants} className="text-center space-y-4">
                         <div className="relative inline-block">
@@ -61,7 +61,8 @@ const ContactSection = () => {
                             </h2>
                         </div>
                         <p className="text-gray-600 max-w-lg mx-auto text-lg">
-                            Have a question or want to work together? Drop us a message and we&apos;ll get back to you as soon as possible.
+                            Have a question or want to work together? Drop us a message and we&apos;ll get back to you
+                            as soon as possible.
                         </p>
                     </motion.div>
                 </motion.div>
@@ -69,10 +70,10 @@ const ContactSection = () => {
                 <motion.div
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{once: true, amount: 0.3}}
                 >
                     <motion.div variants={cardVariants}>
-                        <Card className="group relative overflow-hidden border-2 border-gray-100 bg-white">
+                        <Card className="group relative overflow-hidden  bg-white">
                             <CardContent className="p-8 space-y-8">
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     {['name', 'email', 'message'].map((field) => (
@@ -80,7 +81,7 @@ const ContactSection = () => {
                                             key={field}
                                             variants={itemVariants}
                                             className="relative space-y-2"
-                                            animate={focusedField === field ? { scale: 1.02 } : { scale: 1 }}
+                                            animate={focusedField === field ? {scale: 1.02} : {scale: 1}}
                                         >
                                             <Label htmlFor={field} className="text-lg font-medium">
                                                 {field.charAt(0).toUpperCase() + field.slice(1)}
@@ -118,18 +119,19 @@ const ContactSection = () => {
                                             <span className="relative z-10 flex items-center justify-center">
                                                 {state.submitting ? (
                                                     <>
-                                                        <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+                                                        <Loader2 className="mr-2 h-6 w-6 animate-spin"/>
                                                         Sending...
                                                     </>
                                                 ) : state.succeeded ? (
                                                     <>
-                                                        <Check className="mr-2 h-6 w-6" />
+                                                        <Check className="mr-2 h-6 w-6"/>
                                                         Message Sent!
                                                     </>
                                                 ) : (
                                                     <>
                                                         Send Message
-                                                        <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                                                        <ArrowRight
+                                                            className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
                                                     </>
                                                 )}
                                             </span>

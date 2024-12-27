@@ -1,15 +1,32 @@
 import React, {useState, useEffect} from 'react';
-import {motion, AnimatePresence} from 'framer-motion';
+import {motion, AnimatePresence, useInView} from 'framer-motion';
 import {testimonials} from './testimonials';
 import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
 import {QuoteIcon} from '@radix-ui/react-icons';
+
+const container = {
+    hidden: {opacity: 0},
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const item = {
+    hidden: {opacity: 0, y: 20},
+    show: {opacity: 1, y: 0}
+};
 
 const TestimonialsCarousel = () => {
     const [state, setState] = useState({
         currentIndex: 0,
         progress: 0
     });
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, {once: true, margin: "-100px"});
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -45,16 +62,30 @@ const TestimonialsCarousel = () => {
     };
 
     return (
-        <div className="pt-24">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-4">
+        <div ref={ref} className="pt-24">
+            <motion.div
+                variants={container}
+                initial="hidden"
+                animate={isInView ? "show" : "hidden"}
+                className="container mx-auto px-4"
+            >
+                <motion.h2
+                    variants={item}
+                    className="text-4xl font-bold text-center mb-4"
+                >
                     What our <span className="font-thin">clients say</span>
-                </h2>
-                <p className="text-gray-600 text-center mb-12">
+                </motion.h2>
+                <motion.p
+                    variants={item}
+                    className="text-gray-600 text-center mb-12"
+                >
                     Don&apos;t just take it from us, hear it from our clients.
-                </p>
+                </motion.p>
 
-                <div className="max-w-4xl mx-auto flex items-center gap-4">
+                <motion.div
+                    variants={item}
+                    className="max-w-4xl mx-auto flex items-center gap-4"
+                >
                     <NavigationButton action={scrollPrev} reverseArrow={true}/>
 
                     <Card className="relative flex-1">
@@ -106,8 +137,8 @@ const TestimonialsCarousel = () => {
                     </Card>
 
                     <NavigationButton action={scrollNext}/>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     );
 };
