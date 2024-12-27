@@ -11,6 +11,7 @@ import ContactSection from "@/components/Contact";
 import PhotoGallery from "@/components/PhotoGallery";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import Testimonials from "@/components/Testimonials";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
     return (
@@ -26,6 +27,7 @@ export default function Home() {
             <ContactSection/>
             <Footer/>
             <ScrollIndicator/>
+            <CustomCursor/>
         </div>
     );
 }
