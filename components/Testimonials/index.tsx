@@ -4,34 +4,43 @@ import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
 
 const TestimonialsCarousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [progress, setProgress] = useState(0);
-
-    const scrollNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-        setProgress(0);
-    };
-
-    const scrollPrev = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-        );
-        setProgress(0);
-    };
+    const [state, setState] = useState({
+        currentIndex: 0,
+        progress: 0
+    });
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setProgress((prevProgress) => {
-                if (prevProgress >= 100) {
-                    scrollNext();
-                    return 0;
+            setState(prevState => {
+                if (prevState.progress >= 100) {
+                    return {
+                        currentIndex: (prevState.currentIndex + 1) % testimonials.length,
+                        progress: 0
+                    };
                 }
-                return prevProgress + 0.5;
+                return {
+                    ...prevState,
+                    progress: prevState.progress + 1
+                };
             });
         }, 50);
 
         return () => clearInterval(timer);
     }, []);
+
+    const scrollNext = () => {
+        setState(prevState => ({
+            currentIndex: (prevState.currentIndex + 1) % testimonials.length,
+            progress: 0
+        }));
+    };
+
+    const scrollPrev = () => {
+        setState(prevState => ({
+            currentIndex: prevState.currentIndex === 0 ? testimonials.length - 1 : prevState.currentIndex - 1,
+            progress: 0
+        }));
+    };
 
     return (
         <div className="pt-24">
@@ -44,7 +53,7 @@ const TestimonialsCarousel = () => {
                 </p>
 
                 <div className="max-w-4xl mx-auto flex items-center gap-4">
-                    <NavigationButton scrollPrev={scrollPrev} reverseArrow={true}/>
+                    <NavigationButton action={scrollPrev} reverseArrow={true}/>
 
                     <Card className="relative flex-1">
                         <CardContent className="p-8">
@@ -52,10 +61,10 @@ const TestimonialsCarousel = () => {
 
                             <div className="min-h-48 flex flex-col justify-between">
                                 <p className="text-xl text-gray-700 mt-8 mb-8">
-                                    {testimonials[currentIndex].quote}
+                                    {testimonials[state.currentIndex].quote}
                                 </p>
                                 <p className="text-gray-500 font-medium mb-8">
-                                    {testimonials[currentIndex].author}
+                                    {testimonials[state.currentIndex].author}
                                 </p>
                             </div>
 
@@ -65,8 +74,8 @@ const TestimonialsCarousel = () => {
                                         <div
                                             className="h-full bg-black rounded-full transition-all duration-50"
                                             style={{
-                                                width: index < currentIndex ? '100%' :
-                                                    index === currentIndex ? `${progress}%` : '0%'
+                                                width: index < state.currentIndex ? '100%' :
+                                                    index === state.currentIndex ? `${state.progress}%` : '0%'
                                             }}
                                         />
                                     </div>
@@ -83,4 +92,3 @@ const TestimonialsCarousel = () => {
 };
 
 export default TestimonialsCarousel;
-
