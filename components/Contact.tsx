@@ -114,27 +114,49 @@ const ContactSection = () => {
                                             type="submit"
                                             disabled={state.submitting}
                                             size="lg"
-                                            className="group relative bg-black hover:bg-gray-900 text-white rounded-full h-16 text-lg"
+                                            className="group relative bg-black hover:bg-gray-900 text-white rounded-full h-16 text-lg overflow-hidden"
                                         >
-                                            <span className="relative z-10 flex items-center justify-center">
-                                                {state.submitting ? (
-                                                    <>
-                                                        <Loader2 className="mr-2 h-6 w-6 animate-spin"/>
-                                                        Sending...
-                                                    </>
-                                                ) : state.succeeded ? (
-                                                    <>
-                                                        <Check className="mr-2 h-6 w-6"/>
-                                                        Message Sent!
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        Send Message
-                                                        <ArrowRight
-                                                            className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
-                                                    </>
-                                                )}
-                                            </span>
+                                            <div
+                                                className="flex flex-col transition-transform duration-300 group-hover:-translate-y-8 translate-y-8">
+                                                <div className="flex items-center justify-center h-16">
+                                                    {state.submitting ? (
+                                                        <>
+                                                            <Loader2 className="mr-2 h-6 w-6 animate-spin"/>
+                                                            Sending...
+                                                        </>
+                                                    ) : state.succeeded ? (
+                                                        <>
+                                                            <Check className="mr-2 h-6 w-6"/>
+                                                            Message Sent!
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            Send Message
+                                                            <ArrowRight
+                                                                className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
+                                                        </>
+                                                    )}
+                                                </div>
+                                                <div className="flex items-center justify-center h-16">
+                                                    {state.submitting ? (
+                                                        <>
+                                                            <Loader2 className="mr-2 h-6 w-6 animate-spin"/>
+                                                            Sending...
+                                                        </>
+                                                    ) : state.succeeded ? (
+                                                        <>
+                                                            <Check className="mr-2 h-6 w-6"/>
+                                                            Message Sent!
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            Send Message
+                                                            <ArrowRight
+                                                                className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1"/>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            </div>
                                         </Button>
                                     </motion.div>
                                 </form>
