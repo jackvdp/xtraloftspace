@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/Contact";
 import PhotoGallery from "@/components/PhotoGallery";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
     return (
@@ -21,6 +22,7 @@ export default function Home() {
             <CaseStudies/>
             <FAQSection/>
             <PhotoGallery/>
+            <Testimonials/>
             <ContactSection/>
             <Footer/>
             <ScrollIndicator/>
