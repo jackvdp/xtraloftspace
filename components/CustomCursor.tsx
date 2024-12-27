@@ -40,22 +40,21 @@ const CustomCursor = () => {
             width: isHovering ? '72px' : '24px',
             height: isHovering ? '72px' : '24px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            backdropFilter: 'blur(4px)',
-            WebkitBackdropFilter: 'blur(4px)',
+            backgroundColor: 'rgba(200, 200, 200, 0.5)',
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             pointerEvents: 'none',
-            transition: 'width 0.2s, height 0.2s',
+            transition: 'width 0.3s, height 0.3s',
             fontSize: '10px',
             textAlign: 'center',
             lineHeight: 1,
             zIndex: 9999
         }}>
             {isHovering &&
-                <span
-                    style={{color: 'white', fontWeight: 'bold', display: 'block', width: '100%'}}>CLICK HERE</span>}
+                <span style={{color: 'black', display: 'block', width: '100%'}}>CLICK<br/>HERE</span>}
         </div>
     );
 };
