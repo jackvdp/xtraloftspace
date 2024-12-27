@@ -19,6 +19,7 @@ function NavbarItem({
         <Link
             href={item.href}
             className="group relative mx-2 overflow-hidden h-[24px]"
+            data-cursorinactive='true'
         >
             <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-[24px]">
                 <span className={`font-medium ${atTop ? 'text-white' : 'text-gray-700'}`}>

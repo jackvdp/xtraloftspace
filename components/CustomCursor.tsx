@@ -9,6 +9,12 @@ const CustomCursor = () => {
             setPos({x: e.clientX, y: e.clientY});
             const target = e.target as Element;
 
+            const inactiveElement = target.closest('[data-cursorinactive]');
+            if (inactiveElement) {
+                setCursorState({active: false, text: ''});
+                return;
+            }
+
             const cursorAttr = target.getAttribute('data-cursor');
             if (cursorAttr) {
                 setCursorState({active: true, text: cursorAttr.toUpperCase()});
