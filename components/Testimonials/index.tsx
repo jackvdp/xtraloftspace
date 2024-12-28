@@ -62,7 +62,7 @@ const TestimonialsCarousel = () => {
     };
 
     return (
-        <div ref={ref} className="pt-24">
+        <div ref={ref} className="py-24 bg-black">
             <motion.div
                 variants={container}
                 initial="hidden"
@@ -71,13 +71,13 @@ const TestimonialsCarousel = () => {
             >
                 <motion.h2
                     variants={item}
-                    className="text-4xl font-bold text-center mb-4"
+                    className="text-4xl font-bold text-center mb-4 text-white"
                 >
                     What our <span className="font-thin">clients say</span>
                 </motion.h2>
                 <motion.p
                     variants={item}
-                    className="text-gray-600 text-center mb-12"
+                    className="text-gray-400 text-center mb-12"
                 >
                     Don&apos;t just take it from us, hear it from our clients.
                 </motion.p>
@@ -90,9 +90,9 @@ const TestimonialsCarousel = () => {
                         <NavigationButton action={scrollPrev} reverseArrow={true}/>
                     </div>
 
-                    <Card className="relative flex-1">
+                    <Card className="relative flex-1 bg-zinc-800 border-zinc-700">
                         <CardContent className="p-8">
-                            <QuoteIcon className="absolute -top-8 left-8 w-16 h-16 text-black"/>
+                            <QuoteIcon className="absolute -top-8 left-8 w-16 h-16 text-white"/>
 
                             <div className="min-h-48 flex flex-col justify-between">
                                 <AnimatePresence mode="wait">
@@ -102,7 +102,7 @@ const TestimonialsCarousel = () => {
                                         animate={{opacity: 1, y: 0}}
                                         exit={{opacity: 0, y: -20}}
                                         transition={{duration: 0.5}}
-                                        className="text-xl text-gray-700 mt-8 mb-8"
+                                        className="text-xl text-white mt-8 mb-8"
                                     >
                                         {testimonials[state.currentIndex].quote}
                                     </motion.p>
@@ -115,7 +115,7 @@ const TestimonialsCarousel = () => {
                                         animate={{opacity: 1}}
                                         exit={{opacity: 0}}
                                         transition={{duration: 0.5}}
-                                        className="text-gray-400 font-medium mb-8"
+                                        className="text-zinc-400 font-medium mb-8"
                                     >
                                         {testimonials[state.currentIndex].author}
                                     </motion.p>
@@ -124,9 +124,9 @@ const TestimonialsCarousel = () => {
 
                             <div className="flex gap-2 justify-center">
                                 {testimonials.map((_, index) => (
-                                    <div key={index} className="h-1 w-16 bg-gray-100 rounded-full overflow-hidden">
+                                    <div key={index} className="h-1 w-16 bg-black rounded-full overflow-hidden">
                                         <div
-                                            className="h-full bg-black rounded-full transition-all duration-50"
+                                            className="h-full bg-white rounded-full transition-all duration-50"
                                             style={{
                                                 width: index < state.currentIndex ? '100%' :
                                                     index === state.currentIndex ? `${state.progress}%` : '0%'

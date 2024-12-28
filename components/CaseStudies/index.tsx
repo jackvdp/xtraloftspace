@@ -8,7 +8,7 @@ const CaseStudies = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
-        <div className="pt-24">
+        <div className="py-24">
             <div className='container mx-auto px-4'>
                 <h2 className="text-4xl font-bold text-center mb-4">Our {' '}
                     <span className="font-thin">work</span></h2>

@@ -22,9 +22,9 @@ export default function Home() {
             <AboutSection/>
             <ServicesSection/>
             <CaseStudies/>
+            <Testimonials/>
             <FAQSection/>
             <PhotoGallery/>
-            <Testimonials/>
             <ContactSection/>
             <Footer/>
             <ScrollIndicator/>
