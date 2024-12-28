@@ -91,7 +91,7 @@ const TestimonialsCarousel = () => {
                         <NavigationButton action={scrollPrev} reverseArrow={true}/>
                     </div>
 
-                    <Card className="relative flex-1 bg-zinc-800 border-zinc-700">
+                    <Card className="relative flex-1 bg-zinc-900 border-zinc-800">
                         <CardContent className="p-8">
                             <QuoteIcon className="absolute -top-8 left-8 w-16 h-16 text-white"/>
 
