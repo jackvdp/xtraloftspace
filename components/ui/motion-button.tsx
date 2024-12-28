@@ -43,11 +43,11 @@ export function CustomButton({text, link, useBlack = false}: { text: string, lin
     )
 }
 
-export function BigCustomButton({text, arrowEnabled}: { text: string, arrowEnabled?: boolean }) {
+export function BigCustomButton({text, arrowEnabled, dark}: { text: string, arrowEnabled?: boolean, dark?: boolean }) {
     return (
         <Button
             size="lg"
-            className="group relative bg-white hover:bg-gray-100 text-black rounded-full text-lg h-16 px-12 overflow-hidden"
+            className={`group relative ${dark ? `bg-black hover:bg-gray-900 text-white` : `bg-white hover:bg-gray-100 text-black`} rounded-full text-lg h-16 px-12 overflow-hidden`}
         >
             <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-8 translate-y-8">
                 <div className="flex items-center h-16">
