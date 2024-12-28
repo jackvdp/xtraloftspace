@@ -4,6 +4,7 @@ import {testimonials} from './testimonials';
 import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
 import {QuoteIcon} from '@radix-ui/react-icons';
+import {BigCustomButton} from "@/components/ui/motion-button";
 
 const container = {
     hidden: {opacity: 0},
@@ -94,6 +95,10 @@ const TestimonialsCarousel = () => {
                         <CardContent className="p-8">
                             <QuoteIcon className="absolute -top-8 left-8 w-16 h-16 text-white"/>
 
+                            <div className="absolute -top-8 right-8">
+                                <Stars/>
+                            </div>
+
                             <div className="min-h-48 flex flex-col justify-between">
                                 <AnimatePresence mode="wait">
                                     <motion.p
@@ -148,8 +153,34 @@ const TestimonialsCarousel = () => {
                     </div>
                 </motion.div>
             </motion.div>
+            <motion.div
+                className="flex justify-center mt-12"
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                viewport={{once: true, amount: 0.2}}
+                transition={{duration: 0.5, delay: 0.4}}
+            >
+                <BigCustomButton text={'Learn More'} arrowEnabled={true} dark={false}/>
+            </motion.div>
         </div>
     );
 };
 
 export default TestimonialsCarousel;
+
+
+const Stars = () => (
+    <AnimatePresence mode="wait">
+        <motion.div
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            exit={{opacity: 0, y: -20}}
+            transition={{duration: 0.5}}
+            className="flex gap-1"
+        >
+            {[...Array(5)].map((_, i) => (
+                <div key={i} className="text-white">★</div>
+            ))}
+        </motion.div>
+    </AnimatePresence>
+);

@@ -43,7 +43,7 @@ const ServicesSection = () => {
                 viewport={{once: true, amount: 0.2}}
                 transition={{duration: 0.5, delay: 0.4}}
             >
-                <BigCustomButton text={'View services'} arrowEnabled={true} dark={true}/>
+                <BigCustomButton text={'View Services'} arrowEnabled={true} dark={true}/>
             </motion.div>
         </div>
     );
