@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from 'react';
 
 const CustomCursor = () => {
+    return (
+        <div className="hidden md:block">
+            <CustomCursorRendered/>
+        </div>
+    );
+};
+
+const CustomCursorRendered = () => {
     const [pos, setPos] = useState({x: 0, y: 0});
     const [cursorState, setCursorState] = useState({active: false, text: ''});
 

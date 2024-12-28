@@ -117,7 +117,7 @@ const NavBar = () => {
                         opacity: isOpen ? 1 : 0,
                     }}
                     transition={{duration: 0.3, ease: 'easeInOut'}}
-                    className="lg:hidden overflow-hidden bg-white"
+                    className="lg:hidden overflow-hidden bg-white/80 backdrop-blur-md shadow-sm"
                 >
                     <div className="px-4 py-5 space-y-3">
                         {navItems.map((item) => (

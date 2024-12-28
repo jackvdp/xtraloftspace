@@ -84,9 +84,11 @@ const TestimonialsCarousel = () => {
 
                 <motion.div
                     variants={item}
-                    className="max-w-4xl mx-auto flex items-center gap-4"
+                    className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-4"
                 >
-                    <NavigationButton action={scrollPrev} reverseArrow={true}/>
+                    <div className="hidden md:block">
+                        <NavigationButton action={scrollPrev} reverseArrow={true}/>
+                    </div>
 
                     <Card className="relative flex-1">
                         <CardContent className="p-8">
@@ -136,7 +138,14 @@ const TestimonialsCarousel = () => {
                         </CardContent>
                     </Card>
 
-                    <NavigationButton action={scrollNext}/>
+                    <div className="hidden md:block">
+                        <NavigationButton action={scrollNext}/>
+                    </div>
+
+                    <div className="flex gap-4 md:hidden">
+                        <NavigationButton action={scrollPrev} reverseArrow={true}/>
+                        <NavigationButton action={scrollNext}/>
+                    </div>
                 </motion.div>
             </motion.div>
         </div>

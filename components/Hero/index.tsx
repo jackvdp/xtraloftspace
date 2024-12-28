@@ -77,14 +77,16 @@ const Hero = () => {
                 </Swiper>
 
                 {/* Custom Pagination */}
-                <div className={styles.paginationContainer}>
-                    {images.map((_, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.paginationBullet} ${index === activeIndex ? styles.active : ''}`}
-                            onClick={() => swiper?.slideTo(index)}
-                        />
-                    ))}
+                <div className='hidden md:block'>
+                    <div className={styles.paginationContainer}>
+                        {images.map((_, index) => (
+                            <div
+                                key={index}
+                                className={`${styles.paginationBullet} ${index === activeIndex ? styles.active : ''}`}
+                                onClick={() => swiper?.slideTo(index)}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 
