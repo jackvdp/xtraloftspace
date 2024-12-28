@@ -1,7 +1,7 @@
 "use client"
 
 import Hero from "@/components/Hero";
-import NavBar from "@/components/Navbar";
+import Index from "@/components/Navbar";
 import AboutSection from "@/components/About";
 import ServicesSection from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
@@ -16,7 +16,7 @@ import CustomCursor from "@/components/CustomCursor";
 export default function Home() {
     return (
         <div className="relative">
-            <NavBar/>
+            <Index/>
             <Hero/>
             <AboutSection/>
             <ServicesSection/>
