@@ -73,7 +73,7 @@ const ContactSection = () => {
                     viewport={{once: true, amount: 0.3}}
                 >
                     <motion.div variants={cardVariants}>
-                        <Card className="group relative overflow-hidden  bg-white">
+                        <Card className="relative overflow-hidden  bg-white">
                             <CardContent className="p-8 space-y-8">
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     {['name', 'email', 'message'].map((field) => (
