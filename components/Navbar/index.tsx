@@ -90,6 +90,19 @@ const Navbar = () => {
                     transition={{duration: 0.3, ease: 'easeInOut'}}
                     className={`lg:hidden overflow-hidden fixed inset-0 bg-white ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
                 >
+                    <div className="absolute top-0 left-0 right-0 px-4">
+                        <div className="container mx-auto">
+                            <div className="relative h-16 w-64">
+                                <Image
+                                    src="/images/logo.png"
+                                    alt="Xtra Loft Space"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </div>
                     <div className="h-full flex flex-col items-center justify-center space-y-8">
                         {navItems.map((item) => (
                             <Link
