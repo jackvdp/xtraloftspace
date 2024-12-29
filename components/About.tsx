@@ -3,8 +3,8 @@ import {CheckCircle2} from 'lucide-react';
 import {useInView} from 'react-intersection-observer';
 import {motion} from 'framer-motion';
 import CountUp from 'react-countup';
-import Image from 'next/image';
 import {Card, CardContent} from "@/components/ui/card";
+import ParallaxImage from "@/components/ui/parallaxImage";
 
 export default function AboutSection() {
     const features = [
@@ -16,6 +16,7 @@ export default function AboutSection() {
 
     const {ref, inView} = useInView({
         threshold: 0.2,
+        triggerOnce: true
     });
 
     const [hovered, setHovered] = React.useState(false);
@@ -81,7 +82,7 @@ export default function AboutSection() {
                                 variants={bottomImageVariants}
                                 animate={hovered ? "hovered" : "initial"}
                             >
-                                <Image
+                                <ParallaxImage
                                     src="/images/tiling.jpg"
                                     alt="Completed loft project"
                                     fill
@@ -95,7 +96,7 @@ export default function AboutSection() {
                                 variants={topImageVariants}
                                 animate={hovered ? "hovered" : "initial"}
                             >
-                                <Image
+                                <ParallaxImage
                                     src="/images/exterior.jpg"
                                     alt="Team working on site"
                                     fill

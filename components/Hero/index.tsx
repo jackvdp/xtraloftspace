@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Sparkles} from 'lucide-react';
-import {motion, Variants} from 'framer-motion';
+import {motion, useScroll, useTransform} from 'framer-motion';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, EffectFade} from 'swiper/modules';
 import {Swiper as SwiperType} from 'swiper/types';
@@ -15,13 +15,16 @@ const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
+    const {scrollY} = useScroll();
+    const scale = useTransform(scrollY, [0, 1000], [1, 1.5]);
+
     const images = [
         '/images/loft.jpeg',
         '/images/kitchen.jpeg',
         '/images/tiling.jpg'
     ];
 
-    const revealAnimation: Variants = {
+    const revealAnimation = {
         initial: {y: "100%"},
         animate: {
             y: 0,
@@ -57,26 +60,30 @@ const Hero = () => {
                         disableOnInteraction: false,
                     }}
                     loop={true}
-                    className="h-full w-full"
+                    className="h-full w-full overflow-hidden"
                     onSwiper={setSwiper}
                     onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
-                            <div className="relative h-full w-full">
-                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60 z-10"/>
-                                <Image
-                                    src={image}
-                                    alt={`Interior design ${index + 1}`}
-                                    className="h-full w-full object-cover"
-                                    fill
-                                />
+                            <div className="relative h-full w-full overflow-hidden">
+                                <motion.div
+                                    style={{scale}}
+                                    className="relative h-full w-full origin-center"
+                                >
+                                    <Image
+                                        src={image}
+                                        alt={`Interior design ${index + 1}`}
+                                        className="h-full w-full object-cover"
+                                        fill
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60 z-10"/>
+                                </motion.div>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
 
-                {/* Custom Pagination */}
                 <div className='hidden md:block'>
                     <div className={styles.paginationContainer}>
                         {images.map((_, index) => (
@@ -98,7 +105,6 @@ const Hero = () => {
                     className="max-w-2xl space-y-8"
                 >
                     <div className="space-y-6">
-                        {/* Expert Craftmanship line */}
                         <div className="overflow-hidden">
                             <motion.div variants={revealAnimation} className="flex items-center space-x-2">
                                 <Sparkles className="h-6 w-6 text-white"/>
@@ -106,7 +112,6 @@ const Hero = () => {
                             </motion.div>
                         </div>
 
-                        {/* Main heading */}
                         <div className="overflow-hidden">
                             <motion.h1
                                 variants={revealAnimation}
@@ -116,7 +121,6 @@ const Hero = () => {
                             </motion.h1>
                         </div>
 
-                        {/* Paragraph */}
                         <div className="overflow-hidden">
                             <motion.p
                                 variants={revealAnimation}
@@ -128,13 +132,12 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    {/* Buttons */}
                     <div className="overflow-hidden">
                         <motion.div
                             variants={revealAnimation}
                             className="flex flex-col sm:flex-row gap-6"
                         >
-                            <BigCustomButton text="Let&apos;s Talk" arrowEnabled={true}/>
+                            <BigCustomButton text="Let's Talk" arrowEnabled={true}/>
                             <OutlineButton text={"View Portfolio"}/>
                         </motion.div>
                     </div>
