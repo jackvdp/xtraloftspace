@@ -96,7 +96,7 @@ const ServicesPage = () => {
     };
 
     return (
-        <div ref={containerRef} className="flex mb-72">
+        <div ref={containerRef} className="flex mb-72 relative">
             <div className="w-1/2">
                 {services.map((service, index) => (
                     <div key={index} className="h-screen flex items-center p-24">
