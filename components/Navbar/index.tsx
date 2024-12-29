@@ -43,7 +43,7 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-4">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
-                    <Link href="/public"
+                    <Link href="/"
                           className={`relative h-16 w-64 flex items-center ${atTop && !isOpen && "brightness-0 invert"}`}>
                         <Image
                             src="/images/logo.png"
