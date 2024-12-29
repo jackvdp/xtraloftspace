@@ -7,13 +7,13 @@ const ServicesHeader = () => {
 
     const topSlide = useTransform(
         scrollYProgress,
-        [0, 0.3],
+        [0, 0.25],
         ['0%', '-100%']
     );
 
     const bottomSlide = useTransform(
         scrollYProgress,
-        [0, 0.3],
+        [0, 0.25],
         ['0%', '100%']
     );
 
@@ -25,7 +25,6 @@ const ServicesHeader = () => {
 
     return (
         <div>
-            <div className={'h-screen bg-white'}/>
             <div className="fixed inset-0 z-20 pointer-events-none">
                 {/* Top component */}
                 <motion.div
