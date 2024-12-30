@@ -1,6 +1,5 @@
 import {motion} from 'framer-motion';
 import {Service} from './Service';
-import Image from "next/image";
 import ParallaxImage from "@/components/ui/parallaxImage";
 
 export default function Card({service, index}: { service: Service; index: number }) {

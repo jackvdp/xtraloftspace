@@ -3,10 +3,16 @@ import {motion, useScroll, useTransform} from 'framer-motion';
 import ParallaxImage from "@/components/ui/parallaxImage";
 import {services} from '@/components/Services/Service';
 
+interface Service {
+    title: string;
+    fullDescription: string;
+    image: string;
+}
+
 const ServicesPage = () => {
     const containerRef = useRef(null);
 
-    const ServiceText = ({service, index}) => {
+    function ServiceText({service, index}: { service: Service; index: number }) {
         const {scrollYProgress} = useScroll({
             target: containerRef,
             offset: [`${index * 100}vh center`, `${(index + 1) * 100}vh center`]
@@ -41,6 +47,20 @@ const ServicesPage = () => {
                 style={{opacity, x}}
                 className="absolute top-1/2 -translate-y-1/2 px-16"
             >
+                <motion.div
+                    style={{opacity}}
+                    className="absolute -top-96 right-1/4 -z-10"
+                >
+                <span
+                    className="text-[50vh] font-bold"
+                    style={{
+                        color: 'transparent',
+                        WebkitTextStroke: '2px rgba(0,0,0,0.1)',
+                    }}
+                >
+                    {(index + 1).toString().padStart(2, '0')}
+                </span>
+                </motion.div>
                 <motion.h2
                     style={{y: titleY}}
                     className="text-6xl font-bold text-black mb-8"
@@ -57,7 +77,7 @@ const ServicesPage = () => {
         );
     };
 
-    const ServiceImage = ({service, index}) => {
+    function ServiceImage({service, index}: { service: Service; index: number }) {
         const {scrollYProgress} = useScroll({
             target: containerRef,
             offset: [`${index * 100}vh center`, `${(index + 1) * 100}vh center`]

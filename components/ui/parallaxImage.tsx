@@ -2,14 +2,14 @@ import React, {useRef} from 'react';
 import Image from 'next/image';
 import {motion, useScroll, useTransform} from 'framer-motion';
 
-const ParallaxImage = ({
+function ParallaxImage({
                            src,
                            alt,
                            className = "",
                            startScale = 1,
                            endScale = 1.2,
                            ...props
-                       }) => {
+                       }) {
     const ref = useRef(null);
     const {scrollYProgress} = useScroll({
         target: ref,

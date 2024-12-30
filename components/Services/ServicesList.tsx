@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {motion, useScroll, useTransform} from 'framer-motion';
 import {services} from '@/components/Services/Service';
 import ScrollIndicator from "@/components/ui/ScrollDownIndicator";
 
 const ServicesList = () => {
     const {scrollY} = useScroll();
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        setHeight(window.innerHeight);
+    }, []);
+
     const opacity = useTransform(
         scrollY,
-        [window.innerHeight, window.innerHeight * 1.2],
+        [height, height * 1.2],
         [1, 0]
     );
 
@@ -20,7 +26,7 @@ const ServicesList = () => {
                 <div className="h-screen flex items-center justify-center">
                     <div className="w-full max-w-5xl px-8">
                         <div className="flex items-start gap-8">
-                            <div data-cursor="Scroll Down" className="flex flex-col justify-between py-12 flex-1">
+                            <div className="flex flex-col justify-between py-12 flex-1">
                                 {services.map((service, index) => (
                                     <motion.div
                                         key={service.title}
