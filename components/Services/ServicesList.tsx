@@ -30,8 +30,11 @@ const ServicesList = () => {
                                             delay: 0.1 + (index * 0.1),
                                             duration: 0.5
                                         }}
-                                        className="py-4"
+                                        className="py-4 flex items-baseline gap-6"
                                     >
+                                        <span className="text-3xl font-bold">
+                                            {(index + 1).toString().padStart(2, '0')}
+                                        </span>
                                         <h3 className="text-6xl font-bold tracking-tight">
                                             {service.title}
                                         </h3>
