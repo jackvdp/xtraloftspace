@@ -55,12 +55,12 @@ function ServiceText({
     return (
         <motion.div
             style={{opacity, x}}
-            className="relative px-8" // replicate old spacing
+            className="relative px-8"
         >
             {/* Large index number behind */}
             <motion.div
                 style={{opacity}}
-                className="absolute -top-96 right-0 -z-10"
+                className="absolute right-0 bottom-12 -z-10"
             >
         <span
             className="text-[50vh] font-bold"
@@ -98,8 +98,6 @@ function ServiceText({
 function SingleService({service, index}: { service: Service; index: number }) {
     const blockRef = useRef<HTMLDivElement | null>(null);
 
-    // "start end" => start anim when the top of block hits bottom of viewport
-    // "end start" => end anim when bottom of block hits top of viewport
     const {scrollYProgress} = useScroll({
         target: blockRef,
         offset: ["start end", "end start"],
@@ -108,27 +106,29 @@ function SingleService({service, index}: { service: Service; index: number }) {
     return (
         <div
             ref={blockRef}
-            // Similar to old: h-screen, flex, items-center, p-24
-            className="relative h-screen flex items-center p-24 gap-8 "
+            className="relative h-screen flex items-center p-24 "
         >
-            {/* Left half = Image */}
-            <div className="w-1/2 flex justify-center">
-                <ServiceImage
-                    scrollYProgress={scrollYProgress}
-                    imageSrc={service.image}
-                    altText={service.title}
-                />
+            <div className={"flex items-center gap-8"}>
+                {/* Left half = Image */}
+                <div className="w-1/2 flex justify-center">
+                    <ServiceImage
+                        scrollYProgress={scrollYProgress}
+                        imageSrc={service.image}
+                        altText={service.title}
+                    />
+                </div>
+
+                {/* Right half = Text */}
+                <div className="w-1/2 flex justify-center mt-auto">
+                    <ServiceText
+                        scrollYProgress={scrollYProgress}
+                        title={service.title}
+                        description={service.fullDescription}
+                        index={index}
+                    />
+                </div>
             </div>
 
-            {/* Right half = Text */}
-            <div className="w-1/2 flex justify-center">
-                <ServiceText
-                    scrollYProgress={scrollYProgress}
-                    title={service.title}
-                    description={service.fullDescription}
-                    index={index}
-                />
-            </div>
         </div>
     );
 }
