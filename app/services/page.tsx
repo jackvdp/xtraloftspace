@@ -12,7 +12,7 @@ import ServicesList from "@/components/Services/ServicesList";
 
 export default function Home() {
     return (
-        <div className="relative">
+        <div>
             <Navbar/>
             {/*<ServicesHeader/>*/}
             <ServicesList/>
