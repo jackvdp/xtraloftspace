@@ -3,13 +3,7 @@
 import React, {useRef} from "react";
 import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
 import ParallaxImage from "@/components/ui/parallaxImage";
-import {services} from "@/components/Services/Service";
-
-interface Service {
-    title: string;
-    fullDescription: string;
-    image: string;
-}
+import {services, Service} from "@/components/Services/Service";
 
 //
 // 1) ServiceImage component
@@ -120,7 +114,7 @@ function SingleService({service, index}: { service: Service; index: number }) {
 //
 const ServicesDetails = () => {
     return (
-        <div className="w-full flex flex-col bg-gray-50">
+        <div className="w-full flex flex-col">
             {services.map((service, index) => (
                 <SingleService key={index} service={service} index={index}/>
             ))}
