@@ -9,12 +9,13 @@ import Footer from "@/components/Footer";
 import React from "react";
 import Contact from "@/components/Contact";
 import ServicesList from "@/components/Services/ServicesList";
+import ServicesHeader from "@/components/Services/ServicesHeader";
 
 export default function Home() {
     return (
         <div>
             <Navbar/>
-            {/*<ServicesHeader/>*/}
+            <ServicesHeader/>
             <ServicesList/>
             <ServicesDetails/>
             <div className={"w-full bg-zinc-100"}>
