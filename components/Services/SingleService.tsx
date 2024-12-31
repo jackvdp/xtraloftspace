@@ -5,9 +5,6 @@ import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
 import ParallaxImage from "@/components/ui/parallaxImage";
 import {Service} from "@/components/Services/Service";
 
-//
-// 1) ServiceImage: replicate old transform + styling
-//
 function ServiceImage({
                           scrollYProgress,
                           imageSrc,
@@ -17,9 +14,9 @@ function ServiceImage({
     imageSrc: string;
     altText: string;
 }) {
-    // Same transforms as old code
-    const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.8, 1, 1, 0.8]);
-    const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
+    // Same transforms but with wider ranges for longer animation
+    const scale = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [0.8, 1, 1, 0.8]);
+    const opacity = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [0, 1, 1, 0]);
     const x = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [-100, 0, 0, -100]);
 
     return (
@@ -32,9 +29,6 @@ function ServiceImage({
     );
 }
 
-//
-// 2) ServiceText: replicate old transform + styling
-//
 function ServiceText({
                          scrollYProgress,
                          title,
@@ -46,9 +40,8 @@ function ServiceText({
     description: string;
     index: number;
 }) {
-    // Same transforms as old code
-    const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
-    const x = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [100, 0, 0, 100]);
+    const opacity = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [0, 1, 1, 0]);
+    const x = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [100, 0, 0, 100]);
     const titleY = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [20, 0, 0, 20]);
     const descriptionY = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [30, 0, 0, 30]);
 
@@ -62,15 +55,15 @@ function ServiceText({
                 style={{opacity}}
                 className="absolute right-0 bottom-12 -z-10"
             >
-        <span
-            className="text-[50vh] font-bold"
-            style={{
-                color: "transparent",
-                WebkitTextStroke: "2px rgba(0,0,0,0.1)",
-            }}
-        >
-          {(index + 1).toString().padStart(2, "0")}
-        </span>
+                <span
+                    className="text-[50vh] font-bold"
+                    style={{
+                        color: "transparent",
+                        WebkitTextStroke: "2px rgba(0,0,0,0.1)",
+                    }}
+                >
+                    {(index + 1).toString().padStart(2, "0")}
+                </span>
             </motion.div>
 
             {/* Title */}
@@ -92,9 +85,6 @@ function ServiceText({
     );
 }
 
-//
-// 3) SingleService: block with its own ref + scroll listener
-//
 export default function SingleService({service, index}: { service: Service; index: number }) {
     const blockRef = useRef<HTMLDivElement | null>(null);
 
@@ -106,9 +96,9 @@ export default function SingleService({service, index}: { service: Service; inde
     return (
         <div
             ref={blockRef}
-            className="relative h-screen flex items-center p-24 "
+            className="relative h-[120vh] flex items-center p-24"
         >
-            <div className={"flex items-center gap-8"}>
+            <div className="flex items-center gap-8">
                 {/* Left half = Image */}
                 <div className="w-1/2 flex justify-center">
                     <ServiceImage
@@ -128,7 +118,6 @@ export default function SingleService({service, index}: { service: Service; inde
                     />
                 </div>
             </div>
-
         </div>
     );
 }
