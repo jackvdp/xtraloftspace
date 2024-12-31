@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import CustomCursor from "@/components/CustomCursor";
 import PageLabel from "@/components/PageLabel";
-import ServicesDetails from "@/components/Services/ServicesDetails";
 import Footer from "@/components/Footer";
 import ServicesHeader from "@/components/Services/ServicesFullHeader";
 import React from "react";
