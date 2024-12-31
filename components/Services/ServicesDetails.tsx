@@ -55,12 +55,12 @@ function ServiceText({
     return (
         <motion.div
             style={{opacity, x}}
-            className="relative px-16" // replicate old spacing
+            className="relative px-8" // replicate old spacing
         >
             {/* Large index number behind */}
             <motion.div
                 style={{opacity}}
-                className="absolute -top-96 right-1/4 -z-10"
+                className="absolute -top-96 right-0 -z-10"
             >
         <span
             className="text-[50vh] font-bold"
@@ -109,7 +109,7 @@ function SingleService({service, index}: { service: Service; index: number }) {
         <div
             ref={blockRef}
             // Similar to old: h-screen, flex, items-center, p-24
-            className="relative h-screen flex items-center p-24 gap-8"
+            className="relative h-screen flex items-center p-24 gap-8 "
         >
             {/* Left half = Image */}
             <div className="w-1/2 flex justify-center">
@@ -138,7 +138,7 @@ function SingleService({service, index}: { service: Service; index: number }) {
 //
 const ServicesDetails = () => {
     return (
-        <div className="w-full flex flex-col mb-72 relative">
+        <div className="w-full flex flex-col relative">
             {services.map((service, index) => (
                 <SingleService key={index} service={service} index={index}/>
             ))}
