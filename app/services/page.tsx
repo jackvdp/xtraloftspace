@@ -17,7 +17,7 @@ export default function Home() {
             <Navbar/>
             <ServicesHeader/>
             <ServicesList/>
-            <ServicesDetails/>
+            {/*<ServicesDetails/>*/}
             <div className={"w-full bg-zinc-100"}>
                 <Contact/>
             </div>
