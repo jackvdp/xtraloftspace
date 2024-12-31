@@ -50,7 +50,7 @@ function ServiceText({
     const descriptionY = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [30, 0, 0, 30]);
 
     return (
-        <div className="relative overflow-hidden lg:overflow-visible w-full">
+        <div className="relative w-full">
             <motion.div
                 style={{opacity, x}}
                 className="relative px-4 lg:px-8"
@@ -118,7 +118,7 @@ export default function SingleService({service, index}: { service: Service; inde
     return (
         <div
             ref={blockRef}
-            className="relative h-[120vh] flex items-center p-6 lg:p-24"
+            className="relative h-[100vh] flex items-center p-6 lg:p-24"
         >
             <div className="flex flex-col lg:flex-row items-center gap-8">
                 {/* Left half = Image */}
