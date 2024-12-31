@@ -40,63 +40,70 @@ function ServiceText({
     index: number;
 }) {
     const opacity = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [0, 1, 1, 0]);
-    const x = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [100, 0, 0, 100]);
+    // Different x transform values for mobile/desktop
+    const x = useTransform(
+        scrollYProgress,
+        [0.1, 0.4, 0.6, 0.9],
+        window.innerWidth >= 1024 ? [100, 0, 0, 100] : [50, 0, 0, 50]
+    );
     const titleY = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [20, 0, 0, 20]);
     const descriptionY = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [30, 0, 0, 30]);
 
     return (
-        <motion.div
-            style={{opacity, x}}
-            className="relative px-4 md:px-8"
-        >
-            {/* Large index number behind */}
+        <div className="relative overflow-hidden lg:overflow-visible w-full">
             <motion.div
-                style={{opacity}}
-                className="absolute right-0 bottom-12 -z-10 hidden lg:block"
+                style={{opacity, x}}
+                className="relative px-4 lg:px-8"
             >
-                <span
-                    className="text-[50vh] font-bold"
-                    style={{
-                        color: "transparent",
-                        WebkitTextStroke: "2px rgba(0,0,0,0.1)",
-                    }}
+                {/* Large index number behind */}
+                <motion.div
+                    style={{opacity}}
+                    className="absolute right-0 bottom-12 -z-10 hidden lg:block"
                 >
-                    {(index + 1).toString().padStart(2, "0")}
-                </span>
-            </motion.div>
+                    <span
+                        className="text-[50vh] font-bold"
+                        style={{
+                            color: "transparent",
+                            WebkitTextStroke: "2px rgba(0,0,0,0.1)",
+                        }}
+                    >
+                        {(index + 1).toString().padStart(2, "0")}
+                    </span>
+                </motion.div>
 
-            {/* Mobile version of the number */}
-            <motion.div
-                style={{opacity}}
-                className="lg:hidden absolute -top-16 right-0 -z-10"
-            >
-                <span
-                    className="text-[20vh] font-bold"
-                    style={{
-                        color: "transparent",
-                        WebkitTextStroke: "1px rgba(0,0,0,0.1)",
-                    }}
+                {/* Mobile version of the number */}
+                <motion.div
+                    style={{opacity}}
+                    className="lg:hidden absolute -top-16 right-0 -z-10"
                 >
-                    {(index + 1).toString().padStart(2, "0")}
-                </span>
+                    <span
+                        className="text-[20vh] font-bold"
+                        style={{
+                            color: "transparent",
+                            WebkitTextStroke: "1px rgba(0,0,0,0.1)",
+                        }}
+                    >
+                        {(index + 1).toString().padStart(2, "0")}
+                    </span>
+                </motion.div>
+
+                {/* Title */}
+                <motion.h2
+                    style={{y: titleY}}
+                    className="text-4xl lg:text-6xl font-bold text-black mb-4 lg:mb-8"
+                >
+                    {title}
+                </motion.h2>
+
+                {/* Description */}
+                <motion.p
+                    style={{y: descriptionY}}
+                    className="text-lg lg:text-xl text-black/70"
+                >
+                    {description}
+                </motion.p>
             </motion.div>
-
-            {/* Title */}
-            <motion.h2
-                style={{y: titleY}}
-                className="text-4xl lg:text-6xl font-bold text-black mb-4 lg:mb-8"
-            >
-                {title}
-            </motion.h2>
-
-            {/* Description */}
-            <motion.p
-                style={{y: descriptionY}}
-                className="text-lg lg:text-xl text-black/70"
-            >
-                {description}
-            </motion.p>
-        </motion.div>
+        </div>
     );
 }
 
@@ -113,7 +120,7 @@ export default function SingleService({service, index}: { service: Service; inde
             ref={blockRef}
             className="relative h-[120vh] flex items-center p-6 lg:p-24"
         >
-            <div className="flex flex-col lg:flex-row items-center gap-8 sticky top-24">
+            <div className="flex flex-col lg:flex-row items-center gap-8">
                 {/* Left half = Image */}
                 <div className="w-full lg:w-1/2 flex justify-center">
                     <ServiceImage
