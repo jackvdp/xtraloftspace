@@ -1,3 +1,5 @@
+"use client"
+
 import React, {useState} from 'react';
 import {motion, useScroll, useMotionValueEvent} from 'framer-motion';
 import {Menu, X} from 'lucide-react';
