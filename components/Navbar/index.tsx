@@ -7,7 +7,7 @@ import {CustomButton} from '../ui/motion-button';
 import {usePathname} from 'next/navigation';
 import NavbarItem from './NavbarItem';
 
-const Navbar = () => {
+function Navbar({useDarkText}: { useDarkText?: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
     const [hidden, setHidden] = useState(false);
     const [atTop, setAtTop] = useState(true);
@@ -44,7 +44,7 @@ const Navbar = () => {
             <div className="container mx-auto px-4">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
                     <Link href="/"
-                          className={`relative h-16 w-64 flex items-center ${atTop && !isOpen && "brightness-0 invert"}`}>
+                          className={`relative h-16 w-64 flex items-center ${atTop && !isOpen && !useDarkText && "brightness-0 invert"}`}>
                         <Image
                             src="/images/logo.png"
                             alt="Xtra Loft Space"
@@ -59,14 +59,14 @@ const Navbar = () => {
                             <NavbarItem
                                 key={item.name}
                                 item={item}
-                                atTop={atTop}
+                                atTop={atTop && !useDarkText}
                                 pathname={pathname}
                             />
                         ))}
                         <CustomButton
                             text="Get Quote"
                             link="/contact"
-                            useBlack={!atTop}
+                            useBlack={!atTop || useDarkText}
                         />
                     </div>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
                         className={`lg:hidden p-2 z-50 transition-colors ${
                             isOpen
                                 ? 'text-black hover:text-black/80'
-                                : (atTop ? 'text-white hover:text-white/80' : 'text-gray-600 hover:text-black')
+                                : (atTop && !useDarkText ? 'text-white hover:text-white/80' : 'text-gray-600 hover:text-black')
                         }`}
                     >
                         {isOpen ? <X size={24}/> : <Menu size={24}/>}
@@ -124,5 +124,6 @@ const Navbar = () => {
             </div>
         </motion.header>
     );
-};
+}
+
 export default Navbar;

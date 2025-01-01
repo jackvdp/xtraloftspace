@@ -13,7 +13,7 @@ const OWNER_PROFILES = [
     {
         name: "Jordan",
         role: "Co-Founder & Master Builder",
-        image: "/images/about1.jpeg",
+        image: "/images/profile.jpeg",
         description: `Jordan has spent the last decade developing loft 
       conversions and extensions across North London and Hertfordshire. 
       With a sharp eye for detail and unwavering dedication to each project, 
@@ -68,38 +68,36 @@ const OUR_OFFERINGS = [
 export default function AboutUsPage() {
     return (
         <div className="flex flex-col">
-            <Navbar/>
+            <Navbar useDarkText={true}/>
             {/* Hero / Intro Section */}
-            <section className="bg-black text-white">
-                <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
-                    <motion.h1
-                        initial={{opacity: 0, y: -20}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={{once: true, amount: 0.2}}
-                        transition={{duration: 0.6}}
-                        className="text-4xl lg:text-6xl font-bold mb-6 text-center"
-                    >
-                        About <span className="font-thin">Us</span>
-                    </motion.h1>
+            <section className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
+                <motion.h1
+                    initial={{opacity: 0, y: -20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true, amount: 0.2}}
+                    transition={{duration: 0.6}}
+                    className="text-4xl lg:text-6xl font-bold mb-6 text-center"
+                >
+                    About <span className="font-thin">Us</span>
+                </motion.h1>
 
-                    <motion.p
-                        initial={{opacity: 0, y: 20}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={{once: true, amount: 0.2}}
-                        transition={{duration: 0.6, delay: 0.2}}
-                        className="text-center max-w-3xl mx-auto text-lg lg:text-xl text-gray-300"
-                    >
-                        We’re a dedicated team serving <strong>North London</strong> and <strong>Hertfordshire</strong>,
-                        focused on delivering loft conversions and home transformations
-                        that truly exceed your expectations. As a small, family-run
-                        business, we bring a personal touch and unwavering commitment
-                        to every project.
-                    </motion.p>
-                </div>
+                <motion.p
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true, amount: 0.2}}
+                    transition={{duration: 0.6, delay: 0.2}}
+                    className="text-center max-w-3xl mx-auto text-lg lg:text-xl text-gray-700"
+                >
+                    We’re a dedicated team serving <strong>North London</strong> and <strong>Hertfordshire</strong>,
+                    focused on delivering loft conversions and home transformations
+                    that truly exceed your expectations. As a small, family-run
+                    business, we bring a personal touch and unwavering commitment
+                    to every project.
+                </motion.p>
             </section>
 
             {/* Owners Section */}
-            <section className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
+            <section className="container mx-auto px-4 lg:px-8 pb-16 lg:pb-24">
                 <div className="flex flex-col gap-16">
                     {OWNER_PROFILES.map((owner, index) => {
                         const isReversed = index % 2 !== 0; // alternate layout
