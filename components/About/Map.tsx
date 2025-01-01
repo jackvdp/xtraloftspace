@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import GoogleMapReact from "google-map-react";
 import {Card} from "@/components/ui/card";
@@ -18,10 +18,16 @@ const coverageCoordinates = [
     {lat: 51.6458, lng: -0.4520},
 ];
 
+function getDefaultZoom() {
+    if (typeof window === "undefined") return 10.25;
+    // fallback if SSR
+    return window.innerWidth < 768 ? 9 : 10.25;
+    // pick your own zoom levels
+}
+
 export default function MapSection() {
     // Center the map between North London & Hertfordshire (approx.)
     const defaultCenter = {lat: 51.6, lng: -0.12};
-    const defaultZoom = 10.25; // Slightly zoomed out to show a broad area
 
     // Draws a polygon overlay after Google Maps has loaded
     const handleApiLoaded = ({map, maps}: { map: any; maps: any }) => {
@@ -78,10 +84,9 @@ export default function MapSection() {
                                 key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
                             }}
                             defaultCenter={defaultCenter}
-                            defaultZoom={defaultZoom}
+                            defaultZoom={getDefaultZoom()}
                             yesIWantToUseGoogleMapApiInternals
                             onGoogleApiLoaded={handleApiLoaded}
-                            // optional: custom map styles, etc.
                         />
                     </Card>
                 </motion.div>
