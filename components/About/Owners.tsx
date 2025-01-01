@@ -16,7 +16,7 @@ const OWNER_PROFILES = [
     {
         name: "Tom",
         role: "Co-Founder & Project Manager",
-        image: "/images/about2.jpeg",
+        image: "/images/profile2.jpg",
         description: `Tom coordinates every aspect of our builds, from initial 
       planning to the finishing touches. Known for his friendly, professional 
       approach, Tom keeps clients informed every step of the way. 
