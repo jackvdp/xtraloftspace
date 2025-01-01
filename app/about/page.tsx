@@ -9,6 +9,7 @@ import Hero from "@/components/About/Hero";
 import Owners from "@/components/About/Owners";
 import WhyUs from "@/components/About/WhyUs";
 import CTA from "@/components/CTA";
+import MapSection from "@/components/About/Map";
 
 export default function AboutUsPage() {
     return (
@@ -17,6 +18,7 @@ export default function AboutUsPage() {
             <Hero/>
             <Owners/>
             <WhyUs/>
+            <MapSection/>
             <CTA/>
             <Footer/>
             <ScrollIndicator/>
