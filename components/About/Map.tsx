@@ -3,6 +3,7 @@
 import React from "react";
 import {motion} from "framer-motion";
 import GoogleMapReact from "google-map-react";
+import {Card} from "@/components/ui/card";
 
 // Simple marker (you can style or customize as you like)
 function Marker({text}: { text: string }) {
@@ -48,24 +49,26 @@ export default function MapSection() {
 
                 {/* Map Container */}
                 <motion.div
-                    className="w-full h-[400px] lg:h-[600px] rounded-lg overflow-hidden shadow-md"
+                    className="w-full h-[400px] lg:h-[600px] overflow-hidden "
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true, amount: 0.2}}
                     transition={{duration: 0.6, delay: 0.4}}
                 >
-                    <GoogleMapReact
-                        bootstrapURLKeys={{key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}}
-                        defaultCenter={defaultCenter}
-                        defaultZoom={defaultZoom}
-                        // optional: a custom map style or other google-map-react props
-                    >
-                        {/* Example marker pinned to “North London” area */}
-                        <Marker lat={51.58} lng={-0.10} text="North London"/>
+                    <Card className="w-full h-[400px] lg:h-[600px]">
+                        <GoogleMapReact
+                            bootstrapURLKeys={{key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}}
+                            defaultCenter={defaultCenter}
+                            defaultZoom={defaultZoom}
+                            // optional: a custom map style or other google-map-react props
+                        >
+                            {/* Example marker pinned to “North London” area */}
+                            <Marker lat={51.58} lng={-0.10} text="North London"/>
 
-                        {/* Example marker pinned to “Hertfordshire” area */}
-                        <Marker lat={51.80} lng={-0.24} text="Hertfordshire"/>
-                    </GoogleMapReact>
+                            {/* Example marker pinned to “Hertfordshire” area */}
+                            <Marker lat={51.80} lng={-0.24} text="Hertfordshire"/>
+                        </GoogleMapReact>
+                    </Card>
                 </motion.div>
             </div>
         </section>
