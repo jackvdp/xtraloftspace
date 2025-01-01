@@ -1,32 +1,29 @@
-import React, {useLayoutEffect, useState} from 'react';
-import {motion, useScroll, useTransform} from 'framer-motion';
-import {services} from '@/components/Services/Service';
+import React, {useLayoutEffect, useState} from "react";
+import {motion} from "framer-motion";
+import {services} from "@/components/Services/Service";
 import ScrollIndicator from "@/components/ui/ScrollDownIndicator";
 
 const ServicesList = () => {
-    const {scrollY} = useScroll();
-    const [height, setHeight] = useState(0);
+    // We no longer need useScroll or useTransform for fade-out.
+    // We'll just keep the list pinned (sticky) and let it scroll off naturally.
+
+    const [viewportHeight, setViewportHeight] = useState(0);
 
     useLayoutEffect(() => {
-        setHeight(window.innerHeight);
+        setViewportHeight(window.innerHeight);
 
-        const updateHeight = () => setHeight(window.innerHeight);
-        window.addEventListener('resize', updateHeight);
-        return () => window.removeEventListener('resize', updateHeight);
+        const updateHeight = () => setViewportHeight(window.innerHeight);
+        window.addEventListener("resize", updateHeight);
+        return () => window.removeEventListener("resize", updateHeight);
     }, []);
 
-    const opacity = useTransform(
-        scrollY,
-        [height, height * 1.2],
-        [1, 0]
-    );
-
     return (
-        <div>
-            <motion.div
-                style={{opacity}}
-                className="fixed inset-0 z-10"
-            >
+        <div className="relative">
+            {/**
+             * 1) Make this div "sticky top-0" so it stays pinned
+             *    until we scroll beyond its parent container’s height.
+             */}
+            <div className="sticky top-0 z-10">
                 <div className="h-screen flex flex-col items-center justify-center relative">
                     {/* Main content container */}
                     <div className="w-full max-w-5xl px-4 md:px-8">
@@ -38,14 +35,14 @@ const ServicesList = () => {
                                     initial={{opacity: 0, y: 20}}
                                     animate={{opacity: 1, y: 0}}
                                     transition={{
-                                        delay: 0.1 + (index * 0.1),
-                                        duration: 0.5
+                                        delay: 0.1 + index * 0.1,
+                                        duration: 0.5,
                                     }}
                                     className="py-2 md:py-4 flex items-baseline gap-3 md:gap-6"
                                 >
-                                    <span className="text-xl md:text-3xl font-bold">
-                                        {(index + 1).toString().padStart(2, '0')}
-                                    </span>
+                  <span className="text-xl md:text-3xl font-bold">
+                    {(index + 1).toString().padStart(2, "0")}
+                  </span>
                                     <h3 className="text-3xl md:text-6xl font-bold tracking-tight">
                                         {service.title}
                                     </h3>
@@ -64,10 +61,14 @@ const ServicesList = () => {
                         <ScrollIndicator/>
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
-            {/* Spacer for scroll height */}
-            <div className="h-[175vh]"/>
+            {/* 2) Spacer for scroll height */}
+            {/**
+             * This ensures the page can scroll and eventually pushes
+             * the sticky element off the top once we scroll far enough.
+             */}
+            <div style={{height: "150vh"}}/>
         </div>
     );
 };

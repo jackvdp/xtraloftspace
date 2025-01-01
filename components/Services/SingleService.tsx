@@ -109,7 +109,7 @@ export default function SingleService({service, index}: { service: Service; inde
     const reverseLayout = index % 2 === 1;
 
     return (
-        <div ref={blockRef} className="relative h-[100vh] flex items-center p-6 lg:p-24">
+        <div ref={blockRef} className="relative min-h-screen flex items-center p-6 lg:p-24">
             <div
                 className={`flex flex-col lg:flex-row ${
                     reverseLayout ? "lg:flex-row-reverse" : ""
