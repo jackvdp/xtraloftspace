@@ -135,7 +135,7 @@ export default function AboutSection() {
                             ))}
                         </div>
 
-                        <div ref={ref} className="grid grid-cols-2 gap-8 mt-12">
+                        <div ref={ref as React.LegacyRef<HTMLDivElement>} className="grid grid-cols-2 gap-8 mt-12">
 
                             <Card>
                                 <CardContent className="text-center py-6">
