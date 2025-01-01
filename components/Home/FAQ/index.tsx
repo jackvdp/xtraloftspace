@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 import FAQCard from './FAQCard';
-import faqs from "@/components/FAQ/faq";
+import faqs from "@/components/Home/FAQ/faq";
 
 const FAQSection = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
