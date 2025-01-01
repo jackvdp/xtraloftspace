@@ -5,20 +5,37 @@ import {motion} from "framer-motion";
 import GoogleMapReact from "google-map-react";
 import {Card} from "@/components/ui/card";
 
-// Simple marker (you can style or customize as you like)
-function Marker({text}: { text: string }) {
-    return (
-        <div className="text-white bg-black px-2 py-1 rounded-full text-sm shadow-lg">
-            {text}
-        </div>
-    );
-}
+// Example bounding polygon that (roughly) covers North London & Hertfordshire
+// (Replace with more precise lat/lng coordinates for your specific area)
+const coverageCoordinates = [
+    {lat: 51.7532, lng: -0.4486},
+    {lat: 51.7634, lng: -0.2231},
+    {lat: 51.7678, lng: 0.0878},
+    {lat: 51.6205, lng: 0.3072},
+    {lat: 51.5403, lng: 0.1482},
+    {lat: 51.5081, lng: -0.1248},
+    {lat: 51.5571, lng: -0.2860},
+    {lat: 51.6458, lng: -0.4520},
+];
 
 export default function MapSection() {
-    // Center the map roughly between North London & Hertfordshire.
-    // Adjust these coordinates/zoom to your preference.
+    // Center the map between North London & Hertfordshire (approx.)
     const defaultCenter = {lat: 51.6, lng: -0.12};
-    const defaultZoom = 10;
+    const defaultZoom = 10.25; // Slightly zoomed out to show a broad area
+
+    // Draws a polygon overlay after Google Maps has loaded
+    const handleApiLoaded = ({map, maps}: { map: any; maps: any }) => {
+        // Create the polygon
+        const coveragePolygon = new maps.Polygon({
+            paths: coverageCoordinates,
+            strokeColor: "#000000",   // Outline color
+            strokeOpacity: 0.7,
+            strokeWeight: 2,
+            fillColor: "#000000",     // Fill color
+            fillOpacity: 0.1,         // Slightly transparent
+        });
+        coveragePolygon.setMap(map);
+    };
 
     return (
         <section className="py-16 lg:py-24">
@@ -49,25 +66,23 @@ export default function MapSection() {
 
                 {/* Map Container */}
                 <motion.div
-                    className="w-full h-[400px] lg:h-[600px] overflow-hidden "
+                    className="w-full h-[400px] lg:h-[600px] overflow-hidden"
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true, amount: 0.2}}
                     transition={{duration: 0.6, delay: 0.4}}
                 >
-                    <Card className="w-full h-[400px] lg:h-[600px]">
+                    <Card className="w-full h-[400px] lg:h-[600px] relative">
                         <GoogleMapReact
-                            bootstrapURLKeys={{key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}}
+                            bootstrapURLKeys={{
+                                key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+                            }}
                             defaultCenter={defaultCenter}
                             defaultZoom={defaultZoom}
-                            // optional: a custom map style or other google-map-react props
-                        >
-                            {/* Example marker pinned to “North London” area */}
-                            <Marker lat={51.58} lng={-0.10} text="North London"/>
-
-                            {/* Example marker pinned to “Hertfordshire” area */}
-                            <Marker lat={51.80} lng={-0.24} text="Hertfordshire"/>
-                        </GoogleMapReact>
+                            yesIWantToUseGoogleMapApiInternals
+                            onGoogleApiLoaded={handleApiLoaded}
+                            // optional: custom map styles, etc.
+                        />
                     </Card>
                 </motion.div>
             </div>
