@@ -1,5 +1,6 @@
 import {motion} from "framer-motion";
 import React from "react";
+import {BigCustomButton} from "@/components/ui/motion-button";
 
 export default function CTA() {
     return (
@@ -24,16 +25,17 @@ export default function CTA() {
                     Ready to bring your vision to life? Let’s work together to create
                     a home you’ll love for years to come.
                 </motion.p>
-                <motion.a
-                    href="/contact"
+                <motion.div
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true, amount: 0.2}}
                     transition={{duration: 0.6, delay: 0.4}}
-                    className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors"
+                    className="px-8 py-4"
                 >
-                    Contact Us
-                </motion.a>
+                    <BigCustomButton text="Contact Us"/>
+                </motion.div>
+
+
             </div>
         </section>
     )
