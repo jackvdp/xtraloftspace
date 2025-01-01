@@ -32,11 +32,6 @@ export default function Card({service, index}: { service: Service; index: number
                 className="absolute inset-0 p-6 flex flex-col justify-start text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-lg">{service.description}</p>
             </div>
-            {/* Animated bottom line */}
-            {/* <motion.div
-                variants={lineVariants}
-                className="absolute bottom-0 left-0 w-full h-1.5 bg-slate-200 origin-left"
-            /> */}
         </motion.div>
     );
 }
