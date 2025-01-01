@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {motion} from "framer-motion";
 import GoogleMapReact from "google-map-react";
 import {Card} from "@/components/ui/card";
@@ -30,6 +30,7 @@ export default function MapSection() {
     const defaultCenter = {lat: 51.6, lng: -0.12};
 
     // Draws a polygon overlay after Google Maps has loaded
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleApiLoaded = ({map, maps}: { map: any; maps: any }) => {
         // Create the polygon
         const coveragePolygon = new maps.Polygon({
