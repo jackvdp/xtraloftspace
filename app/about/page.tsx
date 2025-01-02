@@ -9,7 +9,7 @@ import Hero from "@/components/About/Hero";
 import Owners from "@/components/About/Owners";
 import WhyUs from "@/components/About/WhyUs";
 import CTA from "@/components/CTA";
-import MapSection from "@/components/About/Map";
+import MapSection from "@/components/Map";
 
 export default function AboutUsPage() {
     return (

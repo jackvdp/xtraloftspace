@@ -1,5 +1,6 @@
 import {motion} from "framer-motion";
 import React from "react";
+import {Card} from "@/components/ui/card";
 
 const OUR_OFFERINGS = [
     {
@@ -69,10 +70,12 @@ export default function WhyUs() {
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: true, amount: 0.2}}
                             transition={{duration: 0.5, delay: 0.1 * idx + 0.3}}
-                            className="p-6 bg-white rounded-lg shadow flex flex-col"
+                            className="flex flex-col"
                         >
-                            <h4 className="text-xl font-semibold mb-2">{offer.title}</h4>
-                            <p className="text-gray-700">{offer.text}</p>
+                            <Card className="p-6 h-full">
+                                <h4 className="text-xl font-semibold mb-2">{offer.title}</h4>
+                                <p className="text-gray-700">{offer.text}</p>
+                            </Card>
                         </motion.div>
                     ))}
                 </div>

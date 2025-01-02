@@ -8,8 +8,8 @@ import {Card} from "@/components/ui/card";
 // Example bounding polygon that (roughly) covers North London & Hertfordshire
 // (Replace with more precise lat/lng coordinates for your specific area)
 const coverageCoordinates = [
-    {lat: 51.7532, lng: -0.4486},
-    {lat: 51.7634, lng: -0.2231},
+    {lat: 51.7532, lng: -0.4486}, // Hemel Hempstead then going clockwise
+    {lat: 51.8032, lng: -0.2087},
     {lat: 51.7678, lng: 0.0878},
     {lat: 51.6205, lng: 0.3072},
     {lat: 51.5403, lng: 0.1482},
@@ -27,7 +27,7 @@ function getDefaultZoom() {
 
 export default function MapSection() {
     // Center the map between North London & Hertfordshire (approx.)
-    const defaultCenter = {lat: 51.6, lng: -0.12};
+    const defaultCenter = {lat: 51.65, lng: -0.12};
 
     // Draws a polygon overlay after Google Maps has loaded
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
