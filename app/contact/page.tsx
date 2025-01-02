@@ -13,7 +13,7 @@ import Hero from "@/components/Contact/Hero";
 const ContactPage = () => {
     return (
         <>
-            <Navbar useDarkText={true}/>
+            <Navbar/>
             <Hero/>
             <motion.div
                 initial={{opacity: 0}}
