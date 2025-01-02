@@ -34,8 +34,9 @@ export default function Hero() {
         <div className="relative">
             {/* Hero Map Background */}
             <div className="absolute inset-0 h-[35vh] w-full overflow-hidden">
-                <Card className="w-full h-full relative">
+                <div className="w-full h-full relative">
                     <XtraMap
+                        data-cursor={"See Areas"}
                         options={{
                             zoomControl: false,
                             scrollwheel: false,
@@ -43,8 +44,17 @@ export default function Hero() {
                             disableDefaultUI: true,
                         }}
                     />
-                </Card>
-                <div className="absolute inset-0 bg-black/60"/>
+                </div>
+                <div
+                    data-cursor={"See Areas"}
+                    className="absolute inset-0 bg-black/60 cursor-pointer transition-opacity duration-300 hover:bg-black/50"
+                    onClick={() => {
+                        document.getElementById('maps')?.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }}
+                />
             </div>
 
             <div className="container mx-auto pt-24 lg:pt-36 px-4 relative">
