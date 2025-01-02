@@ -8,7 +8,6 @@ import {ArrowRight, Check, Loader2} from "lucide-react";
 import React, {useState} from "react";
 import {useForm} from "@formspree/react";
 
-
 export default function ContactForm() {
     const [state, handleSubmit] = useForm("mlddodpp");
     const [focusedField, setFocusedField] = useState<string | null>(null);
@@ -45,10 +44,10 @@ export default function ContactForm() {
             viewport={{once: true, amount: 0.3}}
         >
             <motion.div variants={cardVariants}>
-                <Card className="relative overflow-hidden  bg-white">
+                <Card className="relative overflow-hidden bg-white">
                     <CardContent className="p-8 space-y-8">
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            {['name', 'email', 'message'].map((field) => (
+                            {['name', 'email', 'phone', 'message'].map((field) => (
                                 <motion.div
                                     key={field}
                                     variants={itemVariants}
@@ -71,8 +70,9 @@ export default function ContactForm() {
                                         <Input
                                             id={field}
                                             name={field}
-                                            type={field === 'email' ? 'email' : 'text'}
-                                            required
+                                            type={field === 'email' ? 'email' :
+                                                field === 'phone' ? 'tel' : 'text'}
+                                            required={field !== 'phone'}
                                             onFocus={() => setFocusedField(field)}
                                             onBlur={() => setFocusedField(null)}
                                             className="bg-white border-2 border-gray-200 focus:border-blue-500 transition-colors rounded-lg"
