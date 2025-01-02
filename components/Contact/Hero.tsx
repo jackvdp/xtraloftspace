@@ -52,7 +52,7 @@ export default function Hero() {
                     initial={{opacity: 0, y: -20}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true, amount: 0.2}}
-                    className="text-4xl font-bold text-center mb-4 text-white"
+                    className="text-4xl lg:text-7xl font-bold text-center mb-4 text-white"
                 >
                     Get in <span className="font-thin">touch</span>
                 </motion.h1>
@@ -61,7 +61,7 @@ export default function Hero() {
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true, amount: 0.2}}
                     transition={{delay: 0.2}}
-                    className="text-gray-200 text-center mb-24"
+                    className="text-gray-200 text-center mb-24 text-lg"
                 >
                     We&apos;re here to help turn your vision into reality
                 </motion.p>
