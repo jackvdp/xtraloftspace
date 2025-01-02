@@ -2,7 +2,7 @@
 
 import React, {useRef} from "react";
 import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
-import ParallaxImage from "@/components/ui/parallaxImage";
+import ParallaxImage from "@/components/Resuables/parallaxImage";
 import {Service} from "@/components/Services/Service";
 
 interface ServiceImageProps {

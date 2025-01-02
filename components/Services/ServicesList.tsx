@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from "framer-motion";
 import {services} from "@/components/Services/Service";
-import ScrollIndicator from "@/components/ui/ScrollDownIndicator";
+import ScrollIndicator from "@/components/Resuables/ScrollDownIndicator";
 
 const ServicesList = () => {
 

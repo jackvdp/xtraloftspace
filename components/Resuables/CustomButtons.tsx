@@ -5,11 +5,11 @@ import {Button} from '@/components/ui/button'
 import {ArrowRight} from "lucide-react";
 import React from "react";
 
-const MotionButton = motion(Button)
+const CustomButtons = motion(Button)
 
 export function CustomButton({text, link, useBlack = false}: { text: string, link: string, useBlack?: boolean }) {
     return (
-        <MotionButton
+        <CustomButtons
             size="lg"
             className={`group relative overflow-hidden ${useBlack ? `bg-black hover:bg-gray-900` : `bg-white hover:bg-gray-100`} ${useBlack ? `text-white` : `text-black`} px-8 rounded-full h-10`}
             whileHover={{scale: 1.02}}
@@ -39,7 +39,7 @@ export function CustomButton({text, link, useBlack = false}: { text: string, lin
                     </motion.span>
                 </motion.div>
             </div>
-        </MotionButton>
+        </CustomButtons>
     )
 }
 

@@ -5,7 +5,7 @@ import {motion, useScroll, useMotionValueEvent} from 'framer-motion';
 import {Menu, X} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {CustomButton} from '../ui/motion-button';
+import {CustomButton} from '../Resuables/CustomButtons';
 import {usePathname} from 'next/navigation';
 import NavbarItem from './NavbarItem';
 

@@ -4,7 +4,7 @@ import {testimonials} from './testimonials';
 import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
 import {QuoteIcon} from '@radix-ui/react-icons';
-import {BigCustomButton} from "@/components/ui/motion-button";
+import {BigCustomButton} from "@/components/Resuables/CustomButtons";
 
 const container = {
     hidden: {opacity: 0},

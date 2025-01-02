@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import React from "react";
-import {BigCustomButton} from "@/components/ui/motion-button";
+import {BigCustomButton} from "@/components/Resuables/CustomButtons";
 
 export default function CTA() {
     return (

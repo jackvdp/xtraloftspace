@@ -1,5 +1,10 @@
 import {useEffect, useState} from "react";
-import {CarouselApi, Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel-clip-only-beginning";
+import {
+    CarouselApi,
+    Carousel,
+    CarouselContent,
+    CarouselItem
+} from "@/components/Resuables/carousel-clip-only-beginning";
 import {cases} from "./cases";
 import CaseStudyInfo from "./CaseStudyInfo";
 import {motion} from "framer-motion"

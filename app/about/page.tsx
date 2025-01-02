@@ -1,15 +1,15 @@
 "use client"
 
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ScrollIndicator from "@/components/ScrollIndicator";
-import PageLabel from "@/components/PageLabel";
-import CustomCursor from "@/components/CustomCursor";
+import Footer from "@/components/Resuables/Footer";
+import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
+import PageLabel from "@/components/Resuables/PageLabel";
+import CustomCursor from "@/components/Resuables/CustomCursor";
 import Hero from "@/components/About/Hero";
 import Owners from "@/components/About/Owners";
 import WhyUs from "@/components/About/WhyUs";
-import CTA from "@/components/CTA";
-import MapSection from "@/components/Map";
+import CTA from "@/components/Resuables/CTA";
+import MapSection from "@/components/Resuables/Map";
 
 export default function AboutUsPage() {
     return (

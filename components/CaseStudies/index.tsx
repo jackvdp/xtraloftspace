@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 import Desktop from './Desktop';
 import Mobile from './Mobile';
-import {BigCustomButton} from "@/components/ui/motion-button";
+import {BigCustomButton} from "@/components/Resuables/CustomButtons";
 
 const CaseStudies = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -9,7 +9,7 @@ import 'swiper/css/effect-fade';
 import Image from 'next/image';
 import styles from './Hero.module.css';
 import ScrollIndicator from './ScrollIndicator';
-import {BigCustomButton, OutlineButton} from '@/components/ui/motion-button';
+import {BigCustomButton, OutlineButton} from '@/components/Resuables/CustomButtons';
 
 const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);

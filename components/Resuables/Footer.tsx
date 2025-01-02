@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Company Info */}
                     <div className="space-y-6">
-                        <Link href="/" className="block relative h-12 w-48">
+                        <Link href="/public" className="block relative h-12 w-48">
                             <Image
                                 src="/images/logo.png"
                                 alt="Xtra Loft Space"

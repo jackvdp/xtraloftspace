@@ -6,13 +6,13 @@ import AboutSection from "@/components/Home/About";
 import ServicesSection from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
 import FAQSection from "../components/Home/FAQ";
-import Footer from "@/components/Footer";
-import ContactSection from "@/components/Contact";
+import Footer from "@/components/Resuables/Footer";
+import ContactSection from "@/components/Home/Contact";
 import PhotoGallery from "@/components/Home/PhotoGallery";
-import ScrollIndicator from "@/components/ScrollIndicator";
+import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
 import Testimonials from "@/components/Testimonials";
-import CustomCursor from "@/components/CustomCursor";
-import PageLabel from "@/components/PageLabel";
+import CustomCursor from "@/components/Resuables/CustomCursor";
+import PageLabel from "@/components/Resuables/PageLabel";
 
 export default function Home() {
     return (

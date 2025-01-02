@@ -1,6 +1,6 @@
 import {motion} from 'framer-motion';
 import {Service} from './Service';
-import ParallaxImage from "@/components/ui/parallaxImage";
+import ParallaxImage from "@/components/Resuables/parallaxImage";
 
 export default function Card({service, index}: { service: Service; index: number }) {
 

@@ -4,7 +4,7 @@ import {useInView} from 'react-intersection-observer';
 import {motion} from 'framer-motion';
 import CountUp from 'react-countup';
 import {Card, CardContent} from "@/components/ui/card";
-import ParallaxImage from "@/components/ui/parallaxImage";
+import ParallaxImage from "@/components/Resuables/parallaxImage";
 
 export default function AboutSection() {
     const features = [

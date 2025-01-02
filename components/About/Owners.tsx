@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import ParallaxImage from "@/components/ui/parallaxImage";
+import ParallaxImage from "@/components/Resuables/parallaxImage";
 import React from "react";
 
 const OWNER_PROFILES = [

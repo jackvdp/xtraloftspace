@@ -2,7 +2,7 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import {services} from './Service'
 import Card from './Card';
-import {BigCustomButton} from "@/components/ui/motion-button";
+import {BigCustomButton} from "@/components/Resuables/CustomButtons";
 
 const ServicesSection = () => {
     return (
