@@ -3,9 +3,33 @@ import {Card, CardContent} from "@/components/ui/card";
 import ContactForm from "@/components/Resuables/ContactForm";
 import React from "react";
 import contactInfo from "@/components/Contact/ContactInfo";
-import ParallaxImage from "@/components/Resuables/parallaxImage";
+import GoogleMapReact from "google-map-react";
 
 export default function Hero() {
+    const defaultCenter = {lat: 51.65, lng: -0.12};
+    const coverageCoordinates = [
+        {lat: 51.7532, lng: -0.4486},
+        {lat: 51.8032, lng: -0.2087},
+        {lat: 51.7678, lng: 0.0878},
+        {lat: 51.6205, lng: 0.3072},
+        {lat: 51.5403, lng: 0.1482},
+        {lat: 51.5081, lng: -0.1248},
+        {lat: 51.5571, lng: -0.2860},
+        {lat: 51.6458, lng: -0.4520},
+    ];
+
+    const handleApiLoaded = ({map, maps}: { map: any; maps: any }) => {
+        const coveragePolygon = new maps.Polygon({
+            paths: coverageCoordinates,
+            strokeColor: "#FFFFFF",
+            strokeOpacity: 0.7,
+            strokeWeight: 2,
+            fillColor: "#FFFFFF",
+            fillOpacity: 0.1,
+        });
+        coveragePolygon.setMap(map);
+    };
+
     const containerVariants = {
         hidden: {opacity: 0},
         visible: {
@@ -29,15 +53,25 @@ export default function Hero() {
 
     return (
         <div className="relative">
-            {/* Hero Background Image */}
+            {/* Hero Map Background */}
             <div className="absolute inset-0 h-[35vh] w-full overflow-hidden">
-                <ParallaxImage
-                    src="/images/loft.jpeg"
-                    alt="Contact Us"
-                    className="object-cover"
-                    fill
-                />
-                <div className="absolute inset-0 bg-black/60"/>
+                <div className="h-full w-full">
+                    <GoogleMapReact
+                        bootstrapURLKeys={{
+                            key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+                        }}
+                        defaultCenter={defaultCenter}
+                        defaultZoom={10.25}
+                        yesIWantToUseGoogleMapApiInternals
+                        onGoogleApiLoaded={handleApiLoaded}
+                        options={{
+                            zoomControl: false,
+                            scrollwheel: false,
+                            draggable: false
+                        }}
+                    />
+                </div>
+                <div className="absolute inset-0 bg-black/70"/>
             </div>
 
             <div className="container mx-auto pt-24 lg:pt-36 px-4 relative">
