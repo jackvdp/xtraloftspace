@@ -111,13 +111,14 @@ const Footer = () => {
                         <p className="text-gray-400">
                             © {new Date().getFullYear()} Xtra Loft Space. All rights reserved.
                         </p>
-                        <div className="flex gap-6">
-                            <Link href="/privacy" className="text-gray-400 hover:text-white/80 transition-colors">
-                                Privacy Policy
-                            </Link>
-                            <Link href="/terms" className="text-gray-400 hover:text-white/80 transition-colors">
-                                Terms of Service
-                            </Link>
+                        <div className="flex">
+                            <a target="_blank"
+                               href="https://www.vanderpump.tech"
+                               rel="noopener noreferrer"
+                               className="text-white hover:text-white/80 transition-colors"
+                            >
+                                Made by Vanderpump Tech
+                            </a>
                         </div>
                     </div>
                 </div>
