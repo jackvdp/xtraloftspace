@@ -22,7 +22,7 @@ const ContactPage = () => {
                 transition={{duration: 0.5}}
                 className="w-full"
             >
-                <MapSection showMapImmediatley={true}/>
+                <MapSection showMapImmediately={true}/>
             </motion.div>
             <PageLabel text={"Contact Us"}/>
             <CustomCursor/>
