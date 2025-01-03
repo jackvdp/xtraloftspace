@@ -76,7 +76,7 @@ const PhotoGallery = () => {
                 viewport={{once: true, amount: 0.2}}
                 transition={{duration: 0.5, delay: 0.4}}
             >
-                <InstagramButton text={'See more'}/>
+                <InstagramButton text={'See More'}/>
             </motion.div>
         </>
     );

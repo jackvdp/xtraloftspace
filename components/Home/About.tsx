@@ -5,6 +5,7 @@ import {motion} from 'framer-motion';
 import CountUp from 'react-countup';
 import {Card, CardContent} from "@/components/ui/card";
 import ParallaxImage from "@/components/Resuables/parallaxImage";
+import {BigCustomButton} from "@/components/Resuables/CustomButtons";
 
 export default function AboutSection() {
     const features = [
@@ -60,9 +61,9 @@ export default function AboutSection() {
     };
 
     return (
-        <section className="pt-24">
+        <section className="pt-24 overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row gap-16 items-center">
+                <div className="flex flex-col lg:flex-row gap-16 items-center ">
                     <motion.div
                         initial={{opacity: 0, x: -20}}
                         whileInView={{opacity: 1, x: 0}}
@@ -172,6 +173,15 @@ export default function AboutSection() {
                     </motion.div>
                 </div>
             </div>
+            <motion.div
+                className="flex justify-center mt-12"
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                viewport={{once: true, amount: 0.2}}
+                transition={{duration: 0.5, delay: 0.4}}
+            >
+                <BigCustomButton text={'Meet the Team'} arrowEnabled={true} dark={true}/>
+            </motion.div>
         </section>
     );
 };

@@ -1,7 +1,6 @@
 "use client"
 
 import Hero from "../components/Home/Hero";
-import Index from "@/components/Navbar";
 import AboutSection from "@/components/Home/About";
 import ServicesSection from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
@@ -13,11 +12,12 @@ import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
 import Testimonials from "@/components/Testimonials";
 import CustomCursor from "@/components/Resuables/CustomCursor";
 import PageLabel from "@/components/Resuables/PageLabel";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
     return (
         <div className="relative">
-            <Index/>
+            <Navbar/>
             <Hero/>
             <AboutSection/>
             <ServicesSection/>
