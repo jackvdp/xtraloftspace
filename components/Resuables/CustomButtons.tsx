@@ -2,7 +2,7 @@
 
 import {motion} from 'framer-motion'
 import {Button} from '@/components/ui/button'
-import {ArrowRight} from "lucide-react";
+import {ArrowRight, Instagram} from "lucide-react";
 import React from "react";
 
 const CustomButtons = motion(Button)
@@ -78,6 +78,26 @@ export function OutlineButton({text}: { text: string }) {
                 </div>
                 <div className="flex items-center h-16">
                     {text}
+                </div>
+            </div>
+        </Button>
+    );
+}
+
+export function InstagramButton({text}: { text: string }) {
+    return (
+        <Button
+            size="lg"
+            className="group relative bg-gradient-to-tr from-purple-600 via-pink-600 to-yellow-500 hover:from-purple-700 hover:via-pink-700 hover:to-yellow-600 text-white rounded-full text-lg h-16 px-12 overflow-hidden"
+        >
+            <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-8 translate-y-8">
+                <div className="flex items-center h-16 space-x-2">
+                    <Instagram className="h-6 w-6"/>
+                    <span>{text}</span>
+                </div>
+                <div className="flex items-center h-16 space-x-2">
+                    <Instagram className="h-6 w-6"/>
+                    <span>{text}</span>
                 </div>
             </div>
         </Button>
