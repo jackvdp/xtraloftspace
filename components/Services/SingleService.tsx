@@ -62,11 +62,7 @@ function ServiceText({
                 {/* Large index number behind */}
                 <motion.div style={{opacity}} className="absolute right-0 bottom-12 -z-10 hidden lg:block">
           <span
-              className="text-[50vh] font-bold"
-              style={{
-                  color: "transparent",
-                  WebkitTextStroke: "2px rgba(0,0,0,0.1)",
-              }}
+              className="text-[50vh] font-bold text-zinc-100"
           >
             {(index + 1).toString().padStart(2, "0")}
           </span>
