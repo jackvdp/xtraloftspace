@@ -33,19 +33,25 @@ export default function CaseStudyInfo({casestudy, scrollPrev, scrollNext}: {
                 scrollPrev && scrollNext && (
                     <div className="flex space-x-4 pt-6">
                         <button
+                            data-cursor={"prev"}
                             onClick={scrollPrev}
                             className="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100"
                         >
-                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/>
+                            <svg data-cursor={"prev"} className="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path data-cursor={"prev"} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                      d="M15 19l-7-7 7-7"/>
                             </svg>
                         </button>
                         <button
+                            data-cursor={"next"}
                             onClick={scrollNext}
                             className="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100"
                         >
-                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                            <svg data-cursor={"next"} className="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path data-cursor={"next"} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                      d="M9 5l7 7-7 7"/>
                             </svg>
                         </button>
                     </div>
