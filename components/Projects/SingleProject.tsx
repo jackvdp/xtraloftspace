@@ -4,7 +4,7 @@ import React, {useRef} from "react";
 import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
 import ParallaxImage from "@/components/Resuables/parallaxImage";
 import {CaseStudy} from "@/components/CaseStudies/cases";
-import {BigCustomButton, CustomButton} from "@/components/Resuables/CustomButtons";
+import {BigCustomButton} from "@/components/Resuables/CustomButtons";
 
 interface ServiceImageProps {
     scrollYProgress: MotionValue<number>;
