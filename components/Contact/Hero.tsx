@@ -37,7 +37,7 @@ export default function Hero() {
     }
 
     return (
-        <div className="relative min-h-screen">
+        <div className="relative">
             {/* Hero Map Background */}
             <div className="absolute top-0 left-0 right-0 h-[45vh] lg:h-[50vh] w-full overflow-hidden">
                 <div className="w-full h-full relative">
@@ -59,7 +59,7 @@ export default function Hero() {
             </div>
 
             {/* Content Container */}
-            <div className="mx-auto relative" data-cursor="See Areas" onClick={scrollDownToMap}>
+            <div className="mx-auto relative">
                 {/* Hero Text - Positioned higher up */}
                 <div className={"w-full justify-center flex"} data-cursor="See Areas" onClick={scrollDownToMap}>
                     <div
