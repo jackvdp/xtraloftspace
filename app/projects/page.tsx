@@ -15,7 +15,7 @@ export default function Home() {
     return (
         <div>
             <Navbar/>
-            <RevealHeader mainText={"PROJECTS"} subText={"Let our work do the talking"}/>
+            <RevealHeader mainText={"PROJECTS"} subText={"We'll let our work do the talking"}/>
             <ProjectsList/>
             <ProjectsDetails/>
             <ScrollIndicator/>

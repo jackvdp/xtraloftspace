@@ -4,6 +4,7 @@ import React, {useRef} from "react";
 import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
 import ParallaxImage from "@/components/Resuables/parallaxImage";
 import {CaseStudy} from "@/components/CaseStudies/cases";
+import {BigCustomButton, CustomButton} from "@/components/Resuables/CustomButtons";
 
 interface ServiceImageProps {
     scrollYProgress: MotionValue<number>;
@@ -83,28 +84,30 @@ function ServiceText({
                     {caseStudy.category}
                 </motion.p>
 
-                <motion.h2 style={{y: titleY}} className="text-4xl lg:text-6xl font-bold text-black mb-4 lg:mb-8">
+                <motion.h2 style={{y: titleY}} className="text-4xl lg:text-6xl font-bold text-black mb-4 lg:mb-6">
                     {caseStudy.title}
                 </motion.h2>
 
                 <motion.b style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70">
                     Location
                 </motion.b>
-                <motion.p style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70 mb-8">
+                <motion.p style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70 mb-4 lg:mb-6">
                     {caseStudy.location}
                 </motion.p>
 
                 <motion.b style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70">
                     Duration
                 </motion.b>
-                <motion.p style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70 mb-8">
+                <motion.p style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70 mb-4 lg:mb-6">
                     {caseStudy.duration}
                 </motion.p>
 
                 {/* Description */}
-                <motion.p style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70">
-                    {caseStudy.fullDescription}
+                <motion.p style={{y: descriptionY}} className="text-lg lg:text-xl text-black/70 mb-4 lg:mb-6">
+                    {caseStudy.shortDescription}
                 </motion.p>
+
+                <BigCustomButton text={'Read More'} arrowEnabled={true} dark={true}/>
             </motion.div>
         </div>
     );
