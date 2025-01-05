@@ -42,7 +42,7 @@ const PhotoGallery = () => {
     };
 
     return (
-        <>
+        <div className={"bg-gradient-to-b from-white to-zinc-50"}>
             <Masonry
                 breakpointCols={breakpoints}
                 className="flex w-auto px-4"
@@ -78,7 +78,7 @@ const PhotoGallery = () => {
             >
                 <InstagramButton text={'See More'}/>
             </motion.div>
-        </>
+        </div>
     );
 };
 

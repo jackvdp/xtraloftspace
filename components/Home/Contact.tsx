@@ -35,29 +35,33 @@ const ContactSection = () => {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto py-24 px-4">
-            <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
-                <motion.div
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{once: true, amount: 0.6}}
-                >
-                    <motion.div variants={cardVariants} className="text-center space-y-4">
-                        <div className="relative inline-block">
-                            <h2 className="text-4xl font-bold text-center">Get in {' '}
-                                <span className="font-thin">touch</span>
-                            </h2>
-                        </div>
-                        <p className="text-gray-600 max-w-lg mx-auto text-lg">
-                            Have a question or want to work together? Drop us a message and we&apos;ll get back to you
-                            as soon as possible.
-                        </p>
+        <div className="bg-zinc-50">
+            <div className="w-full max-w-4xl mx-auto py-24 px-4 ">
+                <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
+                    <motion.div
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{once: true, amount: 0.6}}
+                    >
+                        <motion.div variants={cardVariants} className="text-center space-y-4">
+                            <div className="relative inline-block">
+                                <h2 className="text-4xl font-bold text-center">Get in {' '}
+                                    <span className="font-thin">touch</span>
+                                </h2>
+                            </div>
+                            <p className="text-gray-600 max-w-lg mx-auto text-lg">
+                                Have a question or want to work together? Drop us a message and we&apos;ll get back to
+                                you
+                                as soon as possible.
+                            </p>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
 
-                <ContactForm/>
-            </motion.div>
+                    <ContactForm/>
+                </motion.div>
+            </div>
         </div>
+
     );
 };
 
