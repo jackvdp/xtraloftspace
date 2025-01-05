@@ -1,20 +1,24 @@
 import {motion, useScroll, useTransform} from "framer-motion";
-import React from "react";
+import {useId} from "react";
 import {ArrowDown} from "lucide-react";
 
-const ScrollIndicator = () => {
+const ScrollIndicator = ({color = "black", size = 64, speed = 4000}: {
+    color?: string,
+    size?: number,
+    speed?: number
+}) => {
     const {scrollY} = useScroll();
 
     const rotation = useTransform(
         scrollY,
-        [0, 4000],
+        [0, speed],
         [0, 360]
     );
 
-    const pathId = React.useId();
+    const pathId = useId();
 
     return (
-        <div className="w-64 h-64 relative">
+        <div className={`w-${size} h-${size} relative text-${color}`}>
             <motion.div
                 className="w-full h-full"
                 style={{rotate: rotation}}

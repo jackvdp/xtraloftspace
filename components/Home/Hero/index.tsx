@@ -3,9 +3,9 @@ import {motion} from 'framer-motion';
 import {Swiper as SwiperType} from 'swiper/types';
 import 'swiper/css';
 import styles from './Hero.module.css';
-import ScrollIndicator from './ScrollIndicator';
 import {BigCustomButton, OutlineButton} from '@/components/Resuables/CustomButtons';
 import BackgroundSlider from "@/components/Home/Hero/BackgroundSlider";
+import ScrollDownIndicator from "@/components/Resuables/ScrollDownIndicator";
 
 const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -128,7 +128,10 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            <ScrollIndicator/>
+            <div
+                className="z-50 absolute bottom-8 md:right-8 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 scale-50 md:scale-100">
+                <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
+            </div>
         </motion.div>
     );
 };
