@@ -2,6 +2,7 @@ import React from 'react';
 import {Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import {services} from "@/components/Services/Service";
 
 const Footer = () => {
     return (
@@ -19,21 +20,17 @@ const Footer = () => {
                             />
                         </Link>
                         <p className="text-gray-400">
-                            Transform your living space with our expert loft conversion services.
-                            Building dreams since 2005.
+                            Family-run excellence in construction, transforming homes across Hertfordshire, North
+                            London, and Essex with master craftsmanship.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="hover:text-white/80 transition-colors">
+                            <a href="https://www.facebook.com/p/Xtra-Loft-Space-100063625208519/?locale=en_GB"
+                               target="_blank" className="hover:text-white/80 transition-colors">
                                 <Facebook className="h-5 w-5"/>
                             </a>
-                            <a href="#" className="hover:text-white/80 transition-colors">
-                                <Twitter className="h-5 w-5"/>
-                            </a>
-                            <a href="#" className="hover:text-white/80 transition-colors">
+                            <a href="https://www.instagram.com/xtraloftspace/" target="_blank"
+                               className="hover:text-white/80 transition-colors">
                                 <Instagram className="h-5 w-5"/>
-                            </a>
-                            <a href="#" className="hover:text-white/80 transition-colors">
-                                <Linkedin className="h-5 w-5"/>
                             </a>
                         </div>
                     </div>
@@ -59,19 +56,13 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-6">Our Services</h3>
                         <ul className="space-y-4">
-                            {[
-                                'Loft Conversions',
-                                'Architectural Design',
-                                'Planning Permission',
-                                'Interior Design',
-                                'Project Management'
-                            ].map((service) => (
+                            {services.map((service) => (
                                 <li key={service}>
                                     <Link
                                         href="/services"
                                         className="text-gray-400 hover:text-white/80 transition-colors"
                                     >
-                                        {service}
+                                        {service.title}
                                     </Link>
                                 </li>
                             ))}
@@ -83,10 +74,10 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
                         <ul className="space-y-4">
                             <li>
-                                <a href="tel:+441234567890"
+                                <a href="tel:+447585807291"
                                    className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
                                     <Phone className="h-5 w-5 mr-2"/>
-                                    +44 123 456 7890
+                                    +44 (0) 7585 807 291
                                 </a>
                             </li>
                             <li>

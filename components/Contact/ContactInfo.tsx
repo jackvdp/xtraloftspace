@@ -12,15 +12,15 @@ const contactInfo: ContactInfo[] = [
     {
         icon: <Phone className="w-6 h-6"/>,
         title: "Phone",
-        content: "+44 (0) 20 1234 5678",
-        href: "tel:+442012345678",
+        content: "+44 (0) 7585 807 291",
+        href: "tel:+447585807291",
         delay: 0.1
     },
     {
         icon: <Mail className="w-6 h-6"/>,
         title: "Email",
-        content: "info@xtraloft.com",
-        href: "mailto:info@xtraloft.com",
+        content: "info@xtraloftspace.com",
+        href: "mailto:info@xtraloftspace.com",
         delay: 0.2
     },
     {

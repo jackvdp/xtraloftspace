@@ -26,7 +26,7 @@ const ContactPage = () => {
                     <MapSection showMapImmediately={true}/>
                 </motion.div>
             </section>
-            <PageLabel text={"Contact Us"}/>
+            <PageLabel text={"Contact-Us"}/>
             <CustomCursor/>
             <ScrollIndicator/>
             <Footer/>
