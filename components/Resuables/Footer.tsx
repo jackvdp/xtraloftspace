@@ -1,5 +1,5 @@
 import React from 'react';
-import {Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin} from 'lucide-react';
+import {Mail, Phone, MapPin, Instagram, Facebook} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {services} from "@/components/Services/Service";
