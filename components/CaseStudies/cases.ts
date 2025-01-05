@@ -60,7 +60,7 @@ On the ground floor, we reconfigured the layout by removing the wall between the
 The extension benefits from an abundance of natural light thanks to the glass gable above the sliding doors and Velux windows in the vaulted roof. These elements also provide impressive ceiling height, making the space feel airy and expansive.
 To complement the space, we installed stylish and durable Amtico flooring, adding a premium finish to the new extension. In addition to the main kitchen area, we constructed a downstairs toilet conveniently connected to a new utility room, ensuring practicality without compromising on style. For heating, the new extension is equipped with central heating underfloor heating (UFH), while the existing part of the house was upgraded with elegant new column radiators.`,
         image: "/images/cases/wynchgate-extension.jpg",
-        folder: "whynchgate"
+        folder: "wynchgate"
     },
     {
         category: "Hip to Gable Loft Conversion",

@@ -24,14 +24,14 @@ const PhotoGallery = () => {
     };
 
     const images = [
-        '/images/about1.jpeg',
-        '/images/about2.jpeg',
-        '/images/casestudy1.avif',
-        '/images/casestudy2.avif',
-        '/images/casestudy3.avif',
-        '/images/casestudy4.avif',
-        '/images/kitchen.jpg',
-        '/images/exterior.jpg',
+        '/images/mosaic/5.jpg',
+        '/images/mosaic/4.jpg',
+        '/images/mosaic/2.jpg',
+        '/images/mosaic/8.jpg',
+        '/images/mosaic/3.jpg',
+        '/images/mosaic/1.jpg',
+        '/images/mosaic/6.jpg',
+        '/images/mosaic/7.jpg',
     ].slice(0, getImageCount());
 
     const breakpoints = {
