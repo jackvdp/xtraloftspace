@@ -74,11 +74,11 @@ function SingleImage({
                 width={1500}
                 height={1000}
                 className={`
-                transition-transform 
+                transition-transform
                 duration-500 
                 w-full 
                 h-full
-                ${expanded ? "object-contain" : "object-cover group-hover:scale-110"}
+                ${expanded ? "object-contain" : "object-cover"}
                 `}
                 onLoad={onLoad}
                 priority={index === 0}
