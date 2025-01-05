@@ -1,22 +1,16 @@
 import React, {useState} from 'react';
-import {Sparkles} from 'lucide-react';
-import {motion, useScroll, useTransform} from 'framer-motion';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {Autoplay, EffectFade} from 'swiper/modules';
+import {motion} from 'framer-motion';
 import {Swiper as SwiperType} from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import Image from 'next/image';
 import styles from './Hero.module.css';
 import ScrollIndicator from './ScrollIndicator';
 import {BigCustomButton, OutlineButton} from '@/components/Resuables/CustomButtons';
+import BackgroundSlider from "@/components/Home/Hero/BackgroundSlider";
 
 const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
-
-    const {scrollY} = useScroll();
-    const scale = useTransform(scrollY, [0, 1000], [1, 1.5]);
 
     const images = [
         '/images/loft.jpeg',
@@ -51,38 +45,8 @@ const Hero = () => {
             className="relative min-h-screen overflow-hidden bg-black"
         >
             <div className="absolute inset-0">
-                <Swiper
-                    modules={[Autoplay, EffectFade]}
-                    effect="slide"
-                    speed={1000}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    loop={true}
-                    className="h-full w-full overflow-hidden"
-                    onSwiper={setSwiper}
-                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                >
-                    {images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="relative h-full w-full overflow-hidden">
-                                <motion.div
-                                    style={{scale}}
-                                    className="relative h-full w-full origin-center"
-                                >
-                                    <Image
-                                        src={image}
-                                        alt={`Interior design ${index + 1}`}
-                                        className="h-full w-full object-cover"
-                                        fill
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60 z-10"/>
-                                </motion.div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <BackgroundSlider onSwiper={setSwiper} onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                                  images={images}/>
 
                 <div className='hidden md:block'>
                     <div className={styles.paginationContainer}>
@@ -105,17 +69,11 @@ const Hero = () => {
                     className="max-w-2xl space-y-8"
                 >
                     <div className="space-y-6">
-                        <div className="overflow-hidden">
-                            <motion.div variants={revealAnimation} className="flex items-center space-x-2">
-                                <Sparkles className="h-6 w-6 text-white"/>
-                                <span className="text-white font-medium">Expert Craftmanship</span>
-                            </motion.div>
-                        </div>
 
                         <div className="overflow-hidden">
                             <motion.h1
                                 variants={revealAnimation}
-                                className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 text-transparent bg-clip-text leading-tight"
+                                className="text-6xl lg:text-9xl font-bold bg-white text-transparent bg-clip-text leading-tight"
                             >
                                 Transform Your <span className='font-thin'>Space</span>
                             </motion.h1>
