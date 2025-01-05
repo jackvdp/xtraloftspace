@@ -54,7 +54,7 @@ export function BigCustomButton({text, href, arrowEnabled, dark}: {
     arrowEnabled?: boolean,
     dark?: boolean
 }) {
-    function ButtonContent(props: { text: string, arrowEnabled: boolean }) {
+    function ButtonContent(props: { text: string, arrowEnabled?: boolean }) {
         return <div
             className="flex flex-col transition-transform duration-300 group-hover:-translate-y-8 translate-y-8">
             <div className="flex items-center h-16">
