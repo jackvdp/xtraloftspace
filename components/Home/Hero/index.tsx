@@ -12,9 +12,9 @@ const Hero = () => {
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
     const images = [
-        '/images/loft.jpeg',
-        '/images/kitchen.jpeg',
-        '/images/tiling.jpg'
+        '/images/hero/hero1.jpg',
+        '/images/hero/hero2.jpg',
+        '/images/hero/hero3.jpg'
     ];
 
     const createFadeAnimation = (direction: 'up' | 'left' | 'right') => {
@@ -76,7 +76,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="relative z-20 container mx-auto px-4 h-screen flex items-center">
+            <div className="relative z-20 container mx-auto px-4 pt-36 md:pt-0 md:h-screen flex items-center">
                 <motion.div
                     variants={stagger}
                     initial="initial"
@@ -111,7 +111,7 @@ const Hero = () => {
             </div>
 
             <div
-                className="z-30 absolute bottom-8 md:right-8 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 scale-50 md:scale-100">
+                className="z-30 absolute bottom-8 md:right-8 left-1/2 md:left-auto -translate-x-1/2 md:translate-xcorinneoct22-9948.jpg-0 scale-75 md:scale-100">
                 <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
             </div>
         </motion.div>
