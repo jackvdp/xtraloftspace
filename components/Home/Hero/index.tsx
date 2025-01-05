@@ -44,6 +44,22 @@ const Hero = () => {
     const fadeRightAnimation = createFadeAnimation('right');
     const fadeLeftAnimation = createFadeAnimation('left');
 
+    const indicatorAnimation = {
+        initial: {
+            opacity: 0,
+            scale: 0.5
+        },
+        animate: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut",
+                delay: 1
+            }
+        }
+    };
+
     const stagger = {
         animate: {
             transition: {
@@ -63,7 +79,12 @@ const Hero = () => {
                 <BackgroundSlider onSwiper={setSwiper} onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                                   images={images}/>
 
-                <div className='hidden md:block'>
+                <motion.div
+                    variants={indicatorAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className='hidden md:block'
+                >
                     <div className={styles.paginationContainer}>
                         {images.map((_, index) => (
                             <div
@@ -73,7 +94,7 @@ const Hero = () => {
                             />
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <div className="relative z-20 container mx-auto px-4 pt-36 md:pt-0 md:h-screen flex items-center">
@@ -107,13 +128,24 @@ const Hero = () => {
                         <BigCustomButton text="Let's Talk" arrowEnabled={true}/>
                         <OutlineButton text={"View Portfolio"}/>
                     </motion.div>
+
+                    <motion.div
+                        variants={indicatorAnimation}
+                        className="flex md:hidden justify-center scale-75"
+                    >
+                        <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
+                    </motion.div>
                 </motion.div>
             </div>
 
-            <div
-                className="z-30 absolute bottom-8 md:right-8 left-1/2 md:left-auto -translate-x-1/2 md:translate-xcorinneoct22-9948.jpg-0 scale-75 md:scale-100">
+            <motion.div
+                variants={indicatorAnimation}
+                initial="initial"
+                animate="animate"
+                className="z-30 absolute bottom-8 right-8 hidden md:block"
+            >
                 <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
-            </div>
+            </motion.div>
         </motion.div>
     );
 };
