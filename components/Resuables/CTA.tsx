@@ -32,7 +32,7 @@ export default function CTA() {
                     transition={{duration: 0.6, delay: 0.4}}
                     className="px-8 py-4"
                 >
-                    <BigCustomButton text="Contact Us"/>
+                    <BigCustomButton text="Contact Us" href={"/contact"}/>
                 </motion.div>
 
 

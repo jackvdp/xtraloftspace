@@ -5,6 +5,7 @@ import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
 import {QuoteIcon} from '@radix-ui/react-icons';
 import {BigCustomButton} from "@/components/Resuables/CustomButtons";
+import Stars from "@/components/Testimonials/Stars";
 
 const container = {
     hidden: {opacity: 0},
@@ -21,7 +22,7 @@ const item = {
     show: {opacity: 1, y: 0}
 };
 
-const TestimonialsCarousel = () => {
+const Carousel = () => {
     const [state, setState] = useState({
         currentIndex: 0,
         progress: 0
@@ -63,7 +64,7 @@ const TestimonialsCarousel = () => {
     };
 
     return (
-        <div ref={ref} className="py-24 bg-black">
+        <div ref={ref} className="pt-24 bg-black">
             <motion.div
                 variants={container}
                 initial="hidden"
@@ -153,34 +154,25 @@ const TestimonialsCarousel = () => {
                     </div>
                 </motion.div>
             </motion.div>
+        </div>
+    );
+};
+
+function TestimonialsCarousel() {
+    return (
+        <div className="bg-black pb-24">
+            <Carousel/>
             <motion.div
-                className="flex justify-center mt-12"
+                className="flex justify-center mt-12 z-50"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true, amount: 0.2}}
                 transition={{duration: 0.5, delay: 0.4}}
             >
-                <BigCustomButton text={'Learn More'} arrowEnabled={true} dark={false}/>
+                <BigCustomButton text={'Learn More'} href="/about" arrowEnabled={true} dark={false}/>
             </motion.div>
         </div>
-    );
-};
+    )
+}
 
 export default TestimonialsCarousel;
-
-
-const Stars = () => (
-    <AnimatePresence mode="wait">
-        <motion.div
-            initial={{opacity: 0, y: 20}}
-            animate={{opacity: 1, y: 0}}
-            exit={{opacity: 0, y: -20}}
-            transition={{duration: 0.5}}
-            className="flex gap-1"
-        >
-            {[...Array(5)].map((_, i) => (
-                <div key={i} className="text-white">★</div>
-            ))}
-        </motion.div>
-    </AnimatePresence>
-);

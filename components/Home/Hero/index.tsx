@@ -114,8 +114,8 @@ const Hero = () => {
                         variants={fadeLeftAnimation}
                         className="flex flex-col sm:flex-row gap-6"
                     >
-                        <BigCustomButton text="Let's Talk" arrowEnabled={true}/>
-                        <OutlineButton text={"View Portfolio"}/>
+                        <BigCustomButton text="Let's Talk" href={"/contact"} arrowEnabled={true}/>
+                        <OutlineButton text={"View Work"} href={"/projects"}/>
                     </motion.div>
 
                     <motion.div

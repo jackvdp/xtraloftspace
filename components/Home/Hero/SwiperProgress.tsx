@@ -2,19 +2,6 @@ import React from "react";
 import {motion} from "framer-motion";
 import styles from "@/components/Home/Hero/Hero.module.css";
 
-const fadeInRight = {
-    initial: {opacity: 0, x: 50},
-    animate: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            duration: 0.5,
-            ease: "easeOut",
-            delay: 1
-        }
-    }
-};
-
 export default function SwiperProgress(props: {
     images: string[],
     activeIndex: number,

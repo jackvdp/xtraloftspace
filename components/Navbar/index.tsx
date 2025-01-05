@@ -69,7 +69,7 @@ function Navbar({useDarkText}: { useDarkText?: boolean }) {
                         ))}
                         <CustomButton
                             text="Get Quote"
-                            link="/contact"
+                            link="/quote"
                             useBlack={!atTop || useDarkText}
                         />
                     </div>

@@ -5,8 +5,7 @@ import ParallaxImage from "@/components/Resuables/parallaxImage";
 import CountUp from "react-countup";
 
 export default function AboutSection() {
-    const statsRef = React.useRef(null);
-    const statsInView = useInView(statsRef, {
+    const {ref, inView} = useInView({
         threshold: 0.2,
         triggerOnce: true
     });
@@ -74,7 +73,7 @@ export default function AboutSection() {
                         </p>
 
                         <div className="pt-8 flex justify-center lg:justify-start">
-                            <BigCustomButton text="Start Your Project" arrowEnabled={true} dark={true}/>
+                            <BigCustomButton text="Start Your Project" href={"/about"} arrowEnabled={true} dark={true}/>
                         </div>
                     </motion.div>
                 </div>
@@ -87,12 +86,12 @@ export default function AboutSection() {
                     className="mt-24 text-center"
                 >
                     <div
-                        ref={statsRef}
+                        ref={ref}
                         className="flex flex-col md:flex-row justify-center gap-16 md:gap-32"
                     >
                         <div>
                             <div className="text-4xl font-bold text-gray-900 mb-2">
-                                {statsInView && (
+                                {inView && (
                                     <CountUp
                                         start={0}
                                         end={10}
@@ -105,7 +104,7 @@ export default function AboutSection() {
                         </div>
                         <div>
                             <div className="text-4xl font-bold text-gray-900 mb-2">
-                                {statsInView && (
+                                {inView && (
                                     <CountUp
                                         start={0}
                                         end={50}
@@ -118,7 +117,7 @@ export default function AboutSection() {
                         </div>
                         <div>
                             <div className="text-4xl font-bold text-gray-900 mb-2">
-                                {statsInView && (
+                                {inView && (
                                     <CountUp
                                         start={0}
                                         end={100}

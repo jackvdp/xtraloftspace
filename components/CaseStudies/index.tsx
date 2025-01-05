@@ -33,7 +33,7 @@ const CaseStudies = () => {
                 viewport={{once: true, amount: 0.2}}
                 transition={{duration: 0.5, delay: 0.4}}
             >
-                <BigCustomButton text={'View Case Studies'} arrowEnabled={true} dark={true}/>
+                <BigCustomButton text={'View Works'} href={"/projects"} arrowEnabled={true} dark={true}/>
             </motion.div>
         </div>
     );

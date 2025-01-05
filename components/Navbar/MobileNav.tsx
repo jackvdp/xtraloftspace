@@ -32,6 +32,12 @@ export default function MobileNav(props: {
             </div>
         </div>
         <div className="h-full flex flex-col items-center justify-center space-y-8">
+            <NavItem
+                key={"home"}
+                item={{name: "Home", href: "/"}}
+                onClick={props.onClick}
+                pathname={"/"}
+            />
             {
                 props.navItems.map((item) => (
                     <NavItem
@@ -42,7 +48,7 @@ export default function MobileNav(props: {
                     />
                 ))
             }
-            <CustomButton text="Get Quote" link="/contact" useBlack={true}/>
+            <CustomButton text="Get Quote" link="/quote" useBlack={true}/>
         </div>
     </motion.div>;
 }
