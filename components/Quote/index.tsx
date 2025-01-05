@@ -26,8 +26,8 @@ import SubmitSucceed from "@/components/Quote/SubmitSucceed";
 const QuoteForm = () => {
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({});
-    const [state, handleSubmit] = useForm("xgvvplgd");
     const [direction, setDirection] = useState(0);
+    const [state, handleFormspreeSubmit] = useForm("xgvvplgd");
 
     const totalSteps = Object.keys(formQuestions).length;
     const currentSection = Object.keys(formQuestions)[step - 1];
@@ -53,10 +53,27 @@ const QuoteForm = () => {
         }
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Create a formatted message from all form data
+        const messageBody = Object.entries(formData)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join('\n');
+
+        // Create the submission object
+        const submissionData = {
+            ...formData,
+            message: messageBody, // Include formatted message for email body
+            _subject: "New Loft Conversion Quote Request" // Custom email subject
+        };
+
+        // Submit to Formspree
+        await handleFormspreeSubmit(submissionData);
+    };
+
     if (state.succeeded) {
-        return (
-            <SubmitSucceed/>
-        );
+        return <SubmitSucceed/>;
     }
 
     return (
@@ -106,7 +123,7 @@ const QuoteForm = () => {
                                 </motion.div>
                             </CardHeader>
 
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} method="POST">
                                 <CardContent className="overflow-hidden">
                                     <motion.div
                                         layout
@@ -194,7 +211,7 @@ const QuoteForm = () => {
                                                     disabled={state.submitting}
                                                     className="bg-green-600 hover:bg-green-700"
                                                 >
-                                                    Get your Free Quote
+                                                    {state.submitting ? 'Submitting...' : 'Get your Free Quote'}
                                                 </Button>
                                             )}
                                         </motion.div>
