@@ -49,6 +49,7 @@ function Navbar({useDarkText}: { useDarkText?: boolean }) {
                     <Link href="/"
                           className={`relative h-16 w-64 flex items-center ${atTop && !isOpen && !useDarkText && "brightness-0 invert"}`}>
                         <Image
+                            data-cursor={"home"}
                             src="/images/logo.png"
                             alt="Xtra Loft Space"
                             fill
