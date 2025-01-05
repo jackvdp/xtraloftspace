@@ -5,13 +5,15 @@ import ParallaxImage from "@/components/Resuables/parallaxImage";
 import CountUp from "react-countup";
 
 export default function AboutSection() {
-    const {ref, inView} = useInView({
-        threshold: 0.2,
-        triggerOnce: true
+    const statsRef = React.useRef(null);
+    const isInView = useInView(statsRef, {
+        amount: 0.2,
+        once: true
     });
 
     return (
         <section className="pt-24 overflow-hidden bg-white">
+            {/* Header and main content sections remain the same */}
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{opacity: 0, y: 20}}
@@ -78,20 +80,20 @@ export default function AboutSection() {
                     </motion.div>
                 </div>
 
-                <motion.div
-                    initial={{opacity: 0, y: 20}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={{once: true}}
-                    transition={{duration: 0.6}}
-                    className="mt-24 text-center"
+                {/* Stats section with fixed ref handling */}
+                <div
+                    ref={statsRef}
+                    className="mt-24"
                 >
-                    <div
-                        ref={ref}
-                        className="flex flex-col md:flex-row justify-center gap-16 md:gap-32"
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 20}}
+                        transition={{duration: 0.6}}
+                        className="flex flex-col md:flex-row justify-center gap-16 md:gap-32 text-center"
                     >
                         <div>
                             <div className="text-4xl font-bold text-gray-900 mb-2">
-                                {inView && (
+                                {isInView && (
                                     <CountUp
                                         start={0}
                                         end={10}
@@ -104,7 +106,7 @@ export default function AboutSection() {
                         </div>
                         <div>
                             <div className="text-4xl font-bold text-gray-900 mb-2">
-                                {inView && (
+                                {isInView && (
                                     <CountUp
                                         start={0}
                                         end={50}
@@ -117,7 +119,7 @@ export default function AboutSection() {
                         </div>
                         <div>
                             <div className="text-4xl font-bold text-gray-900 mb-2">
-                                {inView && (
+                                {isInView && (
                                     <CountUp
                                         start={0}
                                         end={100}
@@ -128,8 +130,8 @@ export default function AboutSection() {
                             </div>
                             <p className="text-gray-600">Satisfaction Rate</p>
                         </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );
