@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 import {Swiper as SwiperType} from 'swiper/types';
 import 'swiper/css';
-import 'swiper/css/effect-fade';
 import styles from './Hero.module.css';
 import ScrollIndicator from './ScrollIndicator';
 import {BigCustomButton, OutlineButton} from '@/components/Resuables/CustomButtons';
@@ -18,13 +17,47 @@ const Hero = () => {
         '/images/tiling.jpg'
     ];
 
-    const revealAnimation = {
-        initial: {y: "100%"},
+    const fadeUpAnimation = {
+        initial: {
+            opacity: 0,
+            y: 50
+        },
         animate: {
+            opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
-                ease: [0.33, 1, 0.68, 1]
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const fadeRightAnimation = {
+        initial: {
+            opacity: 0,
+            x: 50
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const fadeLeftAnimation = {
+        initial: {
+            opacity: 0,
+            x: -50
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
             }
         }
     };
@@ -69,36 +102,29 @@ const Hero = () => {
                     className="max-w-2xl space-y-8"
                 >
                     <div className="space-y-6">
-
-                        <div className="overflow-hidden">
-                            <motion.h1
-                                variants={revealAnimation}
-                                className="text-6xl lg:text-9xl font-bold bg-white text-transparent bg-clip-text leading-tight"
-                            >
-                                Transform Your <span className='font-thin'>Space</span>
-                            </motion.h1>
-                        </div>
-
-                        <div className="overflow-hidden">
-                            <motion.p
-                                variants={revealAnimation}
-                                className="text-xl text-white"
-                            >
-                                Create stunning living spaces that blend modern aesthetics with functional design.
-                                Experience the future of home transformation.
-                            </motion.p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden">
-                        <motion.div
-                            variants={revealAnimation}
-                            className="flex flex-col sm:flex-row gap-6"
+                        <motion.h1
+                            variants={fadeUpAnimation}
+                            className="text-6xl lg:text-9xl font-bold bg-white text-transparent bg-clip-text leading-tight"
                         >
-                            <BigCustomButton text="Let's Talk" arrowEnabled={true}/>
-                            <OutlineButton text={"View Portfolio"}/>
-                        </motion.div>
+                            Transform Your <span className='font-thin'>Space</span>
+                        </motion.h1>
+
+                        <motion.p
+                            variants={fadeRightAnimation}
+                            className="text-xl text-white"
+                        >
+                            Create stunning living spaces that blend modern aesthetics with functional design.
+                            Experience the future of home transformation.
+                        </motion.p>
                     </div>
+
+                    <motion.div
+                        variants={fadeLeftAnimation}
+                        className="flex flex-col sm:flex-row gap-6"
+                    >
+                        <BigCustomButton text="Let's Talk" arrowEnabled={true}/>
+                        <OutlineButton text={"View Portfolio"}/>
+                    </motion.div>
                 </motion.div>
             </div>
 
