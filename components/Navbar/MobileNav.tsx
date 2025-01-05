@@ -36,7 +36,7 @@ export default function MobileNav(props: {
                 key={"home"}
                 item={{name: "Home", href: "/"}}
                 onClick={props.onClick}
-                pathname={"/"}
+                pathname={props.pathname}
             />
             {
                 props.navItems.map((item) => (
