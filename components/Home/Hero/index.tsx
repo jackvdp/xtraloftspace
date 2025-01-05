@@ -111,7 +111,7 @@ const Hero = () => {
             </div>
 
             <div
-                className="z-50 absolute bottom-8 md:right-8 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 scale-50 md:scale-100">
+                className="z-30 absolute bottom-8 md:right-8 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 scale-50 md:scale-100">
                 <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
             </div>
         </motion.div>
