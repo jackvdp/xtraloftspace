@@ -10,6 +10,9 @@ export default function NavbarItem({
     atTop: boolean,
     pathname: string
 }) {
+    const isActive = item.href === pathname;
+    const textColor = atTop ? 'text-white' : 'text-gray-700';
+
     return (
         <Link
             href={item.href}
@@ -17,18 +20,13 @@ export default function NavbarItem({
             data-cursorinactive='true'
         >
             <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-[24px]">
-                <span className={`font-medium ${atTop ? 'text-white' : 'text-gray-700'}`}>
+                <span className={`font-medium ${textColor} ${isActive ? 'opacity-100' : 'opacity-70'}`}>
                     {item.name}
                 </span>
-                <span className={`font-medium ${atTop ? 'text-white' : 'text-gray-700'}`}>
+                <span className={`font-medium ${textColor} ${isActive ? 'opacity-100' : 'opacity-70'}`}>
                     {item.name}
                 </span>
             </div>
-            {pathname === item.href && (
-                <span
-                    className={`absolute -bottom-1 left-0 h-0.5 w-full ${atTop ? 'bg-white' : 'bg-gray-700'}`}
-                />
-            )}
         </Link>
     );
 }

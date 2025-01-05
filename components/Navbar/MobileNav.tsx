@@ -34,7 +34,7 @@ export default function MobileNav(props: {
         <div className="h-full flex flex-col items-center justify-center space-y-8">
             {
                 props.navItems.map((item) => (
-                    <MobileNavItem
+                    <NavItem
                         key={item.name}
                         item={item}
                         onClick={props.onClick}
@@ -47,7 +47,7 @@ export default function MobileNav(props: {
     </motion.div>;
 }
 
-function MobileNavItem(props: { item: { name: string; href: string }, onClick: () => void, pathname: string }) {
+function NavItem(props: { item: { name: string; href: string }, onClick: () => void, pathname: string }) {
     return <Link
 
         href={props.item.href}
