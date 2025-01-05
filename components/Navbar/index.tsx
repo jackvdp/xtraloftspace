@@ -8,6 +8,7 @@ import Image from 'next/image';
 import {CustomButton} from '../Resuables/CustomButtons';
 import {usePathname} from 'next/navigation';
 import NavbarItem from './NavbarItem';
+import MobileNav from "@/components/Navbar/MobileNav";
 
 function Navbar({useDarkText}: { useDarkText?: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -84,45 +85,7 @@ function Navbar({useDarkText}: { useDarkText?: boolean }) {
                     </button>
                 </nav>
 
-                <motion.div
-                    initial={false}
-                    animate={{
-                        opacity: isOpen ? 1 : 0,
-                    }}
-                    transition={{duration: 0.3, ease: 'easeInOut'}}
-                    className={`lg:hidden overflow-hidden fixed inset-0 bg-white ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-                >
-                    <div className="absolute top-0 left-0 right-0 px-4">
-                        <div className="container mx-auto">
-                            <div className="relative h-16 w-64">
-                                <Image
-                                    src="/images/logo.png"
-                                    alt="Xtra Loft Space"
-                                    fill
-                                    className="object-contain"
-                                    priority
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="h-full flex flex-col items-center justify-center space-y-8">
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.name}
-                                href={item.href}
-                                onClick={() => setIsOpen(false)}
-                                className={`text-2xl font-bold transition-colors ${
-                                    pathname === item.href
-                                        ? 'text-black'
-                                        : 'text-gray-400 hover:text-black'
-                                }`}
-                            >
-                                {item.name}
-                            </Link>
-                        ))}
-                        <CustomButton text="Get Quote" link="/contact" useBlack={true}/>
-                    </div>
-                </motion.div>
+                <MobileNav navItems={navItems} onClick={() => setIsOpen(false)} pathname={pathname} isOpen={isOpen}/>
             </div>
         </motion.header>
     );
