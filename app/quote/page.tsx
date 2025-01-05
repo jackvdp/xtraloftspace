@@ -7,11 +7,13 @@ import PageLabel from "@/components/Resuables/PageLabel";
 import CustomCursor from "@/components/Resuables/CustomCursor";
 import CTA from "@/components/Resuables/CTA";
 import QuoteForm from "@/components/Quote";
+import QuoteHeader from "@/components/Quote/Header";
 
 export default function GetAQuotePage() {
     return (
         <div className="flex flex-col">
-            <Navbar useDarkText={true}/>
+            <Navbar/>
+            <QuoteHeader/>
             <QuoteForm/>
             <CTA/>
             <Footer/>

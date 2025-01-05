@@ -68,7 +68,7 @@ const QuoteForm = () => {
                     duration: 0.5
                 }
             }}
-            className="min-h-screen bg-gray-50 p-4 flex items-center justify-center"
+            className="bg-gray-50 py-24 p-4 flex items-center justify-center"
         >
             <LayoutGroup>
                 <motion.div
