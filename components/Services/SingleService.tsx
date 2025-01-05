@@ -71,11 +71,7 @@ function ServiceText({
                 {/* Mobile version of the number */}
                 <motion.div style={{opacity}} className="lg:hidden absolute -top-16 right-0 -z-10">
           <span
-              className="text-[20vh] font-bold"
-              style={{
-                  color: "transparent",
-                  WebkitTextStroke: "1px rgba(0,0,0,0.1)",
-              }}
+              className="text-[20vh] font-bold text-zinc-100"
           >
             {(index + 1).toString().padStart(2, "0")}
           </span>

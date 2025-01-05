@@ -3,12 +3,15 @@ import {cases, CaseStudy} from "@/components/CaseStudies/cases";
 import Image from "next/image";
 import React from "react";
 
-export default function BackgroundImageGrid({scrollYProgress}: { scrollYProgress: MotionValue<number> }) {
+export default function BackgroundImageGrid({scrollYProgress, reversed}: {
+    scrollYProgress: MotionValue<number>,
+    reversed?: boolean
+}) {
     const splitArray = (arr) => {
         const half = Math.ceil(arr.length / 2);
         return [arr.slice(0, half), arr.slice(half)];
     };
-    const [topRow, bottomRow] = splitArray(cases);
+    const [topRow, bottomRow] = splitArray(reversed ? cases.reverse() : cases);
 
     return (
         <div

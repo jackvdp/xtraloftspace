@@ -15,9 +15,7 @@ const ServicesList = () => {
 
                     {/* Centered Scroll Indicator with Backdrop */}
                     <div className="scale-50 md:scale-100 relative z-20 bg-white/30 backdrop-blur-md rounded-full p-4">
-                        <div className="">
-                            <ScrollIndicator/>
-                        </div>
+                        <ScrollIndicator/>
                     </div>
                 </div>
             </div>
