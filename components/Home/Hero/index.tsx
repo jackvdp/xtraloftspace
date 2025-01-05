@@ -6,6 +6,7 @@ import styles from './Hero.module.css';
 import {BigCustomButton, OutlineButton} from '@/components/Resuables/CustomButtons';
 import BackgroundSlider from "@/components/Home/Hero/BackgroundSlider";
 import ScrollDownIndicator from "@/components/Resuables/ScrollDownIndicator";
+import SwiperProgress from "@/components/Home/Hero/SwiperProgress";
 
 const Hero = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -79,22 +80,11 @@ const Hero = () => {
                 <BackgroundSlider onSwiper={setSwiper} onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                                   images={images}/>
 
-                <motion.div
-                    variants={indicatorAnimation}
-                    initial="initial"
-                    animate="animate"
-                    className='hidden md:block'
-                >
-                    <div className={styles.paginationContainer}>
-                        {images.map((_, index) => (
-                            <div
-                                key={index}
-                                className={`${styles.paginationBullet} ${index === activeIndex ? styles.active : ''}`}
-                                onClick={() => swiper?.slideTo(index)}
-                            />
-                        ))}
-                    </div>
-                </motion.div>
+                <SwiperProgress
+                    images={images}
+                    activeIndex={activeIndex}
+                    onClick={(index) => swiper?.slideTo(index)}
+                />
             </div>
 
             <div className="relative z-20 container mx-auto px-4 pt-36 md:pt-0 md:h-screen flex items-center">
