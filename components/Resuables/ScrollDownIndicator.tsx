@@ -2,9 +2,9 @@ import {motion, useScroll, useTransform} from "framer-motion";
 import {useId} from "react";
 import {ArrowDown} from "lucide-react";
 
-const ScrollIndicator = ({color = "black", size = 64, speed = 4000}: {
+const ScrollIndicator = ({color = "black", small = false, speed = 4000}: {
     color?: string,
-    size?: number,
+    small?: boolean,
     speed?: number
 }) => {
     const {scrollY} = useScroll();
@@ -18,7 +18,7 @@ const ScrollIndicator = ({color = "black", size = 64, speed = 4000}: {
     const pathId = useId();
 
     return (
-        <div className={`w-${size} h-${size} relative text-${color}`}>
+        <div className={`${small ? "w-32 h-32" : "w-64 h-64"} relative text-${color}`}>
             <motion.div
                 className="w-full h-full"
                 style={{rotate: rotation}}

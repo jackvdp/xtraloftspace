@@ -122,7 +122,7 @@ const Hero = () => {
                         variants={indicatorAnimation}
                         className="flex md:hidden justify-center scale-75"
                     >
-                        <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
+                        <ScrollDownIndicator color={"white"} small={true} speed={1000}/>
                     </motion.div>
                 </motion.div>
             </div>
@@ -133,7 +133,7 @@ const Hero = () => {
                 animate="animate"
                 className="z-30 absolute bottom-8 right-8 hidden md:block"
             >
-                <ScrollDownIndicator color={"white"} size={32} speed={1000}/>
+                <ScrollDownIndicator color={"white"} small={true} speed={1000}/>
             </motion.div>
         </motion.div>
     );
