@@ -17,50 +17,32 @@ const Hero = () => {
         '/images/tiling.jpg'
     ];
 
-    const fadeUpAnimation = {
-        initial: {
-            opacity: 0,
-            y: 50
-        },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                ease: "easeOut"
+    const createFadeAnimation = (direction: 'up' | 'left' | 'right') => {
+        const movement = {
+            up: {y: 50},
+            right: {x: 50},
+            left: {x: -50}
+        }[direction];
+
+        return {
+            initial: {
+                opacity: 0,
+                ...movement
+            },
+            animate: {
+                opacity: 1,
+                ...(direction === 'up' ? {y: 0} : {x: 0}),
+                transition: {
+                    duration: 0.5,
+                    ease: "easeOut"
+                }
             }
-        }
+        };
     };
 
-    const fadeRightAnimation = {
-        initial: {
-            opacity: 0,
-            x: 50
-        },
-        animate: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 0.5,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    const fadeLeftAnimation = {
-        initial: {
-            opacity: 0,
-            x: -50
-        },
-        animate: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 0.5,
-                ease: "easeOut"
-            }
-        }
-    };
+    const fadeUpAnimation = createFadeAnimation('up');
+    const fadeRightAnimation = createFadeAnimation('right');
+    const fadeLeftAnimation = createFadeAnimation('left');
 
     const stagger = {
         animate: {
