@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
-import SingleImage from "./SingleImage"; // ← Updated SingleImage
-import Image from "next/image";
+import SingleImage from "./SingleImage";
 
 interface ImageData {
     url: string;
@@ -55,14 +54,8 @@ const ImageGallery = ({folder}: { folder: string }) => {
 
     return (
         <div className="space-y-4">
-            {/*
-        By default, let's do a 3-column grid on md+ screens,
-        and 2-column on smaller devices.
-        Use "auto-rows-auto" so each row’s height adjusts to content.
-      */}
             <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4">
                 {images.map((image, index) => {
-                    // Only display if loaded
                     if (index > loadedImages) return null;
 
                     return (
