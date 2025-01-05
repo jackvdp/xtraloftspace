@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 import {Swiper as SwiperType} from 'swiper/types';
 import 'swiper/css';
-import styles from './Hero.module.css';
 import {BigCustomButton, OutlineButton} from '@/components/Resuables/CustomButtons';
 import BackgroundSlider from "@/components/Home/Hero/BackgroundSlider";
 import ScrollDownIndicator from "@/components/Resuables/ScrollDownIndicator";
@@ -13,8 +12,8 @@ const Hero = () => {
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
     const images = [
-        '/images/hero/hero1.jpg',
         '/images/hero/hero2.jpg',
+        '/images/hero/hero1.jpg',
         '/images/hero/hero3.jpg'
     ];
 
