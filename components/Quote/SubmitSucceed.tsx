@@ -28,7 +28,7 @@ export default function SubmitSucceed() {
                 }}
             >
                 <CardTitle className="text-2xl mb-4">Thank You!</CardTitle>
-                <p className="text-gray-600">Your quote request has been submitted successfully. We'll be in
+                <p className="text-gray-600">Your quote request has been submitted successfully. We&apos;ll be in
                     touch soon!</p>
             </motion.div>
         </Card>

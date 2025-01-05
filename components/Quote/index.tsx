@@ -31,6 +31,7 @@ const QuoteForm = () => {
 
     const totalSteps = Object.keys(formQuestions).length;
     const currentSection = Object.keys(formQuestions)[step - 1];
+    const isLastStep = step === totalSteps;
 
     const handleInputChange = (field, value) => {
         setFormData(prev => ({
@@ -64,8 +65,8 @@ const QuoteForm = () => {
         // Create the submission object
         const submissionData = {
             ...formData,
-            message: messageBody, // Include formatted message for email body
-            _subject: "New Loft Conversion Quote Request" // Custom email subject
+            message: messageBody,
+            _subject: "New Loft Conversion Quote Request"
         };
 
         // Submit to Formspree
@@ -75,6 +76,54 @@ const QuoteForm = () => {
     if (state.succeeded) {
         return <SubmitSucceed/>;
     }
+
+    const renderContent = () => (
+        <motion.div
+            layout
+            transition={{
+                layout: {duration: 0.3, ease: "easeInOut"}
+            }}
+        >
+            <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                    key={step}
+                    custom={direction}
+                    variants={pageVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={pageTransition}
+                    className="space-y-6"
+                >
+                    {formQuestions[currentSection].questions.map((question, index) => (
+                        <motion.div
+                            key={question.id}
+                            className="space-y-2"
+                            variants={questionVariants}
+                            custom={index}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                            layout="position"
+                        >
+                            <Label>{question.label}</Label>
+                            <FormField
+                                question={question}
+                                value={formData[question.id] || ''}
+                                onChange={handleInputChange}
+                                index={index}
+                            />
+                            <ValidationError
+                                prefix={question.label}
+                                field={question.id}
+                                errors={state.errors}
+                            />
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </AnimatePresence>
+        </motion.div>
+    );
 
     return (
         <motion.div
@@ -123,56 +172,49 @@ const QuoteForm = () => {
                                 </motion.div>
                             </CardHeader>
 
-                            <form onSubmit={handleSubmit} method="POST">
-                                <CardContent className="overflow-hidden">
-                                    <motion.div
-                                        layout
-                                        transition={{
-                                            layout: {duration: 0.3, ease: "easeInOut"}
-                                        }}
-                                    >
-                                        <AnimatePresence mode="wait" custom={direction}>
-                                            <motion.div
-                                                key={step}
-                                                custom={direction}
-                                                variants={pageVariants}
-                                                initial="enter"
-                                                animate="center"
-                                                exit="exit"
-                                                transition={pageTransition}
-                                                className="space-y-6"
+                            {isLastStep ? (
+                                <form onSubmit={handleSubmit} method="POST">
+                                    <CardContent className="overflow-hidden">
+                                        {renderContent()}
+                                    </CardContent>
+                                    <CardFooter className="flex justify-between">
+                                        <motion.div
+                                            variants={buttonVariants}
+                                            initial="initial"
+                                            animate="animate"
+                                            whileHover="hover"
+                                            whileTap="tap"
+                                        >
+                                            <Button
+                                                type="button"
+                                                variant="outline"
+                                                onClick={handlePrevious}
                                             >
-                                                {formQuestions[currentSection].questions.map((question, index) => (
-                                                    <motion.div
-                                                        key={question.id}
-                                                        className="space-y-2"
-                                                        variants={questionVariants}
-                                                        custom={index}
-                                                        initial="initial"
-                                                        animate="animate"
-                                                        exit="exit"
-                                                        layout="position"
-                                                    >
-                                                        <Label>{question.label}</Label>
-                                                        <FormField
-                                                            question={question}
-                                                            value={formData[question.id] || ''}
-                                                            onChange={handleInputChange}
-                                                            index={index}
-                                                        />
-                                                        <ValidationError
-                                                            prefix={question.label}
-                                                            field={question.id}
-                                                            errors={state.errors}
-                                                        />
-                                                    </motion.div>
-                                                ))}
-                                            </motion.div>
-                                        </AnimatePresence>
-                                    </motion.div>
-                                </CardContent>
-
-                                <motion.div layout="position">
+                                                Previous
+                                            </Button>
+                                        </motion.div>
+                                        <motion.div
+                                            variants={buttonVariants}
+                                            initial="initial"
+                                            animate="animate"
+                                            whileHover="hover"
+                                            whileTap="tap"
+                                        >
+                                            <Button
+                                                type="submit"
+                                                disabled={state.submitting}
+                                                className="bg-green-600 hover:bg-green-700"
+                                            >
+                                                {state.submitting ? 'Submitting...' : 'Get your Free Quote'}
+                                            </Button>
+                                        </motion.div>
+                                    </CardFooter>
+                                </form>
+                            ) : (
+                                <>
+                                    <CardContent className="overflow-hidden">
+                                        {renderContent()}
+                                    </CardContent>
                                     <CardFooter className="flex justify-between">
                                         <motion.div
                                             variants={buttonVariants}
@@ -190,7 +232,6 @@ const QuoteForm = () => {
                                                 Previous
                                             </Button>
                                         </motion.div>
-
                                         <motion.div
                                             variants={buttonVariants}
                                             initial="initial"
@@ -198,26 +239,16 @@ const QuoteForm = () => {
                                             whileHover="hover"
                                             whileTap="tap"
                                         >
-                                            {step < totalSteps ? (
-                                                <Button
-                                                    type="button"
-                                                    onClick={handleNext}
-                                                >
-                                                    Next
-                                                </Button>
-                                            ) : (
-                                                <Button
-                                                    type="submit"
-                                                    disabled={state.submitting}
-                                                    className="bg-green-600 hover:bg-green-700"
-                                                >
-                                                    {state.submitting ? 'Submitting...' : 'Get your Free Quote'}
-                                                </Button>
-                                            )}
+                                            <Button
+                                                type="button"
+                                                onClick={handleNext}
+                                            >
+                                                Next
+                                            </Button>
                                         </motion.div>
                                     </CardFooter>
-                                </motion.div>
-                            </form>
+                                </>
+                            )}
                         </motion.div>
                     </Card>
                 </motion.div>
