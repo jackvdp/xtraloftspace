@@ -57,9 +57,9 @@ function SingleImage({
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        if (expanded && containerRef.current) {
+        if (expanded) {
             const timeoutId = setTimeout(() => {
-                if ("scrollIntoView" in containerRef.current) {
+                if (containerRef.current && "scrollIntoView" in containerRef.current) {
                     containerRef.current.scrollIntoView({
                         behavior: "smooth",
                         block: "center",

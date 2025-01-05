@@ -21,7 +21,7 @@ export default function CaseStudyModal({caseStudy}: { caseStudy: CaseStudy }) {
                         fill
                         className="object-cover rounded-lg"
                         onClick={() => {
-                            if ("scrollIntoView" in galleryRef.current) {
+                            if (galleryRef.current && "scrollIntoView" in galleryRef.current) {
                                 galleryRef.current.scrollIntoView({
                                     behavior: "smooth",
                                 })
