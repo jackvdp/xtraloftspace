@@ -45,6 +45,8 @@ export default function BackgroundSlider({
                                 alt={`Interior design ${index + 1}`}
                                 className="h-full w-full object-cover"
                                 fill
+                                loading={index === 0 ? "eager" : undefined}
+                                priority={index === 0}
                             />
                             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60 z-10"/>
                         </motion.div>
