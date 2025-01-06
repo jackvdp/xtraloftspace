@@ -1,25 +1,24 @@
-"use client"
+import GetAQuotePage from "@/components/Quote/QuoteContent";
+import {Metadata} from "next";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Resuables/Footer";
-import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
-import PageLabel from "@/components/Resuables/PageLabel";
-import CustomCursor from "@/components/Resuables/CustomCursor";
-import CTA from "@/components/Resuables/CTA";
-import QuoteForm from "@/components/Quote";
-import QuoteHeader from "@/components/Quote/Header";
-
-export default function GetAQuotePage() {
-    return (
-        <div className="flex flex-col">
-            <Navbar/>
-            <QuoteHeader/>
-            <QuoteForm/>
-            <CTA/>
-            <Footer/>
-            <ScrollIndicator/>
-            <PageLabel text={"Get-A-Quote"}/>
-            <CustomCursor/>
-        </div>
-    );
+export const metadata: Metadata = {
+    title: "Get a Quote – Xtra Loft Space | Free Loft Conversion Estimate",
+    description: "Request your free, no-obligation quote for your loft conversion project. Expert assessment, detailed pricing, and professional advice for your home transformation.",
+    keywords: "loft conversion quote, free estimate, conversion costs, project pricing, London builder quote",
+    openGraph: {
+        title: "Get Your Free Loft Conversion Quote | Xtra Loft Space",
+        description: "Request your free, no-obligation quote for your loft conversion project. Expert assessment and detailed pricing for your home transformation.",
+        type: "website",
+        siteName: "Xtra Loft Space",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Get Your Free Loft Conversion Quote | Xtra Loft Space",
+        description: "Request your free, no-obligation quote for your loft conversion project. Expert assessment and professional advice.",
+    },
+    alternates: {
+        canonical: "https://xtraloftspace.com/quote",
+    }
 }
+
+export default GetAQuotePage;

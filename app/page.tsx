@@ -1,35 +1,24 @@
-"use client"
+import Home from "@/components/Home"
+import {Metadata} from "next";
 
-import Hero from "../components/Home/Hero";
-import AboutSection from "@/components/Home/About";
-import ServicesSection from "@/components/Services";
-import CaseStudies from "@/components/CaseStudies";
-import FAQSection from "../components/Home/FAQ";
-import Footer from "@/components/Resuables/Footer";
-import ContactSection from "@/components/Home/Contact";
-import PhotoGallery from "@/components/Home/PhotoGallery";
-import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
-import Testimonials from "@/components/Testimonials";
-import CustomCursor from "@/components/Resuables/CustomCursor";
-import PageLabel from "@/components/Resuables/PageLabel";
-import Navbar from "@/components/Navbar";
-
-export default function Home() {
-    return (
-        <div className="relative">
-            <Navbar/>
-            <Hero/>
-            <AboutSection/>
-            <ServicesSection/>
-            <CaseStudies/>
-            <Testimonials/>
-            <FAQSection/>
-            <PhotoGallery/>
-            <ContactSection/>
-            <Footer/>
-            <ScrollIndicator/>
-            <CustomCursor/>
-            <PageLabel text={'Homepage'}/>
-        </div>
-    );
+export const metadata: Metadata = {
+    title: "Xtra Loft Space | The Loft Conversion Specialists",
+    description: "Transform your home with the trusted loft conversion experts. Specialising in bespoke loft conversions, dormer extensions, and architectural renovations. Get your free quote today.",
+    keywords: "loft conversion London, attic conversion, dormer loft, home extension, London builders, roof conversion",
+    openGraph: {
+        title: "Xtra Loft Space | The Premier Loft Conversion Specialists",
+        description: "Transform your home with London's trusted loft conversion experts. Specialising in bespoke loft conversions, dormer extensions, and architectural renovations.",
+        type: "website",
+        siteName: "Xtra Loft Space",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Xtra Loft Space | Premier Loft Conversions",
+        description: "Transform your home with London's trusted loft conversion experts. Get your free quote today.",
+    },
+    alternates: {
+        canonical: "https://xtraloftspace.com",
+    }
 }
+
+export default Home

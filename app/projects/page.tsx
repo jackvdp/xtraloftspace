@@ -1,28 +1,28 @@
-"use client"
+import Projects from "@/components/Projects/ProjectsContent";
+import {Metadata} from "next";
 
-import Navbar from "@/components/Navbar";
-import RevealHeader from "@/components/Resuables/RevealHeader";
-import ProjectsList from "@/components/Projects/ProjectsList";
-import ProjectsDetails from "@/components/Projects/ProjectsDetails";
-import CustomCursor from "@/components/Resuables/CustomCursor";
-import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
-import PageLabel from "@/components/Resuables/PageLabel";
-import Footer from "@/components/Resuables/Footer";
-import React from "react";
-import CTA from "@/components/Resuables/CTA";
+export const metadata: Metadata = {
+    title: "Our Projects – Xtra Loft Space | Portfolio of Loft Conversions",
+    description: "Explore our portfolio of successful loft conversion projects across London. See before and after transformations, innovative designs, and beautiful home extensions.",
+    keywords: "loft conversion portfolio, completed projects, home transformations, London loft examples, conversion case studies",
+    openGraph: {
+        title: "Loft Conversion Portfolio | Xtra Loft Space London",
+        description: "Explore our stunning portfolio of loft conversion projects. See real transformations and beautiful home extensions across London.",
+        type: "website",
+        siteName: "Xtra Loft Space",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Loft Conversion Portfolio | Xtra Loft Space London",
+        description: "Explore our stunning portfolio of loft conversion projects. See real transformations across London.",
+    },
+    alternates: {
+        canonical: "https://xtraloftspace.com/projects",
+    }
+}
 
-export default function Home() {
+export default function Project() {
     return (
-        <div>
-            <Navbar/>
-            <RevealHeader mainText={"PROJECTS"} subText={"We'll let our work do the talking"}/>
-            <ProjectsList/>
-            <ProjectsDetails/>
-            <ScrollIndicator/>
-            <CustomCursor/>
-            <PageLabel text={'Projects'}/>
-            <CTA/>
-            <Footer/>
-        </div>
-    );
+        <Projects/>
+    )
 }

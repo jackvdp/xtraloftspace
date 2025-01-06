@@ -1,29 +1,26 @@
-"use client"
+import AboutUsPage from "@/components/About/AboutContent";
+import {Metadata} from "next";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Resuables/Footer";
-import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
-import PageLabel from "@/components/Resuables/PageLabel";
-import CustomCursor from "@/components/Resuables/CustomCursor";
-import Hero from "@/components/About/Hero";
-import Owners from "@/components/About/Owners";
-import WhyUs from "@/components/About/WhyUs";
-import CTA from "@/components/Resuables/CTA";
-import MapSection from "@/components/Resuables/Map";
+export const metadata: Metadata = {
+    title: "About Us – Xtra Loft Space | London's Trusted Conversion Specialists",
+    description: "Meet the team behind London's leading loft conversion company. With years of experience and dedication to quality, we transform homes across London with expert craftsmanship and innovation.",
+    keywords: "loft conversion company, London builders, home renovation experts, trusted contractors, construction specialists",
+    openGraph: {
+        title: "About Xtra Loft Space | London's Trusted Conversion Specialists",
+        description: "Meet the team behind London's leading loft conversion company. Years of experience transforming homes across London.",
+        type: "website",
+        siteName: "Xtra Loft Space",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "About Xtra Loft Space | London's Trusted Conversion Specialists",
+        description: "Meet the team behind London's leading loft conversion company. Years of experience transforming homes across London.",
+    },
+    alternates: {
+        canonical: "https://xtraloftspace.com/about",
+    }
+}
 
-export default function AboutUsPage() {
-    return (
-        <div className="flex flex-col">
-            <Navbar useDarkText={true}/>
-            <Hero/>
-            <Owners/>
-            <WhyUs/>
-            <MapSection/>
-            <CTA/>
-            <Footer/>
-            <ScrollIndicator/>
-            <PageLabel text={"About Us"}/>
-            <CustomCursor/>
-        </div>
-    );
+export default function About() {
+    return <AboutUsPage/>;
 }

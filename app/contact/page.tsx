@@ -1,37 +1,26 @@
-"use client"
+import ContactContent from "@/components/Contact/ContactContent";
+import {Metadata} from "next";
 
-import React from 'react';
-import {motion} from 'framer-motion';
-import MapSection from "@/components/Resuables/Map";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Resuables/Footer";
-import CustomCursor from "@/components/Resuables/CustomCursor";
-import PageLabel from "@/components/Resuables/PageLabel";
-import ScrollIndicator from "@/components/Resuables/ScrollIndicator";
-import Hero from "@/components/Contact/Hero";
+export const metadata: Metadata = {
+    title: "Contact Us – Xtra Loft Space",
+    description: "Get in touch with Xtra Loft Space for expert loft conversion services in London. Contact us for free quotes, consultations, and to discuss your project needs. Call or email us today.",
+    keywords: "loft conversion contact, London loft specialists, free loft consultation, home renovation contact, attic conversion quote",
+    openGraph: {
+        title: "Contact Xtra Loft Space | London's Loft Conversion Specialists",
+        description: "Get in touch with Xtra Loft Space for expert loft conversion services in London. Contact us for free quotes, consultations, and to discuss your project needs.",
+        type: "website",
+        siteName: "Xtra Loft Space",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Xtra Loft Space | London's Loft Conversion Specialists",
+        description: "Get in touch with Xtra Loft Space for expert loft conversion services in London. Contact us for free quotes, consultations, and to discuss your project needs.",
+    },
+    alternates: {
+        canonical: "https://xtraloftspace.com/contact",
+    }
+}
 
-const ContactPage = () => {
-    return (
-        <>
-            <Navbar/>
-            <Hero/>
-            <section id={"maps"}>
-                <motion.div
-                    initial={{opacity: 0}}
-                    whileInView={{opacity: 1}}
-                    viewport={{once: true, amount: 0.2}}
-                    transition={{duration: 0.5}}
-                    className="w-full"
-                >
-                    <MapSection showMapImmediately={true}/>
-                </motion.div>
-            </section>
-            <PageLabel text={"Contact-Us"}/>
-            <CustomCursor/>
-            <ScrollIndicator/>
-            <Footer/>
-        </>
-    );
-};
-
-export default ContactPage;
+export default function Contact() {
+    return <ContactContent/>
+}
