@@ -91,14 +91,14 @@ const Hero = () => {
                     variants={stagger}
                     initial="initial"
                     animate="animate"
-                    className="max-w-2xl space-y-8"
+                    className="max-w-4xl space-y-8"
                 >
                     <div className="space-y-6">
                         <motion.h1
                             variants={fadeUpAnimation}
-                            className="text-6xl lg:text-9xl font-bold bg-white text-transparent bg-clip-text leading-tight"
+                            className="text-6xl lg:text-8xl font-bold text-white leading-tight"
                         >
-                            Transform Your <span className='font-thin'>Space</span>
+                            Building <span className='font-thin'>Dreams</span> <br/><span className='font-thin'>Expanding</span> Homes
                         </motion.h1>
 
                         <motion.p
