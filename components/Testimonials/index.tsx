@@ -4,8 +4,9 @@ import {testimonials} from './testimonials';
 import {Card, CardContent} from "@/components/ui/card";
 import NavigationButton from "@/components/Testimonials/NavigationButton";
 import {QuoteIcon} from '@radix-ui/react-icons';
-import {BigCustomButton} from "@/components/Resuables/CustomButtons";
+import {BigCustomButton, GoogleReviewButton} from "@/components/Resuables/CustomButtons";
 import Stars from "@/components/Testimonials/Stars";
+import fetchGoogleReviews from "@/components/Testimonials/getTestimonials";
 
 const container = {
     hidden: {opacity: 0},
@@ -108,7 +109,7 @@ const Carousel = () => {
                                         animate={{opacity: 1, y: 0}}
                                         exit={{opacity: 0, y: -20}}
                                         transition={{duration: 0.5}}
-                                        className="text-xl text-white mt-8 mb-8"
+                                        className="text-xl text-white mt-8 mb-8 line-clamp-4"
                                     >
                                         {testimonials[state.currentIndex].quote}
                                     </motion.p>
@@ -128,7 +129,7 @@ const Carousel = () => {
                                 </AnimatePresence>
                             </div>
 
-                            <div className="flex gap-2 justify-center">
+                            <div className="hidden lg:flex gap-2 justify-center">
                                 {testimonials.map((_, index) => (
                                     <div key={index} className="h-1 w-16 bg-black rounded-full overflow-hidden">
                                         <div
@@ -159,17 +160,19 @@ const Carousel = () => {
 };
 
 function TestimonialsCarousel() {
+
     return (
         <div className="bg-black pb-24">
             <Carousel/>
             <motion.div
-                className="flex justify-center mt-12 z-50"
+                className="flex flex-col md:flex-row justify-center items-center mt-12 z-50 space-y-4 md:space-y-0 md:space-x-4"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true, amount: 0.2}}
                 transition={{duration: 0.5, delay: 0.4}}
             >
                 <BigCustomButton text={'Learn More'} href="/about" arrowEnabled={true} dark={false}/>
+                <GoogleReviewButton/>
             </motion.div>
         </div>
     )
