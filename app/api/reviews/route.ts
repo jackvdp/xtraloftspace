@@ -17,7 +17,7 @@ interface PlaceDetailsResponse {
 }
 
 export async function GET() {
-    const apiKey = "AIzaSyCjh_AMz9VO59UMWzXSyPtOoatmku0ez48"
+    const apiKey = process.env.GOOGLE_MAPS_API_KEY;
     const placeId = "EgoyMDI1MDExMC4wIKXMDSoJLDEwMjExMjMzSAFQAw"
 
     try {
