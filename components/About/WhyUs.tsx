@@ -55,11 +55,11 @@ export default function WhyUs() {
                     transition={{duration: 0.6, delay: 0.2}}
                     className="text-lg lg:text-xl text-gray-700 mb-8"
                 >
-                    Of course, there's a lot of choice out there. But here's why we stand out:
-                    We don't just meet your expectations—we strive to exceed them.
+                    Of course, there&apos;s a lot of choice out there. But here&apos;s why we stand out:
+                    We don&apos;t just meet your expectations—we strive to exceed them.
                     We know that transforming your home, whether through an extension,
                     renovation, or loft conversion, is a major undertaking in your personal
-                    space. That's why we do everything we can to provide a seamless journey
+                    space. That&apos;s why we do everything we can to provide a seamless journey
                     from start to finish, causing minimal disruption to your daily life.
                 </motion.p>
 
@@ -88,8 +88,8 @@ export default function WhyUs() {
                     transition={{duration: 0.6, delay: 0.4}}
                     className="mt-8 text-lg lg:text-xl text-gray-700"
                 >
-                    We're excited you're considering transforming your home, and we'd be honored
-                    to join you on this journey. Whether you're planning an extension, renovation,
+                    We&apos;re excited you&apos;re considering transforming your home, and we&apos;d be honored
+                    to join you on this journey. Whether you&apos;re planning an extension, renovation,
                     or loft conversion, feel free to reach out for more information or to
                     schedule a consultation!
                 </motion.p>

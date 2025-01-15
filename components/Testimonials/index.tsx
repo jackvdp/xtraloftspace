@@ -6,7 +6,6 @@ import NavigationButton from "@/components/Testimonials/NavigationButton";
 import {QuoteIcon} from '@radix-ui/react-icons';
 import {BigCustomButton, GoogleReviewButton} from "@/components/Resuables/CustomButtons";
 import Stars from "@/components/Testimonials/Stars";
-import fetchGoogleReviews from "@/components/Testimonials/getTestimonials";
 
 const container = {
     hidden: {opacity: 0},
