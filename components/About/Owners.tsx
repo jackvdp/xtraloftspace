@@ -4,24 +4,23 @@ import React from "react";
 
 const OWNER_PROFILES = [
     {
-        name: "Jordan",
-        role: "Co-Founder & Master Builder",
-        image: "/images/profile.jpeg",
-        description: `Jordan has spent the last decade developing loft 
-      conversions and extensions across North London and Hertfordshire. 
-      With a sharp eye for detail and unwavering dedication to each project, 
-      he ensures that every conversion exceeds your expectations—both in 
-      craftsmanship and client care.`,
+        name: "Jordan Lumsden",
+        role: "Co-Founder",
+        image: "/images/hero/hero1.jpg",
+        description: `Jordan brings over a decade of experience in home renovations 
+      across North London and Hertfordshire. With a sharp eye for detail and 
+      unwavering dedication to each project, he ensures that every transformation 
+      exceeds your expectations—both in craftsmanship and client care.`,
     },
     {
-        name: "Tom",
-        role: "Co-Founder & Project Manager",
-        image: "/images/profile2.jpg",
-        description: `Tom coordinates every aspect of our builds, from initial 
-      planning to the finishing touches. Known for his friendly, professional 
-      approach, Tom keeps clients informed every step of the way. 
-      His number one priority: making sure the journey is smooth and 
-      the results spectacular.`,
+        name: "Tom Simpson",
+        role: "Co-Founder",
+        image: "/images/hero/hero3.jpg",
+        description: `Tom oversees our projects from concept to completion, 
+      bringing expertise across all aspects of home improvements. Known for his 
+      friendly, professional approach, he ensures clear communication throughout 
+      your project. His number one priority: delivering exceptional results while 
+      making the renovation journey smooth and enjoyable.`,
     },
 ];
 
