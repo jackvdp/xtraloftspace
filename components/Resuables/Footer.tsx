@@ -74,10 +74,10 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
                         <ul className="space-y-4">
                             <li>
-                                <a href="tel:+447585807291"
+                                <a href="tel:+447885596111"
                                    className="flex items-center text-gray-400 hover:text-white/80 transition-colors">
                                     <Phone className="h-5 w-5 mr-2"/>
-                                    +44 (0) 7585 807 291
+                                    +44 (0) 7885 596 111
                                 </a>
                             </li>
                             <li>
@@ -89,8 +89,12 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start text-gray-400">
                                 <MapPin className="h-5 w-5 mr-2 mt-1 flex-shrink-0"/>
-                                123 Construction Street,
-                                London, UK SW1A 1AA
+                                {"9 Fairways, " +
+                                    "New River Trading Estate, " +
+                                    "Brookfield Farm, " +
+                                    "Cheshunt, " +
+                                    "Hertfordshire, " +
+                                    "EN8 0NJ"}
                             </li>
                         </ul>
                     </div>

@@ -12,8 +12,8 @@ const contactInfo: ContactInfo[] = [
     {
         icon: <Phone className="w-6 h-6"/>,
         title: "Phone",
-        content: "+44 (0) 7585 807 291",
-        href: "tel:+447585807291",
+        content: "+44 (0) 7885 596 111",
+        href: "tel:+447885596111",
         delay: 0.1
     },
     {
@@ -26,7 +26,12 @@ const contactInfo: ContactInfo[] = [
     {
         icon: <MapPin className="w-6 h-6"/>,
         title: "Office",
-        content: "123 Construction Street, London, SE1 1AA",
+        content: "9 Fairways, " +
+            "New River Trading Estate, " +
+            "Brookfield Farm, " +
+            "Cheshunt, " +
+            "Hertfordshire, " +
+            "EN8 0NJ",
         delay: 0.3
     }
 ];
