@@ -26,6 +26,7 @@ const Carousel = () => {
         currentIndex: 0,
         progress: 0
     });
+    const [isExpanded, setIsExpanded] = useState(false);
     const ref = React.useRef(null);
     const isInView = useInView(ref, {once: true, margin: "-100px"});
 
@@ -102,12 +103,14 @@ const Carousel = () => {
                             <div className="min-h-48 flex flex-col justify-between">
                                 <AnimatePresence mode="wait">
                                     <motion.p
+                                        data-cursor={isExpanded ? "read less" : "expand"}
                                         key={state.currentIndex}
                                         initial={{opacity: 0, y: 20}}
                                         animate={{opacity: 1, y: 0}}
                                         exit={{opacity: 0, y: -20}}
                                         transition={{duration: 0.5}}
-                                        className="text-xl text-white mt-8 mb-8 leading-relaxed min-h-[8rem] line-clamp-4"
+                                        className={`text-xl text-white mt-8 mb-8 leading-relaxed min-h-[8rem] ${!isExpanded && "line-clamp-4"}`}
+                                        onClick={() => setIsExpanded(!isExpanded)}
                                     >
                                         {testimonials[state.currentIndex].quote}
                                     </motion.p>
