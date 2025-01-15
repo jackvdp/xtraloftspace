@@ -129,7 +129,7 @@ const Carousel = () => {
 
                             <div className="hidden lg:flex gap-2 justify-center">
                                 {testimonials.map((_, index) => (
-                                    <div key={index} className="h-1 w-16 bg-black rounded-full overflow-hidden">
+                                    <div key={index} className="h-1 w-8 bg-black rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-white rounded-full transition-all duration-50"
                                             style={{
