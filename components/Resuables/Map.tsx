@@ -10,7 +10,7 @@ import {Card} from "@/components/ui/card";
 const coverageCoordinates = [
     {lat: 51.7532, lng: -0.4486}, // Hemel Hempstead then going clockwise
     {lat: 51.8032, lng: -0.2087},
-    {lat: 51.7678, lng: 0.0878},
+    {lat: 51.8155, lng: 0.1472},
     {lat: 51.6205, lng: 0.3072},
     {lat: 51.5403, lng: 0.1482},
     {lat: 51.5081, lng: -0.1248},
