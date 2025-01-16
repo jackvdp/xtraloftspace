@@ -29,13 +29,20 @@ const QuoteForm = () => {
     const [direction, setDirection] = useState(0);
     const [state, handleFormspreeSubmit] = useForm("xgvvplgd");
 
-    const filteredQuestionKeys = Object.keys(formQuestions).filter(key => {
-        if (!formQuestions[key].showIf) return true;
-        return formQuestions[key].showIf(formData);
-    });
+    const getValidSections = (formData) => {
+        return Object.keys(formQuestions).filter(key => {
+            // If section has no showIf condition, it's always valid
+            if (!formQuestions[key].showIf) return true;
+            // If projectType isn't selected yet, treat all sections as valid
+            if (!formData.projectType) return true;
+            // Otherwise, check the showIf condition
+            return formQuestions[key].showIf(formData);
+        });
+    };
 
-    const totalSteps = filteredQuestionKeys.length;
-    const currentSection = filteredQuestionKeys[step - 1];
+    const validSections = getValidSections(formData);
+    const totalSteps = validSections.length;
+    const currentSection = validSections[step - 1];
 
     const isLastStep = step === totalSteps;
 

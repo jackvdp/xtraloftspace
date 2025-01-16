@@ -13,7 +13,7 @@ const formQuestions = {
     },
     // Loft Conversion Sections
     loftPlanning: {
-        title: "Loft Planning",
+        title: "Initial Planning",
         showIf: (formData) => ['Loft Conversion', 'Both'].includes(formData.projectType),
         questions: [
             {
@@ -38,9 +38,16 @@ const formQuestions = {
             },
             {
                 id: 'propertyAttachment',
-                label: 'Is your property attached, detached or semi Detached?',
+                label: 'Is your property Detached, Semi-Detached, or Attached?', // Reordered options logically
                 type: 'radio',
-                options: ['Attached', 'Detached', 'Semi Detached'],
+                options: ['Detached', 'Semi-Detached', 'Attached'],
+                required: true
+            },
+            {
+                id: 'roofConstruction',
+                label: 'What type of roof construction do you have?',
+                type: 'radio',
+                options: ['Truss Rafter', 'Conventional', "Don't know"],
                 required: true
             }
         ]
@@ -65,28 +72,28 @@ const formQuestions = {
             }
         ]
     },
-    loftStructure: {
-        title: "Loft Structure",
+    loftCurrent: {
+        title: "Current Loft Status",
         showIf: (formData) => ['Loft Conversion', 'Both'].includes(formData.projectType),
         questions: [
             {
-                id: 'roofConstruction',
-                label: 'What type of roof construction do you have?',
+                id: 'loftItems',
+                label: 'Do you have any of these items in your loft?', // Reworded for clarity
                 type: 'radio',
-                options: ['Truss Rafter', 'Conventional', "Don't know"],
+                options: ['Water Tank', 'Boiler', 'Cylinder', "Don't know"],
                 required: true
             },
             {
-                id: 'loftItems',
-                label: 'Do you have a water tank, boiler or cylinder in your loft?',
+                id: 'roofTiling',
+                label: 'Does your roof need retiling or slating?',
                 type: 'radio',
-                options: ['Water Tank', 'Boiler', 'Cylinder', "Don't know"],
+                options: ['Yes', 'No', "Don't know"],
                 required: true
             }
         ]
     },
     loftRequirements: {
-        title: "Loft Requirements",
+        title: "New Loft Requirements",
         showIf: (formData) => ['Loft Conversion', 'Both'].includes(formData.projectType),
         questions: [
             {
@@ -105,47 +112,33 @@ const formQuestions = {
             }
         ]
     },
-    loftFeatures: {
-        title: "Loft Features",
+    loftDesign: {  // Combined features and L-shape
+        title: "Loft Design Features",
         showIf: (formData) => ['Loft Conversion', 'Both'].includes(formData.projectType),
         questions: [
             {
+                id: 'lShapeLoft',
+                label: 'Would you like an L-Shape Loft Conversion?',
+                type: 'radio',
+                options: ['Yes', 'No', "Don't know"],
+                required: true
+            },
+            {
                 id: 'hipToGables',
-                label: 'How many Hip to gables does your loft need?',
+                label: 'How many Hip to Gables does your loft need?',
                 type: 'radio',
                 options: ['0', '1', '2', "Don't know"],
                 required: true
             },
             {
                 id: 'veluxWindows',
-                label: 'How many velux windows would you like?',
+                label: 'How many Velux windows would you like?',
                 type: 'select',
                 options: ['1', '2', '3', '4', "Don't know"],
                 required: true
             }
         ]
     },
-    loftExtras: {
-        title: "Additional Loft Details",
-        showIf: (formData) => ['Loft Conversion', 'Both'].includes(formData.projectType),
-        questions: [
-            {
-                id: 'roofTiling',
-                label: 'Does your roof need re tiling or slating?',
-                type: 'radio',
-                options: ['Yes', 'No', "Don't know"],
-                required: true
-            },
-            {
-                id: 'lShapeLoft',
-                label: 'Would you like a L-shape Loft Conversion',
-                type: 'radio',
-                options: ['Yes', 'No', "Don't know"],
-                required: true
-            }
-        ]
-    },
-    // Extension Sections
     extensionPlanning: {
         title: "Extension Planning",
         showIf: (formData) => ['Extension', 'Both'].includes(formData.projectType),
@@ -180,19 +173,18 @@ const formQuestions = {
         ]
     },
     siteClearance: {
-        title: "Site Preparation",
-        showIf: (formData) => ['Extension', 'Both'].includes(formData.projectType),
+        title: "Site Assessment", // Changed title to be more professional
         questions: [
             {
                 id: 'demolitionNeeds',
                 label: 'What needs demolishing to build the extension?',
                 type: 'radio',
-                options: ['Nothing', 'Garage', 'Original extension', 'Conservatory', 'Out house toilet', 'Decking or patio', 'A Lean too', "Don't know"],
+                options: ['Nothing', 'Garage', 'Original extension', 'Conservatory', 'Out house toilet', 'Decking or patio', 'A Lean-to', "Don't know"],
                 required: true
             },
             {
                 id: 'drainageIssues',
-                label: 'Is there any drainage manholes or drain lines where the extension will be built?',
+                label: 'Are there any drainage manholes or drain lines where the extension will be built?',
                 type: 'radio',
                 options: ['Yes', 'No', "Don't know"],
                 required: true
@@ -205,22 +197,22 @@ const formQuestions = {
         questions: [
             {
                 id: 'roofType',
-                label: 'What roof would you like on the extension?',
+                label: 'What roof style would you like on the extension?',
                 type: 'radio',
                 options: ['Flat roof', 'Pitched roof', 'Table top roof', "Don't know"],
                 required: true
             },
             {
-                id: 'masonaryFinish',
-                label: 'What masonary finish would you like on your extension?',
+                id: 'masonryFinish',
+                label: 'What masonry finish would you like on your extension?',
                 type: 'radio',
-                options: ['Face brickwork', 'Blockwork and rendered', 'cladding', "Don't know"],
+                options: ['Face brickwork', 'Blockwork and rendered', 'Cladding', "Don't know"],
                 required: true
             }
         ]
     },
-    extensionModifications: {
-        title: "Property Modifications",
+    propertyChanges: {
+        title: "Additional Modifications",
         showIf: (formData) => ['Extension', 'Both'].includes(formData.projectType),
         questions: [
             {
