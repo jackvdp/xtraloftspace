@@ -96,7 +96,7 @@ export default function AboutSection() {
                                 {isInView && (
                                     <CountUp
                                         start={0}
-                                        end={10}
+                                        end={30}
                                         duration={2}
                                         suffix="+"
                                     />
@@ -109,7 +109,7 @@ export default function AboutSection() {
                                 {isInView && (
                                     <CountUp
                                         start={0}
-                                        end={50}
+                                        end={75}
                                         duration={4}
                                         suffix="+"
                                     />

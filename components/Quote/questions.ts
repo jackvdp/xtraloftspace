@@ -174,6 +174,7 @@ const formQuestions = {
     },
     siteClearance: {
         title: "Site Assessment", // Changed title to be more professional
+        showIf: (formData) => ['Extension', 'Both'].includes(formData.projectType),
         questions: [
             {
                 id: 'demolitionNeeds',
