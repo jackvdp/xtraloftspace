@@ -29,8 +29,14 @@ const QuoteForm = () => {
     const [direction, setDirection] = useState(0);
     const [state, handleFormspreeSubmit] = useForm("xgvvplgd");
 
-    const totalSteps = Object.keys(formQuestions).length;
-    const currentSection = Object.keys(formQuestions)[step - 1];
+    const filteredQuestionKeys = Object.keys(formQuestions).filter(key => {
+        if (!formQuestions[key].showIf) return true;
+        return formQuestions[key].showIf(formData);
+    });
+
+    const totalSteps = filteredQuestionKeys.length;
+    const currentSection = filteredQuestionKeys[step - 1];
+
     const isLastStep = step === totalSteps;
 
     const handleInputChange = (field, value) => {
