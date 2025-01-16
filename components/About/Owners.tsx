@@ -42,7 +42,7 @@ export default function Owners() {
                             }`}
                         >
                             {/* Owner Image */}
-                            <div className="relative w-full lg:w-1/2 h-80 md:h-[32rem] rounded-lg overflow-hidden">
+                            <div className="relative w-full lg:w-2/3 h-80 md:h-[48rem] rounded-lg overflow-hidden">
                                 <ParallaxImage
                                     src={owner.image}
                                     alt={owner.name}
@@ -51,7 +51,7 @@ export default function Owners() {
                             </div>
 
                             {/* Owner Text */}
-                            <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                            <div className="w-full lg:w-1/3 flex flex-col justify-center">
                                 <h2 className="text-3xl lg:text-4xl font-bold mb-2">
                                 {owner.name}
                                 </h2>
