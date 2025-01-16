@@ -33,7 +33,7 @@ const QuoteHeader = () => {
                     transition={{delay: 0.2}}
                     className="text-gray-200 text-center text-lg"
                 >
-                    Fill in the form below and receive your free quote within 24 hours
+                    Fill in the form below and receive your free quote
                 </motion.p>
             </div>
         </div>

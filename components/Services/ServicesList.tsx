@@ -40,15 +40,18 @@ const ServicesList = () => {
                                         ))}
                                     </div>
 
+
                                     <div className="hidden md:block">
                                         <ScrollIndicator/>
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
 
-                    <div className="md:hidden absolute bottom-4 scale-50 bg-white/30 backdrop-blur-md rounded-full p-4">
+                    <div className="md:hidden scale-50 bg-white/30 backdrop-blur-md rounded-full p-4">
                         <ScrollIndicator/>
                     </div>
                 </div>

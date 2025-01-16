@@ -10,6 +10,7 @@ import Owners from "@/components/About/Owners";
 import WhyUs from "@/components/About/WhyUs";
 import CTA from "@/components/Resuables/CTA";
 import MapSection from "@/components/Resuables/Map";
+import TeamSection from "@/components/About/Team";
 
 export default function AboutUsPage() {
     return (
@@ -17,6 +18,7 @@ export default function AboutUsPage() {
             <Navbar useDarkText={true}/>
             <Hero/>
             <Owners/>
+            <TeamSection/>
             <WhyUs/>
             <MapSection/>
             <CTA/>

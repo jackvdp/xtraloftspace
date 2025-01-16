@@ -75,7 +75,7 @@ export default function AboutSection() {
                         </p>
 
                         <div className="pt-8 flex justify-center lg:justify-start">
-                            <BigCustomButton text="Meet the Team" href={"/about"} arrowEnabled={true} dark={true}/>
+                            <BigCustomButton text="Meet the Founders" href={"/about"} arrowEnabled={true} dark={true}/>
                         </div>
                     </motion.div>
                 </div>
