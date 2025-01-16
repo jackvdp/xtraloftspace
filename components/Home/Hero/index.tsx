@@ -96,7 +96,7 @@ const Hero = () => {
                     <div className="space-y-6">
                         <motion.h1
                             variants={fadeUpAnimation}
-                            className="text-6xl lg:text-8xl font-bold text-white leading-tight"
+                            className="text-4xl md:text-6xl lg:text-8xl font-bold text-white leading-tight"
                         >
                             Building <span className='font-thin'>Dreams</span> <br/><span className='font-thin'>Expanding</span> Homes
                         </motion.h1>
