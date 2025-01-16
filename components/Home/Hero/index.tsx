@@ -73,7 +73,7 @@ const Hero = () => {
             initial={{opacity: 1}}
             animate={{opacity: 1}}
             transition={{duration: 1}}
-            className="relative min-h-screen overflow-hidden bg-black"
+            className="relative md:min-h-screen overflow-hidden bg-black"
         >
             <div className="absolute inset-0">
                 <BackgroundSlider onSwiper={setSwiper} onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -120,7 +120,7 @@ const Hero = () => {
 
                     <motion.div
                         variants={indicatorAnimation}
-                        className="flex md:hidden justify-center scale-75"
+                        className="flex md:hidden justify-center scale-75 pb-8"
                     >
                         <ScrollDownIndicator color={"white"} small={true} speed={1000}/>
                     </motion.div>
