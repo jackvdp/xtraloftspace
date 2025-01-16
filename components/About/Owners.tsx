@@ -6,7 +6,7 @@ const OWNER_PROFILES = [
     {
         name: "Jordan Lumsden",
         role: "Co-Founder",
-        image: "/images/hero/hero1.jpg",
+        image: "/images/owners/jordan.jpg",
         description: `Jordan brings over a decade of experience in home renovations 
       across North London and Hertfordshire. With a sharp eye for detail and 
       unwavering dedication to each project, he ensures that every transformation 
@@ -15,7 +15,7 @@ const OWNER_PROFILES = [
     {
         name: "Tom Simpson",
         role: "Co-Founder",
-        image: "/images/hero/hero3.jpg",
+        image: "/images/owners/tom.jpg",
         description: `Tom oversees our projects from concept to completion, 
       bringing expertise across all aspects of home improvements. Known for his 
       friendly, professional approach, he ensures clear communication throughout 
@@ -46,14 +46,14 @@ export default function Owners() {
                                 <ParallaxImage
                                     src={owner.image}
                                     alt={owner.name}
-                                    className="object-cover"
+                                    className="object-cover object-top"
                                 />
                             </div>
 
                             {/* Owner Text */}
                             <div className="w-full lg:w-1/2 flex flex-col justify-center">
                                 <h2 className="text-3xl lg:text-4xl font-bold mb-2">
-                                    {owner.name}
+                                {owner.name}
                                 </h2>
                                 <h3 className="text-xl lg:text-2xl font-light text-gray-500 mb-6">
                                     {owner.role}
